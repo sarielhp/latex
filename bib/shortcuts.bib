@@ -1,0 +1,958 @@
+% STart of file
+
+%-------------------------------------------------------
+% Latex commands
+%-------------------------------------------------------
+
+@preamble{" \providecommand{\CNFX}[1]{ {\em{\textrm{(#1)}}}} "}
+@preamble{ " \providecommand{\tildegen}{{\protect\raisebox{-0.1cm}{\symbol{'176}\hspace{-0.03cm}}}} " }
+
+%---------------------------------------
+% WEB ADDRESSES
+%---------------------------------------
+@preamble{ " \providecommand{\SarielWWWPapersAddr}{http://sarielhp.org/p/} " }
+@preamble{ " \providecommand{\SarielWWWPapers}{http://sarielhp.org/p/} " }
+@preamble{ " \providecommand{\urlSarielPaper}[1]{\href{\SarielWWWPapersAddr/#1}{\SarielWWWPapers{}/#1}} " }
+
+
+@preamble{ " " }
+
+%---------------------------------------
+% NAMES OF PEOPLE 
+%---------------------------------------
+@preamble{ " \providecommand{\Badoiu}{B\u{a}doiu} " }
+@preamble{ " \providecommand{\Barany}{B{\'a}r{\'a}ny} " }
+@preamble{ " \providecommand{\Bronimman}{Br{\"o}nnimann} " }
+@preamble{ " \providecommand{\Erdos}{Erd{\H o}s} " }
+@preamble{ " \providecommand{\Gartner}{G{\"a}rtner} " }
+@preamble{ " \providecommand{\Matousek}{Matou{\v s}ek} " }
+@preamble{ " \providecommand{\Merigot}{M{\'{}e}rigot} " }
+@PREAMBLE{ " \providecommand{\Hastad}{H\r{a}stad\xspace} "}
+
+
+%---------------------------------------
+% SHORT Conference names
+%---------------------------------------
+
+@preamble{" \providecommand{\CNFCCCG}{\CNFX{CCCG}} "}
+
+% SORTED...
+@preamble{" \providecommand{\CNFBROADNETS}{\CNFX{BROADNETS}} "}
+%@preamble{" \providecommand{\CNFESA}{\CNFX{ESA}} " }
+@preamble{" \providecommand{\CNFFSTTCS}{\CNFX{FSTTCS}} "}
+@preamble{" \providecommand{\CNFIJCAI}{\CNFX{IJCAI}} "}
+@preamble{" \providecommand{\CNFINFOCOM}{\CNFX{INFOCOM}} " }
+@preamble{" \providecommand{\CNFIPCO}{\CNFX{IPCO}} "}
+@preamble{" \providecommand{\CNFISAAC}{\CNFX{ISAAC}} "}
+@preamble{" \providecommand{\CNFLICS}{\CNFX{LICS}} "}
+@preamble{" \providecommand{\CNFPODS}{\CNFX{PODS}} "}
+@preamble{" \providecommand{\CNFSWAT}{\CNFX{SWAT}} " }
+@preamble{" \providecommand{\CNFWADS}{\CNFX{WADS}} "}
+
+@preamble{ " " }
+
+
+%---------------------------------------
+% Journal names
+%---------------------------------------
+
+%  @string{MATOUSEK = "J.~Matou{\v s}ek"}
+
+@string{IJCGA  = "Int. J. Comput. Geom. Appl."}
+@string{DCG    = "Discrete Comput. Geom."}
+@string{EJC    = "Eur. J. Comb."}
+@string{DAM    = "Discrete Appl. Math."}
+@string{GAFA   = "GAFA, Geom. funct. anal."}
+
+@string{LICS_2006 = "Proc. 21st Annu. IEEE Sympos. Logic Comp. Sci.\CNFLICS"}
+
+
+@string{SICOMP = "SIAM J. Comput."}
+@string{SIDMA  = "SIAM J. Discrete Math."}
+@string{SISC   = "SIAM J. Sci. Comput."}
+@string{TIT    = "IEEE Trans. Inf. Theor."}
+
+
+@string{TODS   = "ACM Trans. Data. Sys."}
+@string{TALG   = "ACM Trans. Algo."}
+@string{TGRP   = "ACM Trans. Graphics"}
+@string{JOCG   = "J. Comput. Geom."}
+@string{CGTA   = "Comput. Geom. Theory Appl."}
+@string{IPL    = "Inform. Process. Lett."}
+@string{JACM   = "J. Assoc. Comput. Mach."}
+@string{JAMS   = "J. Amer. Math. Soc."}
+@string{JCSS   =   "J. Comput. Sys. Sci."}
+@string{JALG   = "J. Algorithms"}
+
+@string{COMBINATORICA = "Combinatorica"}
+@string{JAGT   = "J. Graph Theory"}
+
+@string{TCS    = "Theo. Comp. Sci."}
+@string{ALGORITHMICA = "Algorithmica"}
+@string{CACM   = "Commun. ACM"}
+@string{JEALG  = "J. Exp. Algorithmics"}
+
+% Conferences
+
+@string{SIGMOD = "Proc. ACM SIGMOD Conf. Mang. Data" }
+@string{SIGMOD_2001 = "Proc. 2001 ACM SIGOD Conf. Mang. Data."}
+@string{SIGMOD_2008 = "Proc. 2008 ACM SIGOD Conf. Mang. Data."}
+
+@string{ICS    = "Innov. Comp. Sci."}
+
+% SODA
+@string{SODA = "Proc. ACM-SIAM Sympos. Discrete Algorithms"}
+
+@string{ICS_2011 = "Proc. 2nd Sympos. Innov. Comp. Sci."}
+
+@string{PODC_1995 = "Proc. 14th {ACM} Sympos.  Prin. Dist. Comput."}
+@string{PODC_1996 = "Proc. 15th {ACM} Sympos.  Prin. Dist. Comput."}
+@string{PODC_2007 = "Proc. 26th {ACM} Sympos.  Prin. Dist. Comput."}
+@string{PODC_2008 = "Proc. 27th {ACM} Sympos.  Prin. Dist. Comput."}
+@string{PODC_2009 = "Proc. 28th {ACM} Sympos.  Prin. Dist. Comput."}
+@string{PODC_2011 = "Proc. 30th {ACM} Sympos.  Prin. Dist. Comput."}
+@string{PODC_2019 = "Proc. 38th {ACM} Sympos.  Prin. Dist. Comput."}
+@string{PODC_2020 = "Proc. 39th {ACM} Sympos.  Prin. Dist. Comput."}
+
+@string{SODA_1990 = "Proc. 1th ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+@string{SODA_1991 = "Proc. 2nd ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+@string{SODA_1992 = "Proc. 3rd ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+@string{SODA_1993 = "Proc. 4th ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+@string{SODA_1994 = "Proc. 5th ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+@string{SODA_1995 = "Proc. 6th ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+@string{SODA_1996 = "Proc. 7th ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+@string{SODA_1997 = "Proc. 8th ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+@string{SODA_1998 = "Proc. 9th ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+@string{SODA_1999 = "Proc. 10th ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+@string{SODA_2000 = "Proc. 11th ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+@string{SODA_2001 = "Proc. 12th ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+@string{SODA_2002 = "Proc. 13th ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+@string{SODA_2003 = "Proc. 14th ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+@string{SODA_2004 = "Proc. 15th ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+@string{SODA_2005 = "Proc. 16th ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+@string{SODA_2006 = "Proc. 17th ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+@string{SODA_2007 = "Proc. 18th ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+@string{SODA_2008 = "Proc. 19th ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+@string{SODA_2009 = "Proc. 20th ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+@string{SODA_2010 = "Proc. 21st ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+@string{SODA_2011 = "Proc. 22nd ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+@string{SODA_2012 = "Proc. 23rd ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+@string{SODA_2013 = "Proc. 24rd ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+@string{SODA_2014 = "Proc. 25th ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+@string{SODA_2015 = "Proc. 26th ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+@string{SODA_2016 = "Proc. 27th ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+@string{SODA_2017 = "Proc. 28th ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+@string{SODA_2018 = "Proc. 29th ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+@string{SODA_2019 = "Proc. 30th ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+@string{SODA_2020 = "Proc. 31st ACM-SIAM Sympos. Discrete Algs. {\em(SODA)}"}
+
+@string{ALT_2002 = 
+       "Proc. 13th Int. Conf. Alg. Learning Theory\xspace\CNFX{ALT}"}
+
+@string{ALT_2013 = 
+       "Proc. 24th Int. Conf. Alg. Learning Theory\xspace\CNFX{ALT}"}
+@string{ALT_2015 = 
+       "Proc. 26th Int. Conf. Alg. Learning Theory\xspace\CNFX{ALT}"}
+
+% IJCAI
+@string{IJCAI_2007 = "Proc. 21st Int. Joint Conf. Art. Intell.\CNFIJCAI"}
+@string{IJCAI_2007_AR = "15.6\%"} %ORAL PRESENTATION
+
+
+
+@string{NIPS_2002_AR = "31\%"}
+@string{NIPS_2019_AR = "21\%"}
+
+@string{SWAT_2000_AR = "\mbox{}~\hfill41\%"}
+
+@string{SWAT_2020_AR = "30\%"}
+
+
+@string{CCC_2013 = "Proc. 28th Conf. Comput. Complexity {\em(CCC)}"}
+
+% CCCG
+@string{CCCG_1989 = "Proc. 1rd Canad. Conf. Comput. Geom.\CNFCCCG"}
+@string{CCCG_1990 = "Proc. 2nd Canad. Conf. Comput. Geom.\CNFCCCG"}
+@string{CCCG_1991 = "Proc. 3rd Canad. Conf. Comput. Geom.\CNFCCCG"}
+@string{CCCG_1992 = "Proc. 4th Canad. Conf. Comput. Geom.\CNFCCCG"}
+@string{CCCG_1993 = "Proc. 5th Canad. Conf. Comput. Geom.\CNFCCCG"}
+@string{CCCG_1994 = "Proc. 6th Canad. Conf. Comput. Geom.\CNFCCCG"}
+@string{CCCG_1995 = "Proc. 7th Canad. Conf. Comput. Geom.\CNFCCCG"}
+@string{CCCG_1996 = "Proc. 8th Canad. Conf. Comput. Geom.\CNFCCCG"}
+@string{CCCG_1997 = "Proc. 9th Canad. Conf. Comput. Geom.\CNFCCCG"}
+@string{CCCG_1998 = "Proc. 10th Canad. Conf. Comput. Geom.\CNFCCCG"}
+@string{CCCG_1999 = "Proc. 11th Canad. Conf. Comput. Geom.\CNFCCCG"}
+@string{CCCG_2000 = "Proc. 12th Canad. Conf. Comput. Geom.\CNFCCCG"}
+@string{CCCG_2001 = "Proc. 13th Canad. Conf. Comput. Geom.\CNFCCCG"}
+@string{CCCG_2002 = "Proc. 14th Canad. Conf. Comput. Geom.\CNFCCCG"}
+@string{CCCG_2003 = "Proc. 15th Canad. Conf. Comput. Geom.\CNFCCCG"}
+@string{CCCG_2004 = "Proc. 16th Canad. Conf. Comput. Geom.\CNFCCCG"}
+@string{CCCG_2005 = "Proc. 17th Canad. Conf. Comput. Geom.\CNFCCCG"}
+@string{CCCG_2006 = "Proc. 18th Canad. Conf. Comput. Geom.\CNFCCCG"}
+@string{CCCG_2007 = "Proc. 19th Canad. Conf. Comput. Geom.\CNFCCCG"}
+@string{CCCG_2008 = "Proc. 20th Canad. Conf. Comput. Geom.\CNFCCCG"}
+@string{CCCG_2009 = "Proc. 21st Canad. Conf. Comput. Geom.\CNFCCCG"}
+@string{CCCG_2010 = "Proc. 22nd Canad. Conf. Comput. Geom.\CNFCCCG"}
+@string{CCCG_2011 = "Proc. 23rd Canad. Conf. Comput. Geom.\CNFCCCG"}
+@string{CCCG_2012 = "Proc. 24th Canad. Conf. Comput. Geom.\CNFCCCG"}
+@string{CCCG_2013 = "Proc. 25th Canad. Conf. Comput. Geom.\CNFCCCG"}
+@string{CCCG_2014 = "Proc. 26th Canad. Conf. Comput. Geom.\CNFCCCG"}
+@string{CCCG_2015 = "Proc. 27th Canad. Conf. Comput. Geom.\CNFCCCG"}
+@string{CCCG_2016 = "Proc. 28th Canad. Conf. Comput. Geom.\CNFCCCG"}
+@string{CCCG_2017 = "Proc. 29th Canad. Conf. Comput. Geom.\CNFCCCG"}
+@string{CCCG_2018 = "Proc. 30th Canad. Conf. Comput. Geom.\CNFCCCG"}
+
+@string{COCOON_2008 = "Proc. 14th Annu. Int. Comput. Comb. Conf."}
+@string{COCOON_2010 = "Proc. 16th Annu. Int. Comput. Comb. Conf."}
+@string{COCOON_2011 = "Proc. 17th Annu. Int. Comput. Comb. Conf."}
+@string{COCOON_2012 = "Proc. 18th Annu. Int. Comput. Comb. Conf."}
+@string{COCOON_2013 = "Proc. 19th Annu. Int. Comput. Comb. Conf."}
+@string{COCOON_2014 = "Proc. 20th Annu. Int. Comput. Comb. Conf."}
+
+% SOCG
+@string{SOCG_1985 = "Proc. 1st Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_1986 = "Proc. 2nd Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_1987 = "Proc. 3rd Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_1988 = "Proc. 4th Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_1989 = "Proc. 5th Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_1990 = "Proc. 6th Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_1991 = "Proc. 7th Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_1992 = "Proc. 8th Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_1993 = "Proc. 9th Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_1994 = "Proc. 10th Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_1995 = "Proc. 11th Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_1996 = "Proc. 12th Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_1997 = "Proc. 13th Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_1998 = "Proc. 14th Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_1999 = "Proc. 15th Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_2000 = "Proc. 16th Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_2001 = "Proc. 17th Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_2002 = "Proc. 18th Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_2003 = "Proc. 19th Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_2004 = "Proc. 20th Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_2005 = "Proc. 21st Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_2006 = "Proc. 22nd Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_2007 = "Proc. 23rd Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_2008 = "Proc. 24th Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_2009 = "Proc. 25th Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_2010 = "Proc. 26th Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_2011 = "Proc. 27th Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_2012 = "Proc. 28th Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_2013 = "Proc. 29th Annu. Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_2014 = "Proc. 30th Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_2015 = "Proc. 31st Int. Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_2016 = "Proc. 32nd Int. Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_2017 = "Proc. 33rd Int. Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_2018 = "Proc. 34th Int. Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_2019 = "Proc. 35th Int. Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_2020 = "Proc. 36th Int. Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_2021 = "Proc. 37th Int. Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_2022 = "Proc. 38th Int. Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+@string{SOCG_2023 = "Proc. 39th Int. Annu.  Sympos. Comput. Geom. {\em(SoCG)}"}
+
+
+% FOCS
+@string{FOCS_1960 = "Proc. 1th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1961 = "Proc. 2nd Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1962 = "Proc. 3th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1963 = "Proc. 4th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1964 = "Proc. 5th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1965 = "Proc. 6th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1966 = "Proc. 7th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1967 = "Proc. 8th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1968 = "Proc. 9th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1969 = "Proc. 10th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1970 = "Proc. 11th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1971 = "Proc. 12th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1972 = "Proc. 13th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1973 = "Proc. 14th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1974 = "Proc. 15th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1975 = "Proc. 16th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1976 = "Proc. 17th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1977 = "Proc. 18th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1978 = "Proc. 19th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1979 = "Proc. 20th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1980 = "Proc. 21st Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1981 = "Proc. 22nd Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1982 = "Proc. 23rd Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1983 = "Proc. 24th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1984 = "Proc. 25th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1985 = "Proc. 26th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1986 = "Proc. 27th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1987 = "Proc. 28th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1988 = "Proc. 29th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1989 = "Proc. 30th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1990 = "Proc. 31st Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1991 = "Proc. 32nd Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1992 = "Proc. 33rd Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1993 = "Proc. 34th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1994 = "Proc. 35th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1995 = "Proc. 36th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1996 = "Proc. 37th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1997 = "Proc. 38th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1998 = "Proc. 39th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_1999 = "Proc. 40th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_2000
+        = "Proc. 41st Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_2001
+        = "Proc. 42nd Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_2002 = "Proc. 43th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_2003 = "Proc. 44th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_2004 = "Proc. 45th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_2005 = "Proc. 46th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_2006 = "Proc. 47th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_2007 = "Proc. 48th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_2008 = "Proc. 49th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_2009 = "Proc. 50th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_2010 = "Proc. 51st Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_2011 = "Proc. 52nd Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_2012 = "Proc. 53rd Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_2013 = "Proc. 54th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_2014 = "Proc. 55th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_2015 = "Proc. 56th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_2016 = "Proc. 57th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_2017 = "Proc. 58th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+@string{FOCS_2018 = "Proc. 59th Annu. IEEE Sympos. Found. Comput. Sci. {\em(FOCS)}"}
+
+@string{PODS_2000 = "Proc. 19th ACM Sympos. Principles Database Syst.\CNFPODS"}
+@string{PODS_2001 = "Proc. 20th ACM Sympos. Principles Data\-base Syst.\CNFPODS"}
+@string{PODS_2004 = "Proc. 23rd ACM Sympos. Principles Database Syst.\CNFPODS"}
+
+@string{PODS_2009 = "Proc. 28th ACM Sympos. Principles Database Syst.\CNFPODS"}
+
+@string{PODS_2011 = "Proc. 30th ACM Sympos. Principles Database Syst.\CNFPODS"}
+@string{PODS_2012 = "Proc. 31st ACM Sympos. Principles Database Syst.\CNFPODS"}
+@string{PODS_2014 = "Proc. 33rd ACM Sympos. Principles Database Syst.\CNFPODS"}
+@string{PODS_2015 = "Proc. 34rd ACM Sympos. Principles Database Syst.\CNFPODS"}
+
+@string{PODS_2013 = "Proc. 32nd ACM Sympos. Principles Database Syst.\CNFPODS"}
+@string{PODS_2013_AR = "25\%"}
+
+@string{PODS_2016 = "Proc. 35th ACM Sympos. Principles Database Syst.\CNFPODS"}
+@string{PODS_2016_AR = "32\%"}
+
+@string{PODS_2020 = "Proc. 39th ACM Sympos. Principles Database Syst.\CNFPODS"}
+
+@string{CoNEXT_2010 ="Proc. 6th Int. Conf. emerg. Net. Exper.  Tech."}
+
+@string{WWW_2007  = "Proc. 16th Int. Conf. World Wide Web {\em(WWW)}"}
+@string{WWW_2010  = "Proc. 19th Int. Conf. World Wide Web {\em(WWW)}"}
+
+@string{CIKM_2009 = "Proc. 18th ACM Conf. Info. and Knowl. Manag. {\em(CIKM)}"}
+@string{CIKM_2010 = "Proc. 19th {ACM} Conf. Info. Know. Manag. {\em(CIKM)}"}
+
+% WAE
+@string{WAE_1998 = "Proc. 2nd Workshop Alg. Eng.\CNFX{WAE}"}
+@string{WAE_1999 = "Proc. 3rd Workshop Alg. Eng.\CNFX{WAE}"}
+
+@string{WAE_1999_AR = "52\%"}
+
+% WAFR
+@string{WAFR_1994 = "Proc. 1st Workshop Algorithmic Found. Robot."}
+@string{WAFR_1995 = "Proc. 2nd Workshop Algorithmic Found. Robot."}
+@string{WAFR_1996 = "Proc. 3rd Workshop Algorithmic Found. Robot."}
+@string{WAFR_1997 = "Proc. 4th Workshop Algorithmic Found. Robot."}
+@string{WAFR_1998 = "Proc. 5th Workshop Algorithmic Found. Robot."}
+@string{WAFR_1999 = "Proc. 6th Workshop Algorithmic Found. Robot."}
+@string{WAFR_2000 = "Proc. 7th Workshop Algorithmic Found. Robot."}
+@string{WAFR_2001 = "Proc. 8th Workshop Algorithmic Found. Robot."}
+@string{WAFR_2002 = "Proc. 9th Workshop Algorithmic Found. Robot."}
+@string{WAFR_2003 = "Proc. 10th Workshop Algorithmic Found. Robot."}
+@string{WAFR_2004 = "Proc. 11th Workshop Algorithmic Found. Robot."}
+@string{WAFR_2005 = "Proc. 12th Workshop Algorithmic Found. Robot."}
+
+@string{FSTTCS = "Proc. Conf. Found. Soft. Tech. Theoret. Comput. Sci."}
+
+@string{FSTTCS_1981 = 
+        "Proc. 1st Conf. Found. Soft. Tech. Theoret. Comput. Sci.\CNFFSTTCS"}
+@string{FSTTCS_1982 = 
+        "Proc. 2nd Conf. Found. Soft. Tech. Theoret. Comput. Sci.\CNFFSTTCS"}
+@string{FSTTCS_1983 = 
+        "Proc. 3rd Conf. Found. Soft. Tech. Theoret. Comput. Sci.\CNFFSTTCS"}
+@string{FSTTCS_1984 = 
+        "Proc. 4th Conf. Found. Soft. Tech. Theoret. Comput. Sci.\CNFFSTTCS"}
+@string{FSTTCS_1985 = 
+        "Proc. 5th Conf. Found. Soft. Tech. Theoret. Comput. Sci.\CNFFSTTCS"}
+@string{FSTTCS_1986 = 
+        "Proc. 6th Conf. Found. Soft. Tech. Theoret. Comput. Sci.\CNFFSTTCS"}
+@string{FSTTCS_1987 = 
+        "Proc. 7th Conf. Found. Soft. Tech. Theoret. Comput. Sci.\CNFFSTTCS"}
+@string{FSTTCS_1988 = 
+        "Proc. 8th Conf. Found. Soft. Tech. Theoret. Comput. Sci.\CNFFSTTCS"}
+@string{FSTTCS_1989 = 
+        "Proc. 9th Conf. Found. Soft. Tech. Theoret. Comput. Sci.\CNFFSTTCS"}
+@string{FSTTCS_1990 = 
+        "Proc. 10th Conf. Found. Soft. Tech. Theoret. Comput. Sci.\CNFFSTTCS"}
+@string{FSTTCS_1991 = 
+        "Proc. 11th Conf. Found. Soft. Tech. Theoret. Comput. Sci.\CNFFSTTCS"}
+@string{FSTTCS_1992 = 
+        "Proc. 12th Conf. Found. Soft. Tech. Theoret. Comput. Sci.\CNFFSTTCS"}
+@string{FSTTCS_1993 = 
+        "Proc. 13th Conf. Found. Soft. Tech. Theoret. Comput. Sci.\CNFFSTTCS"}
+@string{FSTTCS_1994 = 
+        "Proc. 14th Conf. Found. Soft. Tech. Theoret. Comput. Sci.\CNFFSTTCS"}
+@string{FSTTCS_1995 = 
+        "Proc. 15th Conf. Found. Soft. Tech. Theoret. Comput. Sci.\CNFFSTTCS"}
+@string{FSTTCS_1996 = 
+        "Proc. 16th Conf. Found. Soft. Tech. Theoret. Comput. Sci.\CNFFSTTCS"}
+@string{FSTTCS_1997 = 
+        "Proc. 17th Conf. Found. Soft. Tech. Theoret. Comput. Sci.\CNFFSTTCS"}
+@string{FSTTCS_1998 = 
+        "Proc. 18th Conf. Found. Soft. Tech. Theoret. Comput. Sci.\CNFFSTTCS"}
+@string{FSTTCS_1999 = 
+        "Proc. 19th Conf. Found. Soft. Tech. Theoret. Comput. Sci.\CNFFSTTCS"}
+@string{FSTTCS_2000 = 
+        "Proc. 20th Conf. Found. Soft. Tech. Theoret. Comput. Sci.\CNFFSTTCS"}
+@string{FSTTCS_2001 = 
+        "Proc. 21st Conf. Found. Soft. Tech. Theoret. Comput. Sci.\CNFFSTTCS"}
+@string{FSTTCS_2002 = 
+        "Proc. 22nd Conf. Found. Soft. Tech. Theoret. Comput. Sci.\CNFFSTTCS"}
+@string{FSTTCS_2003 = 
+        "Proc. 23rd Conf. Found. Soft. Tech. Theoret. Comput. Sci.\CNFFSTTCS"}
+@string{FSTTCS_2004 = 
+        "Proc. 24th Conf. Found. Soft. Tech. Theoret. Comput. Sci.\CNFFSTTCS"}
+@string{FSTTCS_2005 = 
+        "Proc. 25th Conf. Found. Soft. Tech. Theoret. Comput. Sci.\CNFFSTTCS"}
+@string{FSTTCS_2006 = 
+        "Proc. 26th Conf. Found. Soft. Tech. Theoret. Comput. Sci.\CNFFSTTCS"}
+@string{FSTTCS_2007 = 
+        "Proc. 27th Conf. Found. Soft. Tech. Theoret. Comput. Sci.\CNFFSTTCS"}
+@string{FSTTCS_2014 = 
+        "Proc. 34th Conf. Found. Soft. Tech. Theoret. Comput. Sci.\CNFFSTTCS"}
+
+@string{STOC_1969 = "Proc. 1th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_1970 = "Proc. 2nd Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_1971 = "Proc. 3th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_1972 = "Proc. 4th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_1973 = "Proc. 5th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_1974 = "Proc. 6th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_1975 = "Proc. 7th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_1976 = "Proc. 8th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_1977 = "Proc. 9th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_1978 = "Proc. 10th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_1979 = "Proc. 11th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_1980 = "Proc. 12th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_1981 = "Proc. 13th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_1982 = "Proc. 14th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_1983 = "Proc. 15th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_1984 = "Proc. 16th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_1985 = "Proc. 17th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_1986 = "Proc. 18th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_1987 = "Proc. 19th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_1988 = "Proc. 20th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_1989 = "Proc. 21st Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_1990 = "Proc. 22nd Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_1991 = "Proc. 23rd Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_1992 = "Proc. 24th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_1993 = "Proc. 25th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_1994 = "Proc. 26th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_1995 = "Proc. 27th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_1996 = "Proc. 28rd Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_1997 = "Proc. 29th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_1998 = "Proc. 30th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_1999 = "Proc. 31st Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_2000 = "Proc. 32nd Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_2001 = "Proc. 33rd Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_2002 = "Proc. 34th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_2003 = "Proc. 35th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_2004 = "Proc. 36th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_2005 = "Proc. 37th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_2006 = "Proc. 38th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_2007 = "Proc. 39th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_2008 = "Proc. 40th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_2009 = "Proc. 41st Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_2010 = "Proc. 42nd Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_2011 = "Proc. 43rd Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_2012 = "Proc. 44th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_2013 = "Proc. 45th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_2014 = "Proc. 46th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_2015 = "Proc. 47th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_2016 = "Proc. 48th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_2017 = "Proc. 49th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_2018 = "Proc. 50th Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_2019 = "Proc. 51st Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_2020 = "Proc. 52nd Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+@string{STOC_2021 = "Proc. 53rd Annu. ACM Sympos. Theory Comput. {\em(STOC)}"}
+
+@string{FOCS_2013_AR = "28\%"}
+
+@string{FOCS_2012_AR = "32\%"}
+@string{FOCS_2001_AR = "\mbox{}~\hfill29\%"}
+@string{FOCS_1999_AR = "31\%"}
+
+@string{STOC_2013_AR = "28\%"}
+@string{STOC_2004_AR = "26\%"}
+@string{STOC_2002_AR = "32\%"}
+
+@string{ISAAC_2013_AR = "38\%"}
+@string{ISAAC_2018_AR = "36\%"}
+
+@string{SOCG_2021_AR = "35\%"}
+@string{SOCG_2020_AR = "34\%"}
+@string{SOCG_2019_AR = "36\%"}
+@string{SOCG_2016_AR = "38\%"}
+@string{SOCG_2015_AR = "39\%"}
+@string{SOCG_2014_AR = "35\%"}
+@string{SOCG_2012_AR = "35\%"}
+@string{SOCG_2011_AR = "38\%"}
+@string{SOCG_2010_AR = "32\%"}
+@string{SOCG_2009_AR = "26\%"}
+@string{SOCG_2008_AR = "?????????????????????\%"}
+@string{SOCG_2007_AR = "32\%"}
+@string{SOCG_2006_AR = "39\%"}
+@string{SOCG_2005_AR = "29\%"}
+@string{SOCG_2004_AR = "33\%"}
+@string{SOCG_2003_AR = "36\%"}
+@string{SOCG_2002_AR = "34\%"}
+@string{SOCG_2001_AR_AT = "40\%"}
+@string{SOCG_2000_AR_AT = "32\%"}
+@string{SOCG_2000_AR_TT = "34\%"}
+@string{SOCG_1999_AR = "44\%"}
+@string{SOCG_1998_AR_AT = "35\%"}
+@string{SOCG_1998_AR_TT = "44\%"}
+@string{SOCG_1997_AR_TT = "29\%"}
+@string{SOCG_1996_AR = "42\%"}
+
+@string{SODA_2020_AR = "30\%"}
+@string{SODA_2018_AR = "33\%"}
+@string{SODA_2017_AR = "34\%"}
+@string{SODA_2016_AR = "28\%"}
+@string{SODA_2013_AR = "30\%"}
+@string{SODA_2012_AR = "27\%"}
+@string{SODA_2011_AR = "30\%"}
+@string{SODA_2006_AR = "31\%"}
+@string{SODA_2005_AR = "28\%"}
+@string{SODA_2004_AR = "30\%"}
+@string{SODA_2001_AR = "42\%"}
+@string{SODA_2000_AR = "37\%"}
+
+@string{SODA_1999_SHORT_AR = "51\%"}
+@string{SODA_1999_AR = "{$\approx$}30\%"}
+
+@string{ICML_2002_AR = "33\%"}
+
+@string{ESA_2002_AR = "37\%"}
+@string{ESA_2003_AR = "39\%"}
+@string{ESA_2006_AR = "24\%"}
+@string{ESA_2008_AR = "34\%"}
+@string{ESA_2014_AR = "27\%"}
+@string{ESA_2015_AR = "26\%"}
+@string{ESA_2020_AR = "32\%"}
+@string{ESA_2021_AR = "25\%"}
+
+@string{SWAT_2012_AR = "26.8\%"}
+
+@string{WADS_2001_AR = "45\%"}
+
+@string{BROADNETS_2005_AR = "49\%"}
+
+
+@string{AISTAT_2005_AR = "39\%"}
+
+@string{INFOCOM_2011_AR = "16\%"}
+
+@string{WADS_2011_AR = "42\%"}
+
+@string{FSTTCS_2006_AR = "22\%"}
+@string{FSTTCS_2004_AR = "22\%"}
+@string{FSTTCS_2014_AR = "29\%"}
+
+@string{SIGCOMM_1999_AR = "13\%"}
+
+@string{SIGCOMM
+        = "Proc. Annu. Conf. Spec. Int. Group Data Comm.\CNFX{SIGCOMM}"} 
+
+% ESA
+@string{ESA_1993 = "Proc. 1th Annu. Euro. Sympos. Alg. {\em(ESA)}" }
+@string{ESA_1994 = "Proc. 2nd Annu. Euro. Sympos. Alg. {\em(ESA)}" }
+@string{ESA_1995 = "Proc. 3th Annu. Euro. Sympos. Alg. {\em(ESA)}" }
+@string{ESA_1996 = "Proc. 4th Annu. Euro. Sympos. Alg. {\em(ESA)}" }
+@string{ESA_1997 = "Proc. 5th Annu. Euro. Sympos. Alg. {\em(ESA)}" }
+@string{ESA_1998 = "Proc. 6th Annu. Euro. Sympos. Alg. {\em(ESA)}" }
+@string{ESA_1999 = "Proc. 7th Annu. Euro. Sympos. Alg. {\em(ESA)}" }
+@string{ESA_2000 = "Proc. 8th Annu. Euro. Sympos. Alg. {\em(ESA)}" }
+@string{ESA_2001 = "Proc. 9th Annu. Euro. Sympos. Alg. {\em(ESA)}" }
+@string{ESA_2002 = "Proc. 10th Annu. Euro. Sympos. Alg. {\em(ESA)}"}
+@string{ESA_2003 = "Proc. 11th Annu. Euro. Sympos. Alg. {\em(ESA)}"}
+@string{ESA_2004 = "Proc. 12th Annu. Euro. Sympos. Alg. {\em(ESA)}"}
+@string{ESA_2005 = "Proc. 13th Annu. Euro. Sympos. Alg. {\em(ESA)}"}
+@string{ESA_2006 = "Proc. 14th Annu. Euro. Sympos. Alg. {\em(ESA)}"}
+@string{ESA_2007 = "Proc. 15th Annu. Euro. Sympos. Alg. {\em(ESA)}"}
+@string{ESA_2008 = "Proc. 16th Annu. Euro. Sympos. Alg. {\em(ESA)}"}
+@string{ESA_2009 = "Proc. 17th Annu. Euro. Sympos. Alg. {\em(ESA)}"}
+@string{ESA_2010 = "Proc. 18th Annu. Euro. Sympos. Alg. {\em(ESA)}"}
+@string{ESA_2011 = "Proc. 19th Annu. Euro. Sympos. Alg. {\em(ESA)}"}
+@string{ESA_2012 = "Proc. 20th Annu. Euro. Sympos. Alg. {\em(ESA)}"}
+@string{ESA_2013 = "Proc. 21st Annu. Euro. Sympos. Alg. {\em(ESA)}"}
+@string{ESA_2014 = "Proc. 22nd Annu. Euro. Sympos. Alg. {\em(ESA)}"}
+@string{ESA_2015 = "Proc. 23nd Annu. Euro. Sympos. Alg. {\em(ESA)}"}
+@string{ESA_2016 = "Proc. 25th Annu. Euro. Sympos. Alg. {\em(ESA)}"}
+@string{ESA_2017 = "Proc. 26th Annu. Euro. Sympos. Alg. {\em(ESA)}"}
+@string{ESA_2018 = "Proc. 27th Annu. Euro. Sympos. Alg. {\em(ESA)}"}
+@string{ESA_2019 = "Proc. 28th Annu. Euro. Sympos. Alg. {\em(ESA)}"}
+@string{ESA_2020 = "Proc. 29th Annu. Euro. Sympos. Alg. {\em(ESA)}"}
+@string{ESA_2021 = "Proc. 30th Annu. Euro. Sympos. Alg. {\em(ESA)}"}
+
+
+
+
+@string{ISAAC_1990 = 
+        "Proc. 1th Annu. Internat. Sympos. Algorithms Comput.\CNFISAAC"}
+@string{ISAAC_1991 = 
+        "Proc. 2nd Annu. Internat. Sympos. Algorithms Comput.\CNFISAAC"}
+@string{ISAAC_1992 = 
+        "Proc. 3th Annu. Internat. Sympos. Algorithms Comput.\CNFISAAC"}
+@string{ISAAC_1993 = 
+        "Proc. 4th Annu. Internat. Sympos. Algorithms Comput.\CNFISAAC"}
+@string{ISAAC_1994 = 
+        "Proc. 5th Annu. Internat. Sympos. Algorithms Comput.\CNFISAAC"}
+@string{ISAAC_1995 = 
+        "Proc. 6th Annu. Internat. Sympos. Algorithms Comput.\CNFISAAC"}
+@string{ISAAC_1996 = 
+        "Proc. 7th Annu. Internat. Sympos. Algorithms Comput.\CNFISAAC"}
+@string{ISAAC_1997 = 
+        "Proc. 8th Annu. Internat. Sympos. Algorithms Comput.\CNFISAAC"}
+@string{ISAAC_1998 = 
+        "Proc. 9th Annu. Internat. Sympos. Algorithms Comput.\CNFISAAC"}
+@string{ISAAC_1999 = 
+        "Proc. 10th Annu. Internat. Sympos. Algorithms Comput.\CNFISAAC"}
+@string{ISAAC_2000 = 
+        "Proc. 11th Annu. Internat. Sympos. Algorithms Comput.\CNFISAAC"}
+@string{ISAAC_2001 = 
+        "Proc. 12th Annu. Internat. Sympos. Algorithms Comput.\CNFISAAC"}
+@string{ISAAC_2002 = 
+        "Proc. 13th Annu. Internat. Sympos. Algorithms Comput.\CNFISAAC"}
+@string{ISAAC_2003 = 
+        "Proc. 14th Annu. Internat. Sympos. Algorithms Comput.\CNFISAAC"}
+@string{ISAAC_2004 = 
+        "Proc. 15th Annu. Internat. Sympos. Algorithms Comput.\CNFISAAC"}
+@string{ISAAC_2005 = 
+        "Proc. 16th Annu. Internat. Sympos. Algorithms Comput.\CNFISAAC"}
+@string{ISAAC_2006 = 
+        "Proc. 17th Annu. Internat. Sympos. Algorithms Comput.\CNFISAAC"}
+@string{ISAAC_2007 = 
+        "Proc. 18th Annu. Internat. Sympos. Algorithms Comput.\CNFISAAC"}
+@string{ISAAC_2008 = 
+        "Proc. 19th Annu. Internat. Sympos. Algorithms Comput.\CNFISAAC"}
+@string{ISAAC_2009 = 
+        "Proc. 20th Annu. Internat. Sympos. Algorithms Comput.\CNFISAAC"}
+@string{ISAAC_2010 = 
+        "Proc. 21st Annu. Internat. Sympos. Algorithms Comput.\CNFISAAC"}
+@string{ISAAC_2011 = 
+        "Proc. 22nd Annu. Internat. Sympos. Algorithms Comput.\CNFISAAC"}
+@string{ISAAC_2012 = 
+        "Proc. 23rd Annu. Internat. Sympos. Algorithms Comput.\CNFISAAC"}
+@string{ISAAC_2013 = 
+        "Proc. 24th Annu. Internat. Sympos. Algorithms Comput.\CNFISAAC"}
+@string{ISAAC_2014 = 
+        "Proc. 25th Annu. Internat. Sympos. Algorithms Comput.\CNFISAAC"}
+@string{ISAAC_2015 = 
+        "Proc. 26th Annu. Internat. Sympos. Algorithms Comput.\CNFISAAC"}
+@string{ISAAC_2018 = 
+        "Proc. 29th Annu. Internat. Sympos. Algorithms Comput.\CNFISAAC"}
+
+
+% SWAT 
+@string{SWAT_1988 = "Proc. 1st Scand. Workshop Algorithm Theory\CNFSWAT"}
+@string{SWAT_1990 = "Proc. 2nd Scand. Workshop Algorithm Theory\CNFSWAT"}
+@string{SWAT_1992 = "Proc. 3rd Scand. Workshop Algorithm Theory\CNFSWAT"}
+@string{SWAT_1994 = "Proc. 4th Scand. Workshop Algorithm Theory\CNFSWAT"}
+@string{SWAT_1996 = "Proc. 5th Scand. Workshop Algorithm Theory\CNFSWAT"}
+@string{SWAT_1998 = "Proc. 6th Scand. Workshop Algorithm Theory\CNFSWAT"}
+@string{SWAT_2000 = "Proc. 7th Scand. Workshop Algorithm Theory\CNFSWAT"}
+@string{SWAT_2002 = "Proc. 8th Scand. Workshop Algorithm Theory\CNFSWAT"}
+@string{SWAT_2004 = "Proc. 9th Scand. Workshop Algorithm Theory\CNFSWAT"}
+@string{SWAT_2006 = "Proc. 10th Scand. Workshop Algorithm Theory\CNFSWAT"}
+@string{SWAT_2008 = "Proc. 11th Scand. Workshop Algorithm Theory\CNFSWAT"}
+@string{SWAT_2010 = "Proc. 12th Scand. Workshop Algorithm Theory\CNFSWAT"}
+@string{SWAT_2012 = "Proc. 13th Scand. Workshop Algorithm Theory\CNFSWAT"}
+@string{SWAT_2014 = "Proc. 14th Scand. Workshop Algorithm Theory\CNFSWAT"}
+@string{SWAT_2016 = "Proc. 15th Scand. Workshop Algorithm Theory\CNFSWAT"}
+@string{SWAT_2018 = "Proc. 16th Scand. Workshop Algorithm Theory\CNFSWAT"}
+@string{SWAT_2020 = "Proc. 17th Scand. Workshop Algorithm Theory\CNFSWAT"}
+@string{SWAT_2022 = "Proc. 18th Scand. Workshop Algorithm Theory\CNFSWAT"}
+@string{SWAT_2024 = "Proc. 19th Scand. Workshop Algorithm Theory\CNFSWAT"}
+
+% WADS 
+@string{WADS_1989 = "Proc. 1st Workshop Algorithms Data Struct.\CNFWADS"}
+@string{WADS_1991 = "Proc. 2nd Workshop Algorithms Data Struct.\CNFWADS"}
+@string{WADS_1993 = "Proc. 3th Workshop Algorithms Data Struct.\CNFWADS"}
+@string{WADS_1995 = "Proc. 4th Workshop Algorithms Data Struct.\CNFWADS"}
+@string{WADS_1997 = "Proc. 5th Workshop Algorithms Data Struct.\CNFWADS"}
+@string{WADS_1999 = "Proc. 6th Workshop Algorithms Data Struct.\CNFWADS"}
+@string{WADS_2001 = "Proc. 7th Workshop Algorithms Data Struct.\CNFWADS"}
+@string{WADS_2003 = "Proc. 8th Workshop Algorithms Data Struct.\CNFWADS"}
+@string{WADS_2005 = "Proc. 9th Workshop Algorithms Data Struct.\CNFWADS"}
+@string{WADS_2007 = "Proc. 10th Workshop Algorithms Data Struct.\CNFWADS"}
+@string{WADS_2009 = "Proc. 11th Workshop Algorithms Data Struct.\CNFWADS"}
+@string{WADS_2011 = "Proc. 12th Workshop Algorithms Data Struct.\CNFWADS"}
+@string{WADS_2013 = "Proc. 13th Workshop Algorithms Data Struct.\CNFWADS"}
+@string{WADS_2015 = "Proc. 14th Workshop Algorithms Data Struct.\CNFWADS"}
+@string{WADS_2017 = "Proc. 15th Workshop Algorithms Data Struct.\CNFWADS"}
+@string{WADS_2019 = "Proc. 16th Workshop Algorithms Data Struct.\CNFWADS"}
+@string{WADS_2021 = "Proc. 17th Workshop Algorithms Data Struct.\CNFWADS"}
+
+@string{EWCG_1999 = "Proc. 15th Euro. Workshop on Comput. Geom."}
+@string{EWCG_2000 = "Proc. 16th Euro. Workshop on Comput. Geom."}
+@string{EWCG_2001 = "Proc. 17th Euro. Workshop on Comput. Geom."}
+@string{EWCG_2002 = "Proc. 18th Euro. Workshop on Comput. Geom."}
+@string{EWCG_2003 = "Proc. 19th Euro. Workshop on Comput. Geom."}
+@string{EWCG_2004 = "Proc. 20th Euro. Workshop on Comput. Geom."}
+@string{EWCG_2005 = "Proc. 21st Euro. Workshop on Comput. Geom."}
+@string{EWCG_2006 = "Proc. 22nd Euro. Workshop on Comput. Geom."}
+@string{EWCG_2007 = "Proc. 23rd Euro. Workshop on Comput. Geom."}
+@string{EWCG_2008 = "Proc. 24th Euro. Workshop on Comput. Geom."}
+@string{EWCG_2013 = "Proc. 29th Euro. Workshop on Comput. Geom."}
+
+@string{ALENEX_1999 = "Proc. 1st Workshop Algorithm Eng. Exper."}
+@string{ALENEX_2000 = "Proc. 2nd Workshop Algorithm Eng. Exper."}
+@string{ALENEX_2001 = "Proc. 3rd Workshop Algorithm Eng. Exper."}
+@string{ALENEX_2002 = "Proc. 4th Workshop Algorithm Eng. Exper."}
+@string{ALENEX_2003 = "Proc. 5th Workshop Algorithm Eng. Exper."}
+@string{ALENEX_2004 = "Proc. 6th Workshop Algorithm Eng. Exper."}
+@string{ALENEX_2005 = "Proc. 7th Workshop Algorithm Eng. Exper."}
+@string{ALENEX_2011 = "Proc. 13th Workshop Algorithm Eng. Exper."}
+@string{ALENEX_2018="Proc. 20th Workshop Algorithm Eng. Exper. {\em(ALENEX)}"}
+@string{ALENEX_2018_AR = "43\%"}
+
+
+
+@string{SIGGRAPH_1977 = "Proc. SIGGRAPH '77"}
+@string{SIGGRAPH_1978 = "Proc. SIGGRAPH '78"}
+@string{SIGGRAPH_1979 = "Proc. SIGGRAPH '79"}
+@string{SIGGRAPH_1980 = "Proc. SIGGRAPH '80"}
+@string{SIGGRAPH_1981 = "Proc. SIGGRAPH '81"}
+@string{SIGGRAPH_1982 = "Proc. SIGGRAPH '82"}
+@string{SIGGRAPH_1983 = "Proc. SIGGRAPH '83"}
+@string{SIGGRAPH_1984 = "Proc. SIGGRAPH '84"}
+@string{SIGGRAPH_1985 = "Proc. SIGGRAPH '85"}
+@string{SIGGRAPH_1986 = "Proc. SIGGRAPH '86"}
+@string{SIGGRAPH_1987 = "Proc. SIGGRAPH '88"}
+@string{SIGGRAPH_1988 = "Proc. SIGGRAPH '89"}
+@string{SIGGRAPH_1989 = "Proc. SIGGRAPH '89"}
+@string{SIGGRAPH_1990 = "Proc. SIGGRAPH '90"}
+@string{SIGGRAPH_1991 = "Proc. SIGGRAPH '91"}
+@string{SIGGRAPH_1992 = "Proc. SIGGRAPH '92"}
+@string{SIGGRAPH_1993 = "Proc. SIGGRAPH '93"}
+@string{SIGGRAPH_1994 = "Proc. SIGGRAPH '94"}
+@string{SIGGRAPH_1995 = "Proc. SIGGRAPH '95"}
+@string{SIGGRAPH_1996 = "Proc. SIGGRAPH '96"}
+@string{SIGGRAPH_1997 = "Proc. SIGGRAPH '97"}
+@string{SIGGRAPH_1998 = "Proc. SIGGRAPH '98"}
+@string{SIGGRAPH_1999 = "Proc. SIGGRAPH '99"}
+@string{SIGGRAPH_2000 = "Proc. SIGGRAPH 2000"}
+@string{SIGGRAPH_2001 = "Proc. SIGGRAPH 2001"}
+@string{SIGGRAPH_2002 = "Proc. SIGGRAPH 2002"}
+@string{SIGGRAPH_2003 = "Proc. SIGGRAPH 2003"}
+
+
+% Proceedings 18th International Symposium on Theoretical Aspects of
+% Computer Science
+@string{STACS_1992 = "Proc. 9th Annul. Sympos. Theoret. Asp. Comput. Sci. \CNFX{STACS}"}
+@string{STACS_2000 = "Proc. 17th Internat. Sympos. Theoret. Asp. Comp. Sci."}
+@string{STACS_2001 = "Proc. 18th Internat. Sympos. Theoret. Asp. Comp. Sci."}
+@string{STACS_2002 = "Proc. 19th Internat. Sympos. Theoret. Asp. Comp. Sci."}
+@string{STACS_2003 = "Proc. 20th Internat. Sympos. Theoret. Asp. Comp. Sci."}
+@string{STACS_2004 = "Proc. 21st Internat. Sympos. Theoret. Asp. Comp. Sci."}
+@string{STACS_2005 = "Proc. 22nd Internat. Sympos. Theoret. Asp. Comp. Sci."}
+
+@string{STACS_2011 = "Proc. 28th Internat. Sympos. Theoret. Asp. Comp. Sci. \CNFX{STACS}"}
+
+@string{STACS_2014 = "Proc. 31st Internat. Sympos. Theoret. Asp. Comp. Sci. \CNFX{STACS}"}
+
+@string{STACS_2015 = "Proc. 32nd Internat. Sympos. Theoret. Asp. Comp. Sci. \CNFX{STACS}"}
+
+@string{stPODS19 ="submitted to 19th Annu. ACM Sympos. Principles Database Syst."}
+@string{stSOCG16= "submitted to 16th Annu. ACM Sympos. Comput. Geom."}
+
+@string{stWAFR4 = "submitted to Fourth Workshop on Algorithmic Foundations
+                   of Robotics"}
+
+@string{ICRA_1997 = "Proc. 1997 IEEE Internat. Conf. Robot. Autom." }
+@string{ICRA_1998 = "Proc. 1997 IEEE Internat. Conf. Robot. Autom." }
+@string{ICRA_1999 = "Proc. 1999 IEEE Internat. Conf. Robot. Autom." }
+@string{ICRA_2000 = "Proc. 2000 IEEE Internat. Conf. Robot. Autom." }
+@string{ICRA_2001 = "Proc. 2001 IEEE Internat. Conf. Robot. Autom." }
+@string{ICRA_2002 = "Proc. 2002 IEEE Internat. Conf. Robot. Autom." }
+@string{ICRA_2003 = "Proc. 2003 IEEE Internat. Conf. Robot. Autom." }
+
+@string{LNCS = "Lect. Notes in Comp. Sci."}
+%"Lecture Notes in Computer Science"}
+
+@string{VISUAL_2000 = "Proc. 4th Int. Conf. Adv. Visual Info. Sys."}
+
+@string{DISC_2003 = "Proc. 17th Int. Symp. Dist. Comp. {\em(DISC)}"}
+@string{DISC_2014 = "Proc. 28th Int. Symp. Dist. Comp. {\em(DISC)}"}
+@string{DISC_2015 = "Proc. 29th Int. Symp. Dist. Comp. {\em(DISC)}"}
+
+@string{COLT = "Proc. Comp. Learn. Theo."}
+
+@string{COLT_2000 = "Proc.  13th Annu. Conf. Comp. Learn. Theo."}
+@string{COLT_2003 = "Proc.  16th Annu. Conf. Comp. Learn. Theo."}
+@string{COLT_2010 = "Proc.  23rd Annual Conf.~Learning Theory \CNFX{COLT}"}
+@string{COLT_2012 = "Proc.  25th Annual Conf.~Learning Theory \CNFX{COLT}"}
+@string{COLT_2014 = "Proc.  27th Annu. Conf. Comp. Learn. Theo.\CNFX{COLT}"}
+@string{COLT_2015 = "Proc.  28th Annu. Conf. Comp. Learn. Theo.\CNFX{COLT}"}
+
+@string{SDM = "Proc. {SIAM} Int. Conf.  Data Mining {\em(SDM)}"}
+
+@string{ICDAR_2007 = "Proc. 9th Int. Conf. Doc. Analy.  Recog."}
+
+@string{ICCV_1999 = "Proc. 7th Int. Conf. Comp. Vision"}
+
+@string{ICDT_2011 = "Proc. 14th IEEE Int. Conf. Data Theory"}
+
+
+
+@string{NIPS_2002 = "Neural Info. Proc. Sys.\CNFX{NIPS}"}
+@string{NIPS_2015 = "Neural Info. Proc. Sys.\CNFX{NIPS}"}
+@string{NIPS_2016 = "Neural Info. Proc. Sys.\CNFX{NIPS}"}
+
+@string{NIPS_2014 = "Proc. 28th Conf. Neural Info. Proc. Sys. \CNFX{NIPS}"  }
+@string{NIPS_2018 = "Proc. 31th Neural Info. Proc. Sys.\CNFX{NeurIPS}"  }
+@string{NIPS_2019 = "Proc. 32th Neural Info. Proc. Sys.\CNFX{NeurIPS}"  }
+
+
+@string{ICML_2002 = "Proc. 19th Int. Conf. Mach. Learning\CNFX{ICML}"}
+@string{ICML_2014 = "Proc. 31st Int. Conf. Mach. Learning\CNFX{ICML}"}
+
+@string{RANDOM_2002 = "6th Intl. Work. Rand. Appr. Tech. Comp. Sci."}
+
+@string{APPROX_1998 = "2nd Intl. Work. Approx. Algs. Combin. Opt. Problems"}
+@string{APPROX_2002 = "5th Intl. Work. Approx. Algs. Combin. Opt. Problems"}
+@string{APPROX_2003 = "6th Intl. Work. Approx. Algs. Combin. Opt. Problems"}
+@string{APPROX_2004 = "7th Intl. Work. Approx. Algs. Combin. Opt. Problems"}
+@string{APPROX_2006 = "9th Intl. Work. Approx. Algs. Combin. Opt. Problems"}
+@string{APPROX_2010 = "13th Intl. Work. Approx. Algs. Combin. Opt. Problems"}
+@string{APPROX_2013 = "16th Intl. Work. Approx. Algs. Combin. Opt. Problems"}
+@string{APPROX_2019 = "22nd Intl. Work. Approx. Algs. Combin. Opt. Problems"}
+@string{APPROX_RAND_2011 = "14th Intl. Work. Approx. Algs. Combin. Opt. Problems \& 15th Int. Workshop, RANDOM" }
+
+
+@string{VLDB_2002 = "Proc. 28th  Intl. Conf. Very Large Data Bases"}
+@string{VLDB_2003 = "Proc. 29th  Intl. Conf. Very Large Data Bases"}
+
+@string{VISUALIZATION_2002 = "Proc. Conf. Visualization `02"}
+
+@string{SIAM_REVIEW = "SIAM Review"}
+
+@string{MRT_2002 = "Proc. $11$th Int. Meshing Roundtable"}
+@string{MRT_2003 = "Proc. $12$th Int. Meshing Roundtable"}
+
+@string{LATIN_2004 = "Proc. 6th Latin Amer. Symp. Theo. Inf."}
+@string{LATIN_2008 = "Proc. 8th Latin Amer. Symp. Theo. Inf."}  
+@string{LATIN_2010 = "Proc. 9th Latin Amer. Symp. Theo. Inf."}
+@string{LATIN_2018 = "Proc. 13th Latin Amer. Symp. Theo. Inf."}
+
+@string{FWCG_2001 = "11th Fall Workshop on Computational Geometry"}
+
+@string{IWCGA_2003 = "Proc. 3rd International Workshop on
+                  Computational Geometry and Applications"}
+
+
+@string{ITCS_2015 = "Innov.  Theo. Comp. Sci." }
+@string{ITCS_2016 = "Innov.  Theo. Comp. Sci." }
+@string{ITCS_2018 = "Innov.  Theo. Comp. Sci. {\em(ITCS)}" }
+@string{ITCS_2019 = "Proc. 10th Innov.  Theo. Comp. Sci. {\em(ITCS)}" }
+
+@string{ITCS_2018_AR = "32\%" }
+@string{ITCS_2019_AR = "33\%" }
+
+@string{ICCSA_2003 = "Proc. 3rd Int. Conf. Comput. Sci. and Its Appl."}
+
+@string{ICALP_1979="Proc.  6th Int. Colloq. Automata Lang. Prog. {\em(ICALP)}"}
+@string{ICALP_1995="Proc. 22nd Int. Colloq. Automata Lang. Prog. {\em(ICALP)}"}
+@string{ICALP_2000="Proc. 27th Int. Colloq. Automata Lang. Prog. {\em(ICALP)}"}
+@string{ICALP_2002="Proc. 29th Int. Colloq. Automata Lang. Prog. {\em(ICALP)}"}
+@string{ICALP_2004="Proc. 31st Int. Colloq. Automata Lang. Prog. {\em(ICALP)}"}
+@string{ICALP_2005="Proc. 32nd Int. Colloq. Automata Lang. Prog. {\em(ICALP)}"}
+@string{ICALP_2006="Proc. 33rd Int. Colloq. Automata Lang. Prog. {\em(ICALP)}"}
+@string{ICALP_2007="Proc. 34th Int. Colloq. Automata Lang. Prog. {\em(ICALP)}"}
+@string{ICALP_2008="Proc. 35th Int. Colloq. Automata Lang. Prog. {\em(ICALP)}"}
+@string{ICALP_2009="Proc. 36th Int. Colloq. Automata Lang. Prog. {\em(ICALP)}"}
+@string{ICALP_2013="Proc. 40th Int. Colloq. Automata Lang. Prog. {\em(ICALP)}"}
+@string{ICALP_2014="Proc. 41st Int. Colloq. Automata Lang. Prog. {\em(ICALP)}"}
+@string{ICALP_2015="Proc. 42nd Int. Colloq. Automata Lang. Prog. {\em(ICALP)}"}
+@string{ICALP_2016="Proc. 43rd Int. Colloq. Automata Lang. Prog. {\em(ICALP)}"}
+@string{ICALP_2017="Proc. 44th Int. Colloq. Automata Lang. Prog. {\em(ICALP)}"}
+@string{ICALP_2018="Proc. 45th Int. Colloq. Automata Lang. Prog. {\em(ICALP)}"}
+@string{ICALP_2019="Proc. 46th Int. Colloq. Automata Lang. Prog. {\em(ICALP)}"}
+@string{ICALP_2020="Proc. 47th Int. Colloq. Automata Lang. Prog. {\em(ICALP)}"}
+@string{ICALP_2021="Proc. 48th Int. Colloq. Automata Lang. Prog. {\em(ICALP)}"}
+
+@string{ICALP_2018_AR = "29\%"}
+@string{ICALP_2020_AR = "29\%"}
+
+@string{ORL = "Oper. Res. Lett."}
+
+@string{AISTAT_2005 = "Tenth Inter. Work.  Artif. Intell. Stat. \CNFX{AISTAT}"}
+
+@string{AISTATS_2016
+              = "Proc. 18th Inter. Conf.  Artif. Intell. Stat. \CNFX{AISTATS}"}
+
+@string{SPAA_1996 = "Proc. 8th ACM Sympos. Parallel Alg. Arch. {\em(SPAA)}"}
+@string{SPAA_2001 = "Proc. 13th ACM Sympos. Parallel Alg. Arch. {\em(SPAA)}"}
+@string{SPAA_2004 = "Proc. 16th ACM Sympos. Parallel Alg. Arch. {\em(SPAA)}"}
+@string{SPAA_2007 = "Proc. 19th ACM Sympos. Parallel Alg. Arch. {\em(SPAA)}"}
+@string{SPAA_2013 = "Proc. 25th ACM Sympos. Parallel Alg. Arch. {\em(SPAA)}"}
+
+@string{KDD_2013 = "Proc. 19th {ACM} {SIGKDD} Int. Conf. Know. Disc. Data Mining {\em(KDD)}"}
+@string{KDD_2015 = "Proc. 21st {ACM} {SIGKDD} Int. Conf. Know. Disc. Data Mining {\em(KDD)}"}
+
+@string{SIGSPATIAL_2008 = "Proc. 16th ACM SIGSPATIAL Int. Conf.  Adv. GIS"}
+
+
+@string{INFOCOM_2002 =         "Proc. 21st Ann. Joint Conf. IEEE Comp. and Comm. Soc.\CNFINFOCOM"}
+@string{INFOCOM_2011 = "Proc. 30th Ann. Joint Conf. IEEE Comp. and Comm. Soc.\CNFINFOCOM"}
+@string{INFOCOM_2020 = "Proc. 39th Ann. Joint Conf. IEEE Comp. and Comm. Soc.\CNFINFOCOM"}
+
+
+
+@string{JMLR = "J. Mach. Learn. Research"}
+
+@string{SSDBM_2006 = "Proc. 18th Int. Conf.  Sci. Statis. Database Manag."}
+
+@string{NORDIC_J_COMP = "Nordic J. Comput."}
+@string{AMS           = "Amer. Math. Soc."}
+@string{ACM           = "Assoc. Comput. Mach."}
+@string{SIGMOD_2011 = "Proc. 2011 ACM SIGMOD Conf."}
+
+@string{JCDCG_2002   = "Proc. Japan Conf. Discrete. Comput. Geom."}
+@string{JCDCG_2004   = "Proc. Japan Conf. Discrete. Comput. Geom."}
+@string{JCDCG_2007   = "Proc. Japan Conf. Discrete. Comput. Geom."}
+% shortcuts.bib - end of file
+
+
+@string{ICDE_1997 = "Proc. 13th IEEE Int. Conf. Data Eng."}
+@string{ICDE_2001 = "Proc. 17th IEEE Int. Conf. Data Eng."}
+@string{ICDE_2007 = "Proc. 23rd IEEE Int. Conf. Data Eng."}
+@string{ICDE_2008 = "Proc. 24th IEEE Int. Conf. Data Eng."}
+@string{ICDE_2010 = "Proc. 26th IEEE Int. Conf. Data Eng."}
+@string{ICDE_2011 = "Proc. 27th IEEE Int. Conf. Data Eng."}
+@string{ICDE_2018 = "Proc. 28th IEEE Int. Conf. Data Eng."}
+@string{ICDE_2013 = "Proc. 29th IEEE Int. Conf. Data Eng."}
+
+@string{IPCO_2013 = "Proc. 16th Conf. Int. Prog. Combin. Opt.\CNFIPCO"}
+
+@string{EDBT_2009 = "Proc. 12th Int. Conf. Ext. Database Tech."}
+
+@string{TKDE = "IEEE Trans. Know. Data Eng."}
+
+@string{DASFAA_2007 = "Proc. 12th Int. Conf.  Database Sys. Adv. App."}
+
+@string{WAOA_2006 = "Proc. 4th Work. Approx. Online Alg.\CNFX{WAOA}"}
+@string{WAOA_2006_AR = "26\%"}
+
+@string{BROADNETS_2005 = "Proc. 2nd Int. Conf. Broadband Networks\CNFBROADNETS"}
+
+@string{EDBT_2012 = "Proc. 15th Int. Conf. on Ext. Database Tech.\CNFX{EDBT}" }
+
+@string{GD_2015 = "Proc. 23rd Int. Symp. Graph Drawing Network Vis."}
+@string{GD_2016 = "Proc. 24th Int. Symp. Graph Drawing Network Vis."}
+@string{GD_2017 = "Proc. 25th Int. Symp. Graph Drawing Network Vis."}
+
+@string{ISTCS_1997 = "Proc. 5th  Israel Symp. Theo. Comput. and Systems {\em(ISTCS)}" }
+
+@string{SIAM  = "{SIAM}" }
+
+@string{CATS_2006 = "Proc. 12th Australasian Theo. Sym. {\em(CATS)}"}
