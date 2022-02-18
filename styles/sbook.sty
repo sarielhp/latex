@@ -1,0 +1,1374 @@
+\providecommand{\remove}[1]{}
+
+\ifx\ipeMode\undefined
+\providecommand{\IpeModeRemove}[1]{#1}
+\else
+\providecommand{\IpeModeRemove}[1]{}
+\fi
+
+\IpeModeRemove{
+   \ifx\amsMode\undefined
+       \newcommand{\AMSMode}[1]{}
+       \newcommand{\NotAMSMode}[1]{#1}
+   \else
+       \newcommand{\AMSMode}[1]{#1}
+       \newcommand{\NotAMSMode}[1]{}
+   \fi
+}
+
+   
+
+% Save a symbol that we know is going to get redefined.
+\def\savesymbol#1{%
+  \expandafter\let\expandafter\origsym\expandafter=\csname#1\endcsname
+  \expandafter\let\csname orig#1\endcsname=\origsym
+  \expandafter\let\csname#1\endcsname=\relax
+}
+
+% Restore a previously saved symbol, and rename the current one.
+\def\restoresymbol#1#2{%
+  \expandafter\let\expandafter\newsym\expandafter=\csname#2\endcsname
+  \expandafter\global\expandafter\let\csname#1#2\endcsname=\newsym
+  \expandafter\let\expandafter\origsym\expandafter=\csname orig#2\endcsname
+  \expandafter\global\expandafter\let\csname#2\endcsname=\origsym
+}
+
+
+
+\IpeModeRemove{
+   \AMSMode{\documentclass{surv-l}}
+   
+   \NotAMSMode{%
+      \usepackage{lmodern}%
+      \usepackage[T1]{fontenc}%
+   }
+
+
+   \ifx\bookMode\undefined
+%       \documentclass[12pt]{book}
+       \newcommand{\BookMode}[1]{}
+       \newcommand{\NotBookMode}[1]{#1}
+   \else
+%       \documentclass[12pt]{article}
+%       \documentclass[12pt]{book}
+
+       \newcommand{\BookMode}[1]{#1}
+       \newcommand{\NotBookMode}[1]{}
+       %l       \usepackage{chapterbib}
+   \fi
+
+   \AMSMode{
+      \numberwithin{section}{chapter}
+      \numberwithin{equation}{chapter}
+   }
+
+   \AMSMode{
+      \usepackage{ifpdf}
+      \ifpdf
+%          \usepackage[x-1a]{pdfx}
+      \fi}
+   
+   \usepackage{xspace}
+}
+
+\IpeModeRemove{
+   \BookMode{\NotAMSMode{\usepackage[cm]{fullpage}}}
+}
+
+\providecommand{\BookMode}[1]{}
+
+
+
+
+%   \usepackage[dvipdfm,colorlinks=true]{hyperref}  % comment out if you
+   % do not have it
+
+% All style files are available from 
+%   http://wwww.uiuc.edu/~sariel/research/latex/
+\newcommand{\IpeModeRemoveParanoid}[1]{}
+
+\usepackage{etex}
+\usepackage{mleftright}%
+\IpeModeRemove{
+%   \usepackage{wrapfig}
+   %\usepackage{floatflt}
+   \NotAMSMode{\usepackage{makeidx}}
+
+%\DeclareMathAlphabet{\mathbbm}{U}{bbm}{m}{n}% from bbm.sty
+%\usefont {hencodingi} {hfamilyi} {hseriesi} {hshapei}
+%   \newcommand\hmmax{0} % needed for bbm...
+   \usepackage{bbm}
+   %\usepackage{url}
+%   \usepackage{caption}
+} 
+%\usepackage{mathabx}
+\usepackage{amsmath}
+
+\usepackage{gensymb}
+% \usepackage{mathabx}%
+\IpeModeRemove{
+   \usepackage{filecontents}
+}
+\usepackage{amstext}
+\IpeModeRemove{
+\usepackage{framed}
+   % \usepackage{moreverb}
+\usepackage{fancyvrb}%
+   \usepackage{pictex}%
+   \savesymbol{triangle}%
+   \usepackage{tree}%
+%   \usepackage{paralist}%
+   \restoresymbol{TreePKG}{triangle}%
+}
+
+
+
+\IpeModeRemove{
+   \usepackage{xspace}
+%   \usepackage{microtype}
+}
+%\usepackage{color}
+%\usepackage{manfnt}
+\IpeModeRemove{
+   \ifx\bookMode\undefined
+%   \usepackage{chapterbib}
+   \fi
+}
+
+\IpeModeRemove{
+   \usepackage{ifpdf}
+   \ifpdf
+%      \usepackage{pdfx}
+%      \usepackage[pdftex]{color}
+%      \usepackage[cmyk]{xcolor}
+%      \pdfinclusioncopyfonts=1
+   \else
+%      \usepackage[cmyk]{xcolor}
+   \fi
+}
+
+\IpeModeRemove{
+   \usepackage{xcolor}%
+   \usepackage{mcolors2}
+}
+
+\ifx\Do\undefined
+\usepackage{salgorithm}
+\fi
+
+\IpeModeRemove{
+   \usepackage{graphicx}
+}
+\IpeModeRemove{
+   \usepackage[active]{srcltx} % comment out if you do not have it
+%   \usepackage{fancyheadings}
+}
+
+%\usepackage{sariel}
+\IpeModeRemove{
+   \NotAMSMode{\NotBookMode{\usepackage[cm]{fullpage}}}
+}
+\IpeModeRemove{
+%   \usepackage{enumerate}
+}
+   \usepackage{euscript}
+   \usepackage{pifont}
+\IpeModeRemove{
+   \usepackage{picins}}
+\IpeModeRemove{
+   \usepackage{multienum}
+}
+\usepackage{newtxmath}
+%\usepackage{txfonts}
+%\usepackage{picins}
+\IpeModeRemove{
+   \NotAMSMode{\usepackage{tocbibind}}
+
+%setlength{\headsep}{0.4in}
+\savesymbol{Rightarrow}
+\usepackage{marvosym}
+\restoresymbol{RightarrowXXX}{Rightarrow}
+\usepackage{wasysym}
+
+   }
+
+\usepackage{caption}
+
+
+
+
+\newcommand{\hmmax}{0}
+\newcommand{\bmmax}{3}
+
+
+\providecommand{\Undefine}[1]{\let#1\undefined}
+
+\Undefine{\Cross}
+\Undefine{\Square}
+\IpeModeRemove{
+\usepackage{bbding}
+   \usepackage{ctable}
+}
+\remove{
+  \Undefine{\Square}
+  \Undefine{\Cross}
+  \Undefine{\TriangleUp}
+  \Undefine{\TriangleDown}
+  \Undefine{\Circle}
+  \usepackagegeometry]{ifsym}
+
+}
+%---------------------------------
+
+%\setlength{\headheight}{0.2in}
+%\setlength{\headsep}{0.2in}
+
+
+
+% --------------------------------------------------------------------
+% BibLatex stuff
+% ------------------------------------------------------
+
+\providecommand{\BibLatexMode}[1]{}
+\providecommand{\BibTexMode}[1]{#1}
+
+\ifx\UseBibLatex\undefined%
+  \renewcommand{\BibLatexMode}[1]{}
+  \renewcommand{\BibTexMode}[1]{#1}
+\else
+  \renewcommand{\BibLatexMode}[1]{#1}
+  \renewcommand{\BibTexMode}[1]{}
+\fi
+
+
+% Bib latex stuff
+\BibLatexMode{%
+   \usepackage[bibencoding=utf8,style=alphabetic,refsegment=chapter,
+   indexing=cite,
+   backend=biber]{biblatex}%
+   \usepackage{sariel_biblatex}%
+}
+%\\\--- Bib Latex stuff -----------------------------------
+
+\newcommand{\Solution}[1]{}
+
+%\newcommand{\Cell}{S}
+\newcommand{\RealChapterEndInner}{%
+   {%
+     \BibTexMode{% 
+        \let\chapter\section 
+        \bibliographystyle{salpha} 
+        \bibliography{shortcuts,geometry}%
+     }%
+     \BibLatexMode{%
+        \printbibliography[%
+        heading=subbibliography,
+        segment=\therefsegment%<-- restrict the bibliography to the current segment
+        ]%
+     }%     
+  }%
+}
+\newcommand{\RealChapterEnd}{%
+   \RealChapterEndInner{}
+   \end{document}
+}
+
+\newcommand{\ChapterEnd}{\RealChapterEnd{}}%
+
+
+\newcommand{\Copyright}{This work is licensed under the Creative Commons
+Attribution-Noncommercial 3.0 License. To view a copy of this license,
+visit \url{http://creativecommons.org/licenses/by-nc/3.0/} or send a letter to
+Creative Commons, 171 Second Street, Suite 300, San Francisco,
+California, 94105, USA.}
+
+
+\newcounter{ChapterNumber} 
+\setcounter{ChapterNumber}{0}%
+
+
+
+\newcommand{\OldStandAloneMode}[1]{}
+
+
+\OldStandAloneMode{%
+   \newcommand{\Chapter}[1]{%
+      \title{\vspace*{-2cm}\theChapterNumber{}:
+         #1\thanks{\Copyright}}%
+   }%
+   \newcommand{\ChapterPrefix}{%
+      \author{\Author{}}%
+      \date{\today\\
+         {\Course{} - \CourseName{}}}
+   }
+
+   \newcommand{\ChapterGen}{%
+      \maketitle%
+   }%
+}
+\newcommand{\Chapter}[1]{\chapter{#1}}
+\newcommand{\ChapterX}[1]{\chapter*{#1}}
+
+\newcommand{\ChapterNum}[1]{{%
+      \setcounter{chapter}{#1}%
+      \StandAloneMode{\addtocounter{chapter}{-1}}%
+      \setcounter{ChapterNumber}{#1}}}
+
+
+\newcommand{\ChapterPrefix}{
+   \vspace*{-1cm}
+   By \textsf{\Author{}},  \today\footnote{\Copyright}
+   \vspace*{1cm}
+}
+
+\newcommand{\ChapterPrefixExt}[1]{
+   \vspace*{-1cm}
+   By {\sf{\Author{}}},  \today\footnote{\Copyright}\\
+   Version: #1
+   \vspace*{1cm}
+}
+
+\providecommand{\Version}[1]{\centerline{Version: #1}}
+\providecommand{\ChapterGen}{\NotAMSMode{\pagestyle{plain}}%
+   \vspace*{-0.7cm}%
+}
+
+\newcommand{\StandAloneMode}[1]{#1}
+
+
+\providecommand{\File}[1]{#1}
+\renewcommand{\File}[1]{#1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 5
+% Compute root directory correctly...
+
+\newcommand{\RootDIR}{../}
+
+\IfFileExists{../../book.tex}%
+{\renewcommand{\RootDIR}{../../}}{}
+
+\IfFileExists{../../../book.tex}%
+{\renewcommand{\RootDIR}{../../../}}{}
+
+
+\newcommand{\RootFile}[1]{../#1}
+
+\IfFileExists{../../book.tex}{\def\SecondLevel{1}}{}%
+
+\ifx\SecondLevel\undefined
+\else
+\renewcommand{\RootFile}[1]{../../#1}%
+\fi
+
+%\newcommand{\RootFile}[1]{%
+%   \typeout{A:\RootDIR#1}%
+%   \RootDIR#1}
+%{\IfFileExists{../../book.tex}%
+%   {../../#1}%   
+%   {../#1}%
+%}
+%\def\RootFile#1{../#1}
+
+
+%\IpeModeRemove{
+%}
+
+\newcommand{\Distor}{\mathrm{dist}}
+\newcommand{\Hardness}[1]{(h:#1)}
+%\newcommand{\setChapterCounter}[1]{\setcounter{chapter}{#1}}
+
+
+
+\newcommand{\CQT}{\widehat{T}}  % Compressed quadtree
+
+\newcommand{\Root}{\mathrm{root}}
+
+\newcommand{\SubClaimOLD}[1]{
+\noindent     \SaveIndent{}%
+\noindent  %
+\vspace*{-0.5cm}
+\begin{center}%
+    \noindent\hfill\InGray{\RestoreIndent{}%
+    \footnotesize%
+%    \paragraph{%\footnotesize
+%    {#1}}
+              \RestoreIndent{}%
+              #1%
+              }\hfill
+\end{center}
+}
+
+\remove{\newcommand{\SubClaim}[1]{{
+      \begin{center}
+          \begin{minipage}{0.8\linewidth}{~}
+              #1
+          \end{minipage}
+      \end{center}
+}}}
+
+\newcommand{\MoreDetailsOLD}[2]{
+\SaveIndent{}%
+   {\footnotesize
+      \begin{center}
+          \begin{minipage}{0.9\linewidth}
+              \footnotesize
+              \myParagraph{\footnotesize{#1}}
+              \RestoreIndent{}
+              
+              #2
+          \end{minipage}
+      \end{center}
+      }
+}
+
+\definecolor{shadecolor}{gray}{0.95}
+\providecommand{\MoreDetailsGRegOLD}[2]{%
+    \begin{shaded}%
+     \noindent\textbf{#1}
+              #2
+    \end{shaded}
+}
+
+\newcommand{\MoreDetailsGOLD}[2]{{
+    \footnotesize
+    \begin{shaded}
+     \noindent\textbf{#1}
+%        \paragraph{{#1}}
+              #2
+    \end{shaded}
+}}
+
+\ifx\bookMode\undefined
+    \newcommand{\QuoteWrite}[2]{}{}
+    \newcommand{\QuoteOpen}{}
+    \newcommand{\QuoteClose}{}
+\else
+    \newwrite\qoutfile
+    \newcommand{\QuoteOpen}{{\immediate\openout\qoutfile=fragment/quotes.tex
+       }}
+    \newcommand{\QuoteClose}{{\immediate\closeout\qoutfile}}
+
+    \newcommand{\QuoteWrite}[2]{%
+       % \write\qoutfile{{{#1:#2}}}}       
+    }
+\fi
+
+
+
+
+\newcommand{\Quote}[2]{
+   \SaveIndent
+   \QuoteWrite{#1}{#2}
+   \begin{center}
+       % \begin{minipage}{0.9\linewidth}
+       {\footnotesize
+          \begin{quote}
+              \RestoreIndent
+              {#1}\\
+              \hspace*{2cm}-- {#2.}
+          \end{quote}
+       }
+       \index{quotation!#2}
+       % \end{minipage}
+   \end{center}
+   \bigskip
+}
+
+
+\newcommand{\QuotePExt}[3]%
+{%
+   \hfill%
+   \begin{minipage}{0.95\linewidth}
+       \footnotesize {#1}
+
+       \rule{\linewidth}{0.3mm}
+       
+       \hfill #2, #3
+   \end{minipage}
+}
+
+%  QuoteExt{text}{Source}{Author}
+\newcommand{\QuoteExt}[3]{{
+   \SaveIndent%
+   \settowidth{\ppicwd}{%
+          \footnotesize\begin{quote}
+              { %
+              \RestoreIndent
+              \noindent 
+              {#1}\\
+              \hspace*{1.9cm}-- {#2, #3.}
+              }
+          \end{quote}
+   }%
+   \centering{%
+      \begin{minipage}{0.9\ppicwd}%
+          \footnotesize\begin{quote}
+              { %
+              \RestoreIndent
+              \noindent 
+              {#1}\\
+              \hspace*{1.9cm}-- {#2, #3.}
+              }
+          \end{quote}
+       \end{minipage}
+    }%
+       \index{quotation!#3, #2}%
+}}
+
+\newcommand{\QuoteOpt}[2]{\Quote{#1}{#2}}
+\newcommand{\QuoteOptExt}[3]{\QuoteExt{#1}{#2}{#3}}
+%\newcommand{\NN}[1]{\widehat{#1}}
+
+%\BookMode{
+%   \renewcommand{\QuoteOpt}[2]{}
+%   \renewcommand{\QuoteOptExt}[3]{}
+%}
+\BookMode{%
+\AMSMode{
+   \renewcommand{\QuoteOpt}[2]{}
+   \renewcommand{\QuoteOptExt}[3]{}
+}%
+}
+
+%\newcommand{\Mparagraph}[1]{\vspace{-0.4cm}\myParagraph{#1}}
+\newcommand{\EmbSpace}{X}
+%\newcommand{\SphereChar}{\ensuremath{\mathbb{S}}}
+%\newcommand{\Sphere}[1]{{\SphereChar^{(#1)}}}
+%\newcommand{\sphere}{{\bf \huge BAD BAD BAD BAD! USING sphere}}
+
+%\newcommand{\NearNbr}{\ensuremath{\mathrm{NNbr}}}
+%\mathrm{NNbr}}}
+
+
+\newcommand{\CellSet}{\mathcal{C}}
+
+
+\newcommand{\UHyperCube}{[0,1]^\hdim}
+\newcommand{\Hypercube}{\EuScript{H}}
+
+\newcommand{\ConvexBody}{\mathcal{P}}
+\newcommand{\ConvexBodyB}{\mathcal{Q}}
+
+%\newcommand{\hyperplane}{h}
+%\newcommand{\hyperplaneB}{g}
+
+
+\newcommand{\MVBBopt}{\EuScript{B}_{\mathrm{opt}}}
+\newcommand{\HS}{\EuScript{S}}
+\providecommand{\emphi}[1]{\emph{#1}\index{#1}}
+\newcommand{\emphiC}[1]{\emphic{#1}{#1}}
+
+
+\newcommand{\PlaneSet}         {\ensuremath{\mathcal{H}}}
+%\newcommand{\aPlaneSet}         {\ensuremath{\mathcal{K}}}
+\newcommand{\aPlaneSet}         {\ensuremath{\mathcal{H}}}
+\newcommand{\bPlaneSet}         {\ensuremath{\mathcal{Q}}}
+\newcommand{\rPlaneSet}         {\ensuremath{\mathcal{R}}}
+
+\newcommand{\LEnv}{\EuScript{L}}
+\newcommand{\UEnv}{\EuScript{U}}
+
+
+\newcommand{\LineSpace}[1]{\EuScript{L}^{#1}}
+
+\newcommand{\Func}{f}
+\newcommand{\FuncOpt}{\Func{}_{\mathrm{opt}}}
+
+\newcommand{\kopt}{k_{\mathrm{opt}}}
+
+%\newcommand{\range}{\mathbf{r}}
+%\newcommand{\rangeA}{\mathbf{r}'}
+%\newcommand{\RangeSpace}{\mathsf{S}}
+%\newcommand{\RangeSpaceA}{\mathsf{T}}
+%\newcommand{\RangeSpaceB}{\mathsf{U}}
+%\newcommand{\RangeSet}{{\mathcal{R}}}
+%\newcommand{\RangeSetA}{\mathcal{R}'}
+
+\newcommand{\RangeSpaceDual}{\mathsf{D}}
+\newcommand{\IndcRangeSpace}[2]{P_{#1}(#2)}
+
+%\newcommand{\LineSet}{\mathfrak{L}}
+
+
+%\newcommand{\calC}{\mathcal{C}}
+%\newcommand{\calF}{\mathcal{F}}
+%\newcommand{\calG}{\mathcal{G}}
+%\newcommand{\calI}{\mathcal{I}}%
+%\newcommand{\calT}{\mathcal{T}}
+
+
+
+\newcommand{\DiskA}{\EuScript{D}}
+
+
+\newcommand{\Extent}[1]{\EuScript{E}_{#1}}
+
+\newcommand{\FuncSet}           {\ensuremath{\mathcal{F}}}
+\newcommand{\BFuncSet}          {{\ensuremath{\mathcal{H}}}}
+\newcommand{\myfunc}              {\ensuremath{f}}
+\newcommand{\myfuncb}              {\ensuremath{g}}
+\newcommand{\LINEAR}           {\ensuremath{\eta}}
+
+
+
+% Finite metric space
+
+\newcommand{\MdPrc}{\nu}
+
+\newcommand{\rdopt}{{\mathrm{rd}}}
+
+\newcommand{\CoverTime}{\EuScript{C}}
+\newcommand{\Nbr}{\Gamma}
+
+\Undefine{\P} \Undefine{\Pr}
+
+
+
+
+%\newcommand{\CoverTime}{\EuScript{C}}
+%\newcommand{\Nbr}{\Gamma}
+
+%\newcommand{\MC}{\mathcal{MC}}
+\newcommand{\CommuteTime}[2]{\mathbf{CT}_{#1#2}}
+\newcommand{\Resistance}{\mathbf{R}}
+\newcommand{\EffectResist}[2]{\mathbf{R}_{#1#2}}
+\newcommand{\NetworkE}{\EuScript{N}}
+
+%\newcommand{\Family}{\mathcal{G}}
+\newcommand{\trinom}[4]{\binom{#1}{#2 \;\; #3 \;\; #4}}
+
+%\newcommand{\MinCut}{\textsc{MinCut}}
+%\newcommand{\MinCutRep}{\textsc{MinCutRep}}
+
+%\newcommand{\Contract}{\textsc{Contract}}
+%\newcommand{\FastCut}{\textsc{FastCut}}
+
+%\newcommand{\RangeSpace}{\EuScript{Y}}
+\newcommand{\Ranges}{\EuScript{R}}
+\newcommand{\RangesB}{\EuScript{R}'}
+\newcommand{\RangesC}{\widehat{\EuScript{R}}}
+
+\newcommand{\CClass}[1]{\ensuremath{\mathbf{#1}}}
+\newcommand{\coCClass}[1]{\ensuremath{\mathrm{co-}}\CClass{#1}}
+
+\newcommand{\CX}{\EuScript{C}}
+
+
+
+
+
+\newcommand{\packet}{\mathbf{c}}
+\newcommand{\packetA}{\mathbf{d}}
+
+%\newcommand{\Sphere}{\EuScript{S}}a
+
+\newcommand{\mopt}{m_{\mathrm{opt}}}
+
+\newcommand{\girth}{\mathop{\mathrm{girth}}}
+\newcommand{\CR}{\mathop{\mathrm{cr}}}
+
+\newcommand{\ExpDist}{\mathrm{Exp}}
+
+
+\usepackage[symbol*]{footmisc}
+
+\DefineFNsymbols*{stars}[text]{%
+   {\ding{172}} %
+   {\ding{173}} %
+   {\ding{174}} %
+   {\ding{175}} %
+   {\ding{176}} %
+   {\ding{177}} %
+   {\ding{178}} %
+   {\ding{179}} %
+   {\ding{180}} %
+   }
+\setfnsymbol{stars}
+
+
+% \newcounter{newx}
+% \setcounter{newx}{172}%
+% \renewcommand{\thefootnote}{%
+%    \setcounter{newx}{172}%
+%    \addtocounter{newx}{\value{footnote}%
+%    {\ding{\thenewx}}%   \addtocounter{footnote}{1}%
+% }
+
+
+
+
+
+
+\newcommand{\TRUE}{{\textcolor[named]{RedViolet}{\textsf{TRUE}}}\xspace}
+\newcommand{\FALSE}{{\textcolor[named]{RedViolet}{\textsf{FALSE}}}\xspace}
+%\newcommand{\FALSE}{{\textsf{False}}\xspace}
+
+\newcommand{\WarnVeryEarlyVersion}{
+   \centerline{\fbox{\fbox{\fbox{
+            \begin{minipage}{0.6\linewidth}
+                \bf This is a \underline{\large{very early version}}
+                of the class notes. There are no guarantees that there
+                are no mistakes or typos.  A better version would be
+                released in the near future.
+             \end{minipage} }}}}}
+\newcommand{\WarnEarlyVersion}{
+   \centerline{\fbox{\fbox{\fbox{
+            \begin{minipage}{0.6\linewidth}
+                \bf This is an early version of the class notes. There
+                are no guarantees that there are no mistakes or typos.
+                A better version would be hopefully released in the
+                near future.
+             \end{minipage} }}}}}
+\newcommand{\WarnOldClassNotes}{
+   \centerline{\fbox{\fbox{\fbox{
+            \begin{minipage}{0.6\linewidth}
+                \bf Those are old class notes. Newer and rewritten
+                version of the class notes would be posted to the
+                webpage in the near future.
+             \end{minipage} }}}}}
+\newcommand{\Tip}[1]{{\begin{suggestion}
+          \marginpar{\vspace{0.2cm}\fbox{$\mathcal{TIP}$}}
+          #1\end{suggestion}}}
+\newcommand{\Tidbit}[1]{{\begin{tidbit}
+          \marginpar{\vspace{0.2cm}\fbox{{tidbit}}}
+          #1\end{tidbit}}}
+\newcommand{\envFrameExt}[2]{\fbox{
+      \begin{minipage}{#1}
+      \begin{minipage}{#1}
+          {#2}
+      \end{minipage}
+      \end{minipage}
+   }
+}
+
+
+
+
+
+%\newcommand{\Algorithm}[1]{{\textcolor[named]{RedViolet}{\texttt{\bf{#1}}}}}
+\newcommand{\CycleB}{\mathsf{D}}
+\newcommand{\MCycle}[1]{\Cycle_{#1}}
+\newcommand{\MMCycle}[1]{\mu\pth{#1}}
+\newcommand{\Residual}[1]{\Graph_{#1}}
+
+
+%\providecommand{\Tree}{\EuScript{T}}
+
+\newcommand{\TidbitSide}[1]{\parpic[r]{ %
+      \begin{minipage}{6cm}%
+          Tidbit\\
+          \fbox{\begin{minipage}{5cm}%
+          \footnotesize%
+          {#1}%
+      \end{minipage}}%
+\end{minipage}%
+\hspace{-1.5cm} } } 
+
+\newwrite\myoutfile 
+\newcommand{\SavePageNumber}{
+   \immediate\openout\myoutfile=\File{junk/page_number.txt}
+   \immediate\write\myoutfile{\thepage}
+   \immediate\write\myoutfile{\thechapter}
+   \immediate\closeout\myoutfile
+}
+
+
+%--------------------------------------------------------
+% Fragments:
+%    \begin{fragment}{unique label}
+%       bla bla
+%    \end{fragment}
+%    
+% To include fragment in some other file, do:
+%    \IncFragment{unique label}
+%--------------------------------------------------------
+
+
+\newcommand{\InputExt}[1]{%
+   \IfFileExists{#1}%
+   {\input{#1}}%
+   {\IfFileExists{../#1}%
+      {\input{../#1}}%
+      {\IfFileExists{../../#1}%
+         {\input{../../#1}}%
+         {\typeout{Unable to find #1}
+            \unabletofindfile
+         }
+      }
+   }%
+}
+
+\newcommand{\FragmentName}[1]{\RootFile{fragment/#1.tex}}
+\newcommand{\IncFragment}[1]{%
+   \typeout{IncFragment: input{\FragmentName{#1}}}%
+   \InputExt{\FragmentName{#1}}}
+\newenvironment{fragment}[1]%
+{%
+   \typeout{}%
+              \typeout{Writing fragment: \FragmentName{#1}}%
+              \VerbatimEnvironment
+               \let\TmpFragmentName\undefined
+               \def\TmpFragmentName{\FragmentName{#1}}
+               \begin{VerbatimOut}{\FragmentName{#1}}%
+}%
+{\end{VerbatimOut}%
+   \typeout{\TmpFragmentName}%
+   \InputExt{\TmpFragmentName}
+}
+
+
+\newenvironment{FragmentSave}[1]%
+           {\VerbatimEnvironment
+               \let\TmpFragmentName\undefined
+               \def\TmpFragmentName{\FragmentName{#1}}
+               \begin{VerbatimOut}{\FragmentName{#1}}}%
+           {\end{VerbatimOut}}
+   
+\ifx\noWrites\undefined
+\else
+   \renewcommand{\IncFragment}[1]{\bogi}
+   \renewenvironment{fragment}[1]{}{}%   
+   \renewcommand{\SavePageNumber}{}
+\fi
+
+
+% --------------------------------------------------------------
+
+
+\newcommand{\BookPart}[1]{}
+\newcommand{\Part}[1]{}
+\newcommand{\Section}[1]{\section{#1}}
+\newcommand{\SubSection}[1]{\subsection{#1}}
+\newcommand{\SubSubSection}[1]{\subsubsection{#1}}
+
+\newcommand{\InputHWChap}[2]{\InputChap{#1}{#2}}%
+
+\newcommand{\InputChap}[2]{
+   \def\Dir{#1}
+   \typeout{}
+   \typeout{}
+   \typeout{}
+   \typeout{-----------------
+      -------------------------------------------}
+   \typeout{}
+   % \typeout{Including: #1/#2}
+   % \typeout{}
+   \typeout{PROCESSING FILE: #1/#2}
+   \typeout{}      
+   \input{#1/#2}
+}
+\newcommand{\InputXChap}[2]{
+   \def\Dir{#1}
+   \input{#1/#2}
+}
+   
+\newcommand{\InputChapExt}[3]{%
+   \InputChap{#1}{#2}
+   \typeout{ cp #1/#2.pdf chpaters/web/#3 }
+}
+
+\IpeModeRemove{%
+   \AMSMode{   
+      \renewcommand{\ChapterPrefix}{}
+      \renewcommand{\ChapterPrefixExt}{}%
+   }
+}
+
+\ifx\bookMode\undefined
+  \newcommand{\PageNum}[1]{{\setcounter{page}{#1}}}
+  \newcommand{\ResetNumbering}{%
+      \setcounter{page}{1}
+      \setcounter{chapter}{0}
+      }
+\else
+\BookMode{
+   % Book mode!
+   \newcommand{\PageNum}[1]{}
+   \newcommand{\ResetNumbering}{}
+   \renewcommand{\ChapterGen}{\SavePageNumber}
+   \renewcommand{\ChapterEnd}{\RealChapterEndInner{}}%
+%   \renewcommand{\ChapterEnd}{}
+   \renewcommand{\BookPart}[1]{\part{#1}}
+   
+   \renewcommand{\StandAloneMode}[1]{}
+   
+   \renewcommand{\Part}[1]{\chapter{#1}}
+   \renewcommand{\Chapter}[1]{}
+   \renewcommand{\Section}[1]{\section{#1}}
+   \renewcommand{\SubSection}[1]{\subsection{#1}}
+   \renewcommand{\SubSubSection}[1]{\subsubsection{#1}}
+   \renewcommand{\Version}[1]{}
+   
+   \NotAMSMode{\setcounter{tocdepth}{3} }
+   \renewcommand{\File}[1]{\Dir/#1}
+}
+\fi
+
+\IpeModeRemove{
+\NotAMSMode{\setcounter{secnumdepth}{3}}
+
+
+
+
+    \newcommand{\TextDefender}[1]{
+       \SaveIndent
+       \noindent\begin{minipage}{\linewidth}
+           \RestoreIndent
+           #1
+       \end{minipage}
+       %\medskip%\smallskip
+    }       
+
+}
+
+%---------------------------------------------------
+% Enumerate environment inside exercises must be done using 
+%    enumEx.
+%
+% \Exercise{Title}
+%          {points}
+%          {label}
+%          {Exercise Body}
+%          {Solution}
+\newcommand{\Exercise}[5]{%
+\begin{exercise_h}[#1] % \points{#2}
+    % \item (#1)
+   \exelab{#3}{}
+   
+    #4
+\end{exercise_h}
+}
+\Undefine{\points}
+
+
+\IpeModeRemove{%
+   \AMSMode{\renewcommand{\myqedsymbol}{\qedsymbol}}
+}
+
+%\si:                                                                           
+%       \si{something} - emacs spell checker ignores something                  
+\providecommand{\si}[1]{#1}
+
+
+%--------------------------------------------------------------------------
+% Commands to include graphics
+%--------------------------------------------------------------------------
+
+\providecommand{\ThreeFigures}[6]{%
+   \begin{tabular}{ccc}
+        \begin{minipage}{0.30\linewidth}
+            \IncludeGraphics[width=5.1cm]{{#1}}\\
+        \end{minipage}
+        &
+        \begin{minipage}{0.30\linewidth}
+            \IncludeGraphics[width=5.1cm]{{#2}}\\
+        \end{minipage}
+        &
+        \begin{minipage}{0.30\linewidth}
+            \IncludeGraphics[width=5.1cm]{{#3}}\\
+        \end{minipage}
+        \vspace{-1cm}
+        \\
+        {#4} & {#5}& {#6}
+    \end{tabular}}
+
+% #1 - figure A
+% @2 - subtitle fig A
+% #3 - figure B
+% @4 - subtitle fig B
+\providecommand{\TwoFiguresBase}[4]{\begin{tabular}{cc}
+        \begin{minipage}{0.48\linewidth}
+            \begin{center}
+                {{{#1}}}
+            \end{center}
+        \end{minipage}
+        &
+        \begin{minipage}{0.48\linewidth}
+            \begin{center}
+                {{#3}}
+            \end{center}
+        \end{minipage}
+        \\
+        {#2} & {#4}
+    \end{tabular}}
+\providecommand{\TwoFigures}[6]{\begin{tabular}{cc}
+        \begin{minipage}{0.48\linewidth}
+            \begin{center}
+                {\IncludeGraphics[#1]{{#2}}}
+            \end{center}
+        \end{minipage}
+        &
+        \begin{minipage}{0.48\linewidth}
+            \centerline{\IncludeGraphics[#4]{{#5}}}
+        \end{minipage}
+        \\
+        {#3} & {#6}
+    \end{tabular}}
+
+% ParPic{location}{width}{graphics}{caption}{label}
+%\ParPic -> \PPicExt
+\newcommand{\PPicExt}[5]{
+   \parpic[#1]{
+   \fbox{
+      \begin{minipage}{#2}
+          \IncludeGraphics[width=0.98\linewidth]{#3}
+          \vspace{-0.4cm}
+          \captionof{figure}{#4}
+          \figlab{#5}
+      \end{minipage}}}}
+
+\newcommand{\PPicNF}[5]{
+   \parpic[#1]{
+   \fbox{
+      \begin{minipage}{#2}
+          \IncludeGraphics[width=0.98\linewidth]{#3}
+          \vspace{-0.4cm}
+          \captionof{figure}{#4}
+          \figlab{#5}
+      \end{minipage}}}}
+
+
+% ParPicBasic ->PPicSimple
+
+\newcommand{\PPicSimple}[3]{
+   \parpic[#1]{
+   \fbox{
+      \begin{minipage}{#2}
+          \IncludeGraphics[width=0.98\linewidth]{\File{#3}}
+          \vspace{-0.4cm}
+      \end{minipage}}}}
+
+
+\newcommand\PPic[2]{
+\begin{minipage}{#1}%
+    \hspace{-0.4cm}
+    \makebox[0cm][l]{\IncludeGraphics{\File{#2}}}
+\end{minipage}}
+
+
+
+\newlength{\ppicwd}
+\newlength{\ppicht}
+
+\newcommand\PPicBasic[2][]{
+     \settowidth{\ppicwd}{\IncludeGraphics[#1]{\File{#2}}}%% save width
+%     \settoheight{\ppicwd}{\IncludeGraphics{\File{#1}}}  %% save width
+     \begin{minipage}{\ppicwd}%
+      \hspace{-0.2cm}%
+      \makebox[0cm][l]{\IncludeGraphics[#1]{\File{#2}}}%
+     \end{minipage}\hspace{-0.25cm}}%
+
+
+%-------------------------------------
+%\PPicR - examples 
+%   \PPicR{figs/figure}
+%   \PPicR[width=2cm]{figs/figure}
+%-------------------------------------
+\newcommand\PPicR[2][]{
+   \parpic[r]{
+             \IncludeGraphics[#1]{\File{#2}}
+   }
+}
+\newcommand\PPicL[2][]{
+   \parpic[l]{
+             \IncludeGraphics[#1]{\File{#2}}
+   }
+}
+
+%\renewcommand{\Cincludegraphics}[1]{\centerline{\IncludeGraphics{\File{#1}}}}
+
+\newcommand{\PPicRP}[4][]{\parpic[r]{\IncGraphPage[#1]{#2}{#3}{#4}}}
+
+\newcommand{\PPicBasicP}[3]{
+   \IncGraphPage{#1}{#2}{#3}
+   }
+
+
+%\settoheight{\faceht}{#1}
+
+%PPicCapLabExt
+%  #1 - Width of minipage
+%  #2 - filename
+%  #3 - caption
+%  #4 - label
+\newcommand{\PPicCapLabExt}[4]{
+    \begin{minipage}{#1}
+     \hspace{-0.4cm}
+     \settowidth{\ppicwd}{\IncludeGraphics{\File{#2}}}  %% save width
+     \makebox[0cm][l]{\IncludeGraphics{\File{#2}}}    
+%     \vspace{-7\lineskip}
+     \begin{minipage}{\ppicwd}
+      \captionof{figure}{#3}
+      \figlab{#4}
+     \end{minipage}
+    \end{minipage}}
+
+%PPicCapLabRaw
+%  #1 - content
+%  #2 - caption
+%  #3 - label
+\newcommand{\PPicCapLabRaw}[3]{
+   \settowidth{\ppicwd}{#1}  %% save width
+   \begin{minipage}{1\ppicwd}
+       % \hspace{-0.4cm}
+       #1
+
+       \smallskip
+
+       \AMSMode{ 
+ %         \hspace*{-0.13\ppicwd}
+%          \begin{minipage}{1.\ppicwd}
+%          \begin{minipage}{0.8\ppicwd}
+          \hspace*{0.1\ppicwd}%
+          \makebox[0.8\ppicwd]{
+             \begin{minipage}{1.2\ppicwd}
+                 \captionof{figure}{#2}
+                 \figlab{#3}\hspace*{-4cm}
+             \end{minipage}}}
+                 % \end{minipage}
+                 % }\hspace*{-4cm}\\[0.1cm]
+ 
+       \NotAMSMode{ 
+%          \hspace*{-0.13\ppicwd}
+          \begin{minipage}{1\ppicwd}
+              \captionof{figure}{#2}
+              \figlab{#3}
+          \end{minipage}
+       }
+          
+      \end{minipage}}
+
+
+%PPicCapLab
+%  #2 - filename
+%  #3 - caption
+%  #4 - label
+\newcommand{\PPicCapLab}[4][]{
+   \settowidth{\ppicwd}{\IncludeGraphics[#1]{\File{#2}}}  %% save width
+   \begin{minipage}{\ppicwd}
+       {\IncludeGraphics[#1]{\File{#2}}}
+
+       \begin{minipage}{0.9\ppicwd}
+%           \hspace*{-0.2\ppicwd}
+           \begin{minipage}{1.01\ppicwd}
+           \captionof{figure}{#3}
+           \figlab{#4}
+       \end{minipage}\hspace*{-0.5\ppicwd}
+       \end{minipage}
+   \end{minipage}}
+
+
+%PPicCapLabR
+%  #1 - filename
+%  #2 - caption
+%  #3 - label
+\newcommand{\PPicCapLabR}[4][]{
+   \parpic[r]{
+      \settowidth{\ppicwd}{\IncludeGraphics[#1]{\File{#2}}}  %% save width
+      \begin{minipage}{1.1\ppicwd}
+              {\IncludeGraphics[#1]{\File{#2}}}\hspace{-1cm}\\[-0.1cm]
+          \begin{minipage}{0.98\ppicwd}
+          \begin{minipage}{1.2\ppicwd}
+              \captionof{figure}{#3}
+              \figlab{#4}
+          \end{minipage}\hspace*{-1cm}
+          \end{minipage}
+          \smallskip
+    \end{minipage}}
+ }
+    
+%\newcommand{\PPicCap}[3]{\PPicCapLab{#1}{#2}{#3}{}}
+
+
+\newcommand{\PPicCap}[2]{\PPicCapLab{#1}{#2}{}{}}
+
+\newcommand{\myParagraph}[1]{ \noindent \textbf{#1}}
+
+
+\newlength{\ppicX}
+\newlength{\ppicY}
+
+% ParaWPic{\IncludeGraphics{bogi}}{paragraph}
+\newcommand{\ParaWPic}[2]{%
+   \settowidth{\ppicX}{#1}  %% save width
+   \setlength{\ppicY}{\linewidth}
+   \addtolength{\ppicY}{-\ppicX}
+   \addtolength{\ppicY}{-0.30cm}
+   %
+   \vspace{-0.2cm}%
+   % \settoheight{\ppicwd}{\IncludeGraphics{\File{#1}}}  %% save width
+   \SaveIndent%
+   \noindent\makebox[\ppicY]{\begin{minipage}[t]{\ppicY}%
+       \vspace{0pt}%
+       \RestoreIndent%
+       #2%
+   \end{minipage}}%
+   \hfill %
+%   \begin{minipage}[t]{0.975\ppicX}%
+       \makebox[0.975\ppicX]{\begin{minipage}[t]{0.999\ppicX}%
+       \vspace{0pt} %
+       \hfill% 
+       #1
+       \vfill
+   \end{minipage}}
+%   \end{minipage}
+   \smallskip
+}
+
+%----------------------------------------------------------------
+% \ParagraphWPic{figs}{flower}{2}{ long winding text }
+%
+%    Creates a paragraph with [long winding text] for the body, and the
+%    figure figs/flower (page 2 in this case)
+%----------------------------------------------------------------
+\newcommand{\ParagraphWPic}[4]{
+   \settowidth{\ppicX}{\IncGraphPage{#1}{#2}{#3}}  %% save width
+   \setlength{\ppicY}{\linewidth}
+   \addtolength{\ppicY}{-\ppicX}
+   \addtolength{\ppicY}{-0.30cm}
+
+   \vspace{-0.2cm}
+   % \settoheight{\ppicwd}{\IncludeGraphics{\File{#1}}}  %% save width
+   \SaveIndent
+   \noindent\begin{minipage}[t]{\ppicY}%
+       \vspace{0pt}
+       \RestoreIndent
+       #4
+   \end{minipage}%
+   \hfill %
+   \begin{minipage}[t]{\ppicX}
+       \vspace{0pt}
+       \IncGraphPage{#1}{#2}{#3}
+       \vfill
+   \end{minipage}
+   \smallskip
+}
+
+\newcommand{\FinalTwiddling}[1]{#1}
+
+\newcommand{\DefName}[1]{#1}
+
+\IpeModeRemove{%
+\AMSMode{
+\numberwithin{section}{chapter}
+\numberwithin{equation}{chapter}
+\numberwithin{figure}{chapter} 
+\numberwithin{table}{chapter} 
+}%
+
+\AMSMode{
+   \renewcommand{\Eqref}[1]{(\ref{equation:#1})}
+   \renewcommand{\Eqrefpage}[1]{(\ref{equation:#1})%
+   $_\text{p\pageref{equation:#1}}$}
+}
+
+}
+
+\newcommand{\BREAK}{
+
+~\newpage
+
+~\newpage
+
+~\newpage
+
+~\newpage
+
+}
+\IpeModeRemove{%
+   \usepackage{hyperref}%
+   \hypersetup{%
+      breaklinks,%
+      ocgcolorlinks,
+      colorlinks=true,%
+      linkcolor=[rgb]{0.45,0.0,0.0},%
+      citecolor=[rgb]{0,0,0.45}
+   }
+   
+
+   \usepackage[hypcap=true]{caption}
+}
+
+\providecommand{\deflabel}[1]{def_#1}
+\providecommand{\InputHWChap}[2]{\InputChap{#1}{#2}}%
+
+\newcommand{\Here}{\typeout{LOCATION: \currfilename\space L\the\inputlineno}\xspace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% ParaWFig
+
+%\newlength{\ppicX}
+%\newlength{\ppicY}
+
+% ParaWFig{paragraph}{\IncludeGraphics{bogi}}{label/caption/etc}
+\newcommand{\ParaWFig}[3]{%
+   \settowidth{\ppicX}{#2}  %% save width
+   \setlength{\ppicY}{\linewidth}
+   \addtolength{\ppicY}{-\ppicX}
+   \addtolength{\ppicY}{-0.30cm}
+   %
+   \vspace{-0.2cm}%
+   % \settoheight{\ppicwd}{\IncludeGraphics{\File{#1}}}  %% save width
+   \SaveIndent%
+   \noindent\makebox[\ppicY]{\begin{minipage}[t]{\ppicY}%
+       \vspace{0pt}%
+       \RestoreIndent%
+       #1%
+   \end{minipage}}%
+   \hfill %
+%   \begin{minipage}[t]{0.975\ppicX}%
+       \makebox[0.975\ppicX]{\begin{minipage}[t]{0.999\ppicX}%
+       \vspace{0pt} %
+       \hfill% 
+       #2
+
+       #3
+       \vfill
+   \end{minipage}}
+%   \end{minipage}
+   \smallskip
+}
+
+
+\BookMode{%
+   \NotAMSMode{%
+      \BookMode{%
+         \usepackage{titlesec}%
+         \titlelabel{\thetitle. }%
+      }
+   }%
+}
+
+\newcommand{\Description}[1]{}%
+
+\StandAloneMode{%
+   \usepackage{titlesec}
+   \titlelabel{\thetitle. }%
+   \titleformat{\chapter}[display]
+   {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}   
+   \titlespacing*{\chapter}{0pt}{-50pt}{40pt}
+}
+
+%\StandAloneMode{%
+   \usepackage{epigraph}%
+   \renewcommand{\QuoteExt}[3]{%
+      \vspace*{-1.6cm}%
+      \epigraph{{\footnotesize%
+            #1}}{{#2}, {#3}}%      
+      \vspace*{-1.2cm}%
+   }%
+%}
+
+%\providecommand{\Set}[2]{}%
+%\renewcommand{\Set}[2]{\mleft\{ #1 \;\middle\vert\; #2 \mright\}}
+\providecommand{\hrefb}[3][black]{\href{#2}{\color{#1}{#3}}}%
+
+
+\typeout{===========================================================================}
+\typeout{===========================================================================}
+\typeout{===========================================================================}
+\typeout{===========================================================================}
+\typeout{===========================================================================}
+\typeout{===========================================================================}
+% ParaWPic - end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

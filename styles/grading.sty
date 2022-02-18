@@ -1,0 +1,44 @@
+\newcounter{QuestionGrade}
+\newcounter{FinalGrade}
+
+\newcommand{\ZSays}[2]{{
+      {$\rule[-0.12cm]{0.2in}{0.5cm}${\fbox{{\tt
+            #1:}} }}
+      {{{#2}}} 
+      {\marginpar{$\Leftarrow$}}
+      {$\rule[0.1cm]{0.3in}{0.1cm}\rule[0.1cm]{0.3in}{0.1cm}$}
+      }
+   }
+\renewcommand{\sariel}[1]{{\ZSays{Sariel}{#1}}}
+\newcommand{\givePoints}[1]{
+   \addtocounter{QuestionGrade}{#1}
+   \marginpar{\fbox{\bf \tiny #1}}}
+
+\newcommand{\questionPoints}{
+   \addtocounter{FinalGrade}{\value{QuestionGrade}}
+   ~\newline
+   {\fbox{Question
+         points: {\arabic{QuestionGrade}}}}
+   \marginpar{\fbox{\fbox{\bf \large {{\arabic{QuestionGrade}}}}}}
+   \setcounter{QuestionGrade}{0}
+}
+
+\newcommand{\EndOfExam}{~\newline
+    \noindent$\rule[0.1cm]{6.3in}{0.1cm}$
+   
+   \noindent{\bf \large Final grade:} \arabic{FinalGrade}
+
+    \noindent$\rule[0.1cm]{6.3in}{0.1cm}$
+
+    \setcounter{page}{\value{FinalGrade}}
+    
+    \label{FinalGrade}
+   }
+
+\newcommand{\Grade}{
+    \noindent$\rule[0.1cm]{6.3in}{0.1cm}$
+   
+    \noindent{\bf \large Final grade:} \pageref{FinalGrade}
+
+    \noindent$\rule[0.1cm]{6.3in}{0.1cm}$
+}

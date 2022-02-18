@@ -1,0 +1,19 @@
+%%%
+\providecommand{\RGenInsertSeed}{0}%
+\providecommand{\RGenPrintSeed}{\RGenInsertSeed}%
+\newenvironment{block}{}{}%
+
+\newcounter{ProblemsCounter}
+\newcommand{\RGenScramble}{\xspace}
+\newcommand{\RGenChoose}[1]{\xspace}%
+\newcommand{\RGenChooseExt}[1]{%
+   \addtocounter{ProblemsCounter}{#1}
+
+   \HrX
+
+   This is problem \#: \theProblemsCounter{} \; Choose #1 of the
+   following problems
+
+%   \Hr
+}%
+

@@ -1,0 +1,705 @@
+
+%$\ifx\sarielStyleFile\undefined
+
+
+
+\usepackage{theorem}
+\usepackage{amssymb}
+\usepackage{euscript}
+%\usepackage{theorem}
+\usepackage[T1]{fontenc} 
+\usepackage{color}
+\usepackage{xspace}
+
+\providecommand{\remove}[1]{}
+\newcommand{\infullver}[1]{Omitted. Will appear in the
+   full-version.}
+
+% date + time macros
+% requires the scrtime package
+%\newcommand{\TodayExt}{%
+%    \begingroup
+%    \count0=\time \divide\count0by60 % Hour
+%    \count2=\count0 \multiply\count2by-60 \advance\count2by\time % Minute
+%    \def\2#1{\ifnum#1<10 0\fi\the#1}
+%    \xdef\todayext{\2\day/\2\month/\the\year\space\2{\count0}:\2{\count2}}
+%    \endgroup
+%}
+
+
+\newcommand{\commsariel}[1]
+{\marginpar[$\longrightarrow$]{$\longleftarrow$}$\,\mbox{}^{\rm sar}${\sf
+#1}$\mbox{}_{\rm iel}\,$}
+
+\newcommand{\normal}[1]{\eta_{#1}}
+
+   \newtheorem{theorem}{Theorem}[section] % section
+   \newtheorem{lemma}[theorem]{Lemma}
+   \newtheorem{conjecture}[theorem]{Conjecture}
+   \newtheorem{assumption}[theorem]{Assumption}
+   \newtheorem{corollary}[theorem]{Corollary}
+   \newtheorem{claim}[theorem]{Claim}
+   \newtheorem{fact}[theorem]{Fact}
+   \newtheorem{observation}[theorem]{Observation}
+   \newtheorem{invariant}[theorem]{Invariant}
+   \newtheorem{question}[theorem]{Question}
+   \newtheorem{proposition}[theorem]{Proposition}
+   \newtheorem{prop}[theorem]{Proposition}
+   \newtheorem{openproblem}[theorem]{Open Problem}
+   {\theorembodyfont{\rm} \newtheorem{remark}[theorem]{Remark}}
+   {\theorembodyfont{\rm} \newtheorem{exercise}[theorem]{Exercise}}
+   {\theorembodyfont{\rm} \newtheorem{example}[theorem]{Example}}
+   {\theorembodyfont{\rm} \newtheorem{suggestion}[theorem]{Suggestion}}
+   {\theorembodyfont{\rm} \newtheorem{tidbit}[theorem]{Tidbit}}
+   {\theorembodyfont{\rm} \newtheorem{definition}[theorem]{Definition}}
+   {\theorembodyfont{\rm} \newtheorem{problem}[theorem]{Problem}}
+   {\theorembodyfont{\rm} \newtheorem{defn}[theorem]{Definition}}
+
+
+%\newtheorem{example}[theorem]{Example}
+%\newtheorem{exercise}[theorem]{Exercise}
+
+%\newtheorem{defn}[theorem]{Definition}
+%\newtheorem{remark}[theorem]{Remark}
+\newenvironment{dfn}{{\vspace*{1ex} \noindent \bf Definition }}{\vspace*{1ex}}
+
+\newenvironment{enumEx}{\begin{enumerate}[(A)]}{\end{enumerate}}
+
+\newcommand{\bigdef}[2]{\rank{#1}\begin{dfn} {\rm #2} \end{dfn}}
+
+\newenvironment{solution}{{\em Solution:}}{\hfill{\hfill\rule{2mm}{2mm}}}
+
+\newenvironment{proofextin}{{\em Proof of }}{\hfill{\hfill\rule{2mm}{2mm}}}
+
+\newenvironment{proof}{{\em Proof:}}{\hfill{\hfill\rule{2mm}{2mm}}}
+
+\newenvironment{altproof}{{\em Alternative Proof:}}{\hfill{\hfill\rule{2mm}{2mm}}}
+\newenvironment{proofnoqed}{{\em Proof:}}{}
+\newenvironment{proofnoproof}{{}}{{\hfill{\hfill\rule{2mm}{2mm}}}}
+\newcommand{\qedsign}{\hfill{\hfill\rule{2mm}{2mm}}}
+\newenvironment{pf}{{\em Proof:}}{\hfill{\hfill\rule{2mm}{2mm}}}
+\newcommand{\MakeSmBig}{\rule[-.14cm]{0cm}{0.0cm}}
+\newcommand{\MakeB}[1]{\rule[0cm]{-0.01cm}{#1\lineskip}}
+\newcommand{\MakeBig}{\rule[-.2cm]{0cm}{0.4cm}}
+\newcommand{\MakesBig}{\rule[0.0cm]{0.0cm}{0.32cm}} % really small
+\newcommand{\MakeSBig}{\rule[0.0cm]{0.0cm}{0.35cm}} % really small
+\newcommand{\MakeSSBig}{\rule[0.0cm]{0.0cm}{0.37cm}} % really small
+\newcommand{\MakeVBig}{\rule[-.2cm]{0cm}{0.9cm}}
+\newcommand{\sep}[1]{\,\left|\, {#1} \MakeBig\right.}
+\newcommand{\sepS}[1]{\!\MakeSSBig\left|\, {#1} \MakeSBig \right.}
+\newcommand{\cardin}[1]{\left| {#1} \right|}
+\newcommand{\cardinx}[1]{\left| \MakeBig{#1} \right|}
+\newcommand{\Lbrc}[1]{\left\{ {#1} \right.}
+\newcommand{\brc}[1]{\left\{ {#1} \right\}}
+\newcommand{\sbrc}[1]{\!\left\{ {#1} \right\}}
+%\newcommand{\pth}[1]{\left({#1}\right)}
+%\newcommand{\pthx}[1]{\left({#1}\right)}
+\newcommand{\pth}[2][\!]{#1\left({#2}\right)}
+
+\newcommand{\Lpth}[1]{\left({#1}\MakeVBig\right.}
+\newcommand{\Rpth}[1]{\left.{#1}\MakeVBig\right)}
+
+\newcommand{\pbrcS}[1]{\left[ {#1} \right]}
+
+\newcommand{\pbrc}[1]{\!\!\left[ {#1} \MakeBig \right]}
+\newcommand{\norm}[1]{\left\| {#1}  \right\|}
+\newcommand{\pnorm}[1]{\left\| {#1} \MakeBig \right\|}
+\newcommand{\dist}[1]{\left\| {#1}  \right\|}
+%\newcommand{\distNS}[1]{\left\| {#1}  \right\|}
+
+\newcommand{\var}{\mathop{\mathrm{var}}}
+\newcommand{\pbrcx}[1]{\left[ {#1} \right]}
+\newcommand{\Prob}[1]{\mathop{\mathbf{Pr}}\!\pbrcx{#1}}
+\newcommand{\ProbLTR}{\mathbf{Pr}}
+\newcommand{\Ex}[1]{\mathop{\mathbf{E}}\!\pbrcx{#1}}
+\newcommand{\ExExt}[2]{\mathop{\mathbf{E}_{#1}}\!\pbrcx{#2}}
+\newcommand{\Var}[1]{\mathop{\mathbf{V}}\!\pbrcx{#1}}
+\newcommand{\Se}{{\mathbb{S}}}
+
+
+\newcommand{\ceil}[1]{\left\lceil {#1} \right\rceil}
+\newcommand{\floor}[1]{\left\lfloor {#1} \right\rfloor}
+\newcommand{\polylog}{\mathop{\mathrm{polylog}}}
+\newcommand{\DCH}{{\mathop{\mathrm{Discrete{}Hull}}}}
+\newcommand{\intersections}{\kappa}
+
+\newcommand{\ComplexitySparse}[1]{{ {#1} \log{{#1}} +
+   \pth{\frac{{#1}}{n}}^2 \intersections}}
+\newcommand{\Conflict}{\mathop{Conf}}
+\newcommand{\nfrac}[2]{{#1}/{#2}}
+\newcommand{\CH}{{\cal CH}}
+\newcommand{\CHX}[1]{{\cal CH}\pth{#1}}
+\newcommand{\CS}{\mathop{\mathrm{CS}}}
+\newcommand{\SSd}{\hat{\cal S}}
+\newcommand{\SQR}{{S'}}
+\newcommand{\LEDA}{{\tt LEDA}}
+\newcommand{\ORAC}{{\cal O}}
+\newcommand{\Decay}{{\mathop{\mathrm{Decay}}}}
+%\newcommand{\EscapePoint}{${\text {\tt EscapePoint}}_{\gamma}$}
+\newcommand{\permut}[1]{\left\langle {#1} \right\rangle}
+\newcommand{\MST}{{\cal M}}
+\newcommand{\TZ}{{\cal TZ}}
+% I really find the spacing abysmal. The A has its bottom visibly
+% below the baseline!
+%\newcommand{\Arr}{\mathop{\mathrm{\EuScript{A}}}}
+\newcommand{\Arr}{\EuScript{A}}
+%\newcommand{\VD}{{\cal VD}}
+%\newcommand{\ArrVD}{\mathop{\mathrm{\A_{\VD}}}}
+%\newcommand{\ArrZVD}{\mathop{\mathrm{\A_{\gamma,\VD}}}}
+%\newcommand{\ArrNM}{\mathop{\mathrm{\A^{|}}}}
+%\newcommand{\ArrZNM}{\mathop{\mathrm{\A^{|}_\gamma}}}
+%\newcommand{\TSPLIT}{\mathop{\mathrm{\mathfrak W}}}
+%\newcommand{\CTS}{\mathop{\mathrm{\cal CT}_{\TSPLIT}}}
+%\newcommand{\CTZS}{\mathop{\mathrm{\cal CT}_{{\cal SP},\gamma}}}
+%\newcommand{\CTNM}{\mathop{\mathrm{\cal CT}^{|}}}
+%\newcommand{\CTZNM}{\mathop{\mathrm{\cal CT}^{|}_\gamma}}
+%\newcommand{\CTLNM}{\mathop{\mathrm{\cal CT}^{|}_l}}
+%\newcommand{\CTLVD}{\mathop{\mathrm{\cal CT}^{|}_{\VD{},l}}}
+%\newcommand{\CTVD}{\mathop{\mathrm{\cal CT}_{\VD}}}
+%\newcommand{\CTZVD}{\mathop{\mathrm{\cal CT}_{\gamma,\VD}}}
+%\newcommand{\INDEX}{\mathop{\mathrm{index}}}
+%\newcommand{\NEXT}{\mathop{\mathrm{next}}}
+%\newcommand{\Expand}{\mathop{\mathtt{Expand}}}
+%\newcommand{\Hist}{\mathop{\mathrm{Hist}}}
+
+\newcommand{\cl}{\mathop{\mathrm{cl}}}
+\newcommand{\RANK}{\mathop{\mathrm{rank}}}
+\newcommand{\father}{\mathop{\mathrm{father}}}
+\newcommand{\CTkZS}{\mathop{\mathrm{\cal CT}_{{\cal SP},k}}}
+\newcommand{\CTkZNM}{\mathop{\mathrm{\cal CT}^{|}_k}}
+\newcommand{\CTkZVD}{\mathop{\mathrm{\cal CT}_{\VD, k}}}
+
+\newcommand{\HTZ}{\mathop{\mathrm{\cal HT}_\gamma}}
+\newcommand{\Zone}{{\cal Z}}
+\newcommand{\District}{{\cal D}}
+\newcommand{\SC}{{\cal S}}
+\newcommand{\HL}{{V_L}}
+\newcommand{\HR}{{V_R}}
+\newcommand{\dm}{{\cal D}}%
+\newcommand{\bd}{{\partial}}%
+\newcommand{\eps}{{\varepsilon}}%
+\renewcommand{\Re}{{\rm I\!\hspace{-0.025em} R}}
+\newcommand{\reals}{\Re}
+\newcommand{\inter}{\mathop{int}}
+\newcommand{\pspan}{\mathop{pspan}}
+\newcommand{\leaf}{\mathop{\mathrm{leaf}}}
+\newcommand{\ray}{\mathop{ray}}
+\newcommand{\ZZ}{{\sf Z\!\hspace{-0.2em} Z}}
+\newcommand{\intsupplanes}{P} 
+\newcommand{\ochoose}[2]{{#1}^{\underline{#2}}}
+\newcommand{\smalldef}[1]{\index{#1} {\em #1}}
+\newcommand{\concat}{\;||\;}
+\newcommand{\dpair}{{\D\text{-pair}}}
+\newcommand{\simp}[1]{\mathop{\mathrm{simp}_{#1}}}
+\newcommand{\simpx}[1]{\mathop{\mathrm{simp'}_{#1}}}
+\newcommand{\DPAIRS}[1]{{#1}_{\text{pairs}}}
+\newcommand{\QD}{{\cal{Q}}}
+\newcommand{\hg}{{\hat{S}}}
+\newcommand{\mug}{{\mu_{\gamma}}}
+\newcommand{\mugg}{{\mu_{\gamma}}}
+\newcommand{\mul}{{\mu_{l}}}
+\newcommand{\splt}{{\nu}}
+
+%\newcommand{\replyMicha}[2]{{{\bf Micha:}{#1}}{{\bf Sariel:}{#2}}}
+%\newcommand{\micha}[1]{{{\bf Micha:}{#1}}}
+
+\newcommand{\micha}[1]{{
+      {$\rule[-0.12cm]{0.2in}{0.5cm}$\fbox{\tt
+            Micha:} }
+      #1
+      {$\rule[0.1cm]{0.3in}{0.1cm}$\fbox{\tt
+            end}$\rule[0.1cm]{0.3in}{0.1cm}$}
+      }
+   }
+
+\newcommand{\replyMicha}[2]{{
+      {$\rule[-0.12cm]{0.2in}{0.5cm}$\fbox{\tt
+            Micha:} }
+      #1
+      {$\rule[0.1cm]{0.3in}{0.1cm}$\fbox{\tt
+            me:}$\rule[0.1cm]{0.3in}{0.1cm}$}
+      
+      #2
+      {$\rule[0.1cm]{0.3in}{0.1cm}$\fbox{\tt
+            end}$\rule[0.1cm]{0.3in}{0.1cm}$}
+      }
+   }
+
+%\newcommand{\T}{{\cal{T}}}
+\providecommand{\Matousek}{Matou{\v s}ek\xspace}
+\providecommand{\Badoiu}{B\u{a}doiu\xspace}
+\providecommand{\Barany}{B{\'a}r{\'a}ny\xspace}
+\providecommand{\Bronimman}{Br{\"o}nnimann\xspace}
+\providecommand{\Gartner}{G{\"a}rtner\xspace}
+\providecommand{\Erdos}{Erd{\H o}s\xspace}
+\providecommand{\Lovasz}{Lov\'asz\xspace}
+
+\newcommand{\change}[1]{{
+      {$\rule[-0.12cm]{0.2in}{0.5cm}$\fbox{\tt
+            start}\marginpar{$\left( \MakeBig
+      \right.\longleftarrow $} }
+      #1
+     {$\rule[0.1cm]{0.3in}{0.1cm}$\fbox{\tt
+            end}\marginpar{$\longrightarrow \left. \MakeBig
+      \right)$}$\rule[0.1cm]{0.3in}{0.1cm}$}
+      }
+   }
+%\remove{
+%\newcommand{\change}[1]{#1}
+%}
+\newcommand{\changeInternal}[1]{} %\change{#1}}
+\newcommand{\messagex}[1]{{
+      {$\rule[-0.12cm]{0.3in}{0.5cm}$\fbox{\sl
+            MSG:} }
+      #1
+     {$\rule[0.1cm]{0.3in}{0.2cm}$\fbox{\sl
+            end}$\rule[0.1cm]{0.3in}{0.1cm}$}
+      }
+   }
+
+
+\providecommand{\comment}[1]{{\bf {(*** #1 ***)}\marginpar{comment!}}}
+\newcommand{\powS}[1]{\sigma(  {{#1}} )}
+\newcommand{\nofrac}[2]{{#1}/{#2}}
+\newcommand{\Fk}[1]{\F_{\leq{#1}}}
+      
+% %%%%%%%%%%%%%%%%%%%% program macros %%%%%%%%%%%%%%%%%
+
+\newcommand{\Do}{{\small\bf do}\ }
+\newcommand{\End}{{\small\bf end}\ }
+\newcommand{\Return}{{\small\bf return\ }}
+\newcommand{\Proc}[1]{#1\+}
+\newcommand{\Returns}{{\small\bf returns}}
+\newcommand{\Procbegin}{{\small\bf begin}}
+\newcommand{\If}{{\small\bf if}\ }
+\newcommand{\Then}{{\small\bf then}\ }
+\newcommand{\Else}{{\small\bf else}\ }
+\newcommand{\rElse}{{\small\bf else}\ }
+\newcommand{\Elseif}{{\small\bf elseif}\ }
+\newcommand{\Foreach}{{\small\bf for each}\ }
+\newcommand{\Endif}{{\small\bf end\ if\ }}
+\newcommand{\Break}{{\small\bf break }}
+\newcommand{\Endproc}[1]{{\small\bf end} #1}
+\newcommand{\For}{{\small\bf for}\ }
+\newcommand{\Endfor}{{\small\bf end\ for}}
+\newcommand{\While}{{\small\bf while}\ }
+\newcommand{\Endwhile}{{\small\bf end\ while}}
+\newcommand{\LogAnd}{{\small\bf and}}
+
+\newcommand{\Repeat}{{\small\bf repeat}\ }
+\newcommand{\Until}{{\small\bf Until}}
+\newcommand{\Loop}{{\bf loop}\ }
+\newcommand{\Endloop}{{\bf end\ loop}\ }
+
+\newcommand{\xbeginlgox}{\begin{minipage}{1in}\begin{tabbing}
+        \quad\=\qquad\=\qquad\=\qquad\=\qquad\=\qquad\=\qquad\=\kill}
+\newcommand{\xendlgox}{\end{tabbing}\end{minipage}}
+\newenvironment{algorithm}{\begin{tabular}{|l|}\hline\xbeginlgox}
+        {\xendlgox\\\hline\end{tabular}}
+
+\newenvironment{program}{
+   \begin{minipage}{4.0in}
+   \begin{tabbing}
+      \= \ \ \ \= \ \ \ \ \= \ \ \ \ \= \ \ \ \ \=
+      \ \ \ \ \= \ \ \ \ \= \ \ \ \ \= \ \ \ \ \=
+      \ \ \ \ \= \ \ \ \ \= \ \ \ \ \= \ \ \ \ \= \kill
+}{
+   \end{tabbing}
+   \end{minipage}
+}
+\newcommand{\XSays}[2]{{
+      {$\rule[-0.12cm]{0.2in}{0.5cm}$\fbox{\tt
+            #1:} }
+      #2
+      \marginpar{#1}
+      {$\rule[0.1cm]{0.3in}{0.1cm}$\fbox{\tt
+            end}$\rule[0.1cm]{0.3in}{0.1cm}$}
+      }
+   }
+\newcommand{\sariel}[1]{{\XSays{Sariel}{#1}}}
+\newcommand{\Sariel}[1]{{\XSays{Sariel}{#1}}}
+
+
+\providecommand{\tildegen}{{\protect\raisebox{-0.1cm}
+      {\symbol{'176}\hspace{-0.01cm}}}}
+
+\providecommand{\SarielWWWPapersAddr}
+        {http://www.uiuc.edu/\string~sariel/papers}
+
+\providecommand{\SarielWWWPapers}
+    {http://www.uiuc.edu/\tildegen{}sariel/papers}
+
+\providecommand{\urlSarielPaper}[1]{
+     \href{\SarielWWWPapersAddr/#1}
+            {\SarielWWWPapers{}/#1}}
+\providecommand{\urlSarielPaperExt}[2]
+{\href{\SarielWWWPapersAddr/#1}
+            {\SarielWWWPapers{}/#2}}
+
+
+%\providecommand{\tildegen}{{\protect\raisebox{-0.1cm}{\symbol{'176}}}}
+
+
+\newcommand{\Vol}{\mathop{\mathrm{Vol}}}
+\newcommand{\DAG}{{$\mathrm{DAG}$}}
+\newcommand{\WalkSplit}{{\tt Split}}
+\newcommand{\PointLocLeft}{{\tt PointLocateLeftCompatible}}
+\newcommand{\PointLocRight}{{\tt PointLocateRightCompatible}}
+\newcommand{\PointLocate}{{\tt PointLocate}}
+\newcommand{\WalkExpand}{{\tt Expand}}
+\newcommand{\walkOutList}{{\ensuremath{L}}}
+
+\newcommand{\cuthS}{\hat{S}}
+
+
+%\def\eqref#1{Equation~(\ref{equation:#1})}
+\newcommand{\Eqref}[1]{Eq.~(\ref{equation:#1})}
+\newcommand{\Eqrefpage}[1]{Eq.~(\ref{equation:#1})$_\text{p\pageref{equation:#1}}$}
+\newcommand{\obsref}[1]{Observation~\ref{observation:#1}}
+
+\newcommand{\lemlab}[1]{\label{lemma:#1}}
+\newcommand{\lemref}[1]{Lemma~\ref{lemma:#1}}
+
+\newcommand{\itemlab}[1]{\label{item:#1}}
+\newcommand{\itemref}[1]{(\ref{item:#1})}
+
+\newcommand{\exmref}[1]{Example~\ref{example:#1}}
+\providecommand{\conref}[1]{Conjecture~\ref{conj:#1}}
+\newcommand{\algref}[1]{Algorithm~\ref{alg:#1}}
+\newcommand{\factref}[1]{Fact~\ref{fact:#1}}
+\newcommand{\proref}[1]{Proposition~\ref{prop:#1}}
+\newcommand{\propref}[1]{Proposition~\ref{prop:#1}}
+\newcommand{\exeref}[1]{Exercise~\ref{exer:#1}}
+\newcommand{\probref}[1]{Problem~\ref{prob:#1}}
+\newcommand{\theoref}[1]{Theorem~\ref{theo:#1}}
+\newcommand{\theref}[1]{Theorem~\ref{theo:#1}}
+\newcommand{\thmref}[1]{Theorem~\ref{theo:#1}}
+\newcommand{\corref}[1]{Corollary~\ref{cor:#1}}
+\newcommand{\figref}[1]{Figure~\ref{fig:#1}}
+\newcommand{\tabref}[1]{Table~\ref{tab:#1}}
+\newcommand{\Figref}[1]{Figure~\ref{fig:#1}}
+\newcommand{\chapref}[1]{Chapter~\ref{chap:#1}}
+\newcommand{\apndref}[1]{Appendix~\ref{apnd:#1}}
+
+\newcommand{\subsecref}[1]{Section~\ref{subsec:#1}}
+\newcommand{\remref}[1]{Remark~\ref{rem:#1}}
+\newcommand{\defref}[1]{Definition~\ref{def:#1}}
+\newcommand{\mchapref}[1]{\ref{chap:#1}}
+\newcommand{\msecref}[1]{\ref{sec:#1}}
+\newcommand{\msubsecref}[1]{\ref{subsec:#1}}
+\newcommand{\mtheoref}[1]{\ref{theo:#1}}
+\newcommand{\mfigref}[1]{\ref{fig:#1}}
+
+\providecommand{\conlab}[1]{\label{conj:#1}}
+\newcommand{\remlab}[1]{\label{rem:#1}}
+\newcommand{\obslab}[1]{\label{observation:#1}}
+\newcommand{\alglab}[1]{\label{alg:#1}}
+\newcommand{\eqlab}[1]{\label{equation:#1}}
+\newcommand{\exmlab}[1]{\label{example:#1}}
+
+\newcommand{\clmlab}[1]{\label{claim:#1}}
+\newcommand{\clmref}[1]{Claim~\ref{claim:#1}}
+
+\providecommand{\deflab}[1]{\label{def:#1}}
+\providecommand{\deflabel}[1]{def:#1}
+\newcommand{\factlab}[1]{\label{fact:#1}}
+\newcommand{\prolab}[1]{\label{prop:#1}}
+\newcommand{\proplab}[1]{\label{prop:#1}}
+\newcommand{\exelab}[1]{\label{exer:#1}}
+\newcommand{\theolab}[1]{\label{theo:#1}}
+\newcommand{\thmlab}[1]{\label{theo:#1}}
+\newcommand{\problab}[1]{\label{prob:#1}}
+\newcommand{\thelab}[1]{\label{theo:#1}}
+\newcommand{\chaplab}[1]{\label{chap:#1}}
+\newcommand{\eqnlab}[1]{\label{eqn:#1}}
+\newcommand{\corlab}[1]{\label{cor:#1}}
+\newcommand{\figlab}[1]{\label{fig:#1}}
+\newcommand{\tablab}[1]{\label{tab:#1}}
+
+\newcommand{\seclab}[1]{\label{sec:#1}}
+\newcommand{\secref}[1]{Section~\ref{sec:#1}}
+
+\newcommand{\apndlab}[1]{\label{apnd:#1}}
+\newcommand{\subseclab}[1]{\label{subsec:#1}}
+
+\newcommand{\mymathtt}[1]{{\ensuremath{\text{\tt{#1}}}}}
+\newcommand{\CompZoneWOrac}{{\mymathtt{CompZoneWithOracle}}}
+\newcommand{\CompZoneOnline}{{\mymathtt{CompZoneOnline}}}
+\newcommand{\CompZonePoly}{{\mymathtt{CompZonePoly}}}
+\newcommand{\CompLevel}{{\mymathtt{CompLevel}}}
+\newcommand{\EscapePoint}{\ensuremath{\mymathtt{EscapePoint}_\gamma}}
+\newcommand{\SplitGeom}{\mymathtt{SplitGeom}}
+   
+\newcommand{\level}{\mathop{\mathrm{level}}}
+\newcommand{\slope}{\mathop{\mathrm{slope}}}
+\newcommand{\length}{\mathop{\mathrm{length}}}
+\newcommand{\cmerge}{\mathop{\mathrm{merge}}}
+\newcommand{\csplit}{\mathop{\mathrm{split}}}
+\newcommand{\Q}{{\mathcal{Q}}}
+
+%\newcommand{\OptExt}{\mathop{\mathrm{Opt}}}
+\newcommand{\U}{{\cal U}}
+\newcommand{\beps}{{\beta^\eps}}
+\newcommand{\ieps}{{i^\eps}}
+\newcommand{\Ieps}{{I_\eps}}
+\newcommand{\diam}{\mathop{\mathrm{diam}}}
+
+\newcommand{\bfa}{\mathbf{a}}
+\newcommand{\bfb}{\mathbf{b}}
+\newcommand{\bfi}{\mathbf{i}}
+\newcommand{\bfz}{\mathbf{z}}
+\newcommand{\bfn}{\mathbf{n}}
+\newcommand{\bfx}{\mathbf{x}}
+\newcommand{\bfy}{\mathbf{y}}
+\newcommand{\bfm}{\mathbf{m}}
+
+%\newcommand\B{\mathcal{B}}
+\newcommand{\cc}{\mathbf{c}}
+
+\newcommand{\etal}{\textit{et~al.}\xspace}
+
+\newcommand{\comm}[1]{\marginpar[\hfill$\longrightarrow$]{$\longleftarrow$}$\,\mbox{}^{\rm com}${\sf #1}$\mbox{}_{\rm ment}\,$}
+
+
+\newcommand{\DenseSet}{{\mathop{\mathrm{DenseSet}}}}
+\newcommand{\trans}{\mathop{\mathrm{trans}}}
+\newcommand{\SP}{\mathop{\cal SP}}
+\newcommand{\Ext}{\mathop{\mathrm{Ext}}}
+\newcommand{\ExtUp}{\mathop{\mathrm{ExtUp}}}
+\newcommand{\ExtDown}{\mathop{\mathrm{ExtDown}}}
+\newcommand{\HC}{{\mathcal H}}
+\newcommand{\J}{{{\mathcal J}}}
+\newcommand{\vdist}{{\mathrm{dist}}_v}
+\newcommand{\hplane}{{\mathrm{h}}}
+%\newcommand{\func}[1]{\widehat{#1}}
+\newcommand{\Otilde}{\widetilde{O}}
+
+
+%\providecommand{\tfrac}[2]{{\textstyle{\frac{#1}{#2}}}}
+
+\renewcommand{\L}{{\mathcal L}}
+\newcommand{\LL}{\mathfrak L}
+\newcommand{\UU}{\mathfrak U}
+\newcommand{\naive}{na\"{\i}ve}
+\newcommand{\radius}{\mathop{\mathrm{radius}}}
+\newcommand{\dotprod}[2]{{#1}\cdot{#2}}
+\newcommand{\DotProd}[2]{\permut{{#1},{#2}}}
+\newcommand{\mysec}[1]{\setcounter{equation}{0}
+   \section{#1}\mark{#1}}
+%\def\nearest{\nu}
+
+
+\newcommand{\aftermath}{%
+   \par\vspace{-\belowdisplayskip}\vspace{-\parskip}\vspace{-\baselineskip}}
+
+\newcommand{\aftermathA}{\par\vspace{-\baselineskip}}
+
+\newcommand{\envFrame}[1]{\begin{center}\fbox{\begin{minipage}[c]{0.75\textwidth}{#1}\end{minipage}}\end{center}}
+
+\newcommand{\envFrameN}[1]{\begin{center}\fbox{%
+          \begin{minipage}[c]{0.75\textwidth}%
+              \vspace{-0.4cm}%
+              {#1}\end{minipage}}\end{center}}
+
+\newcommand{\inFullVerOnWeb}[1]{Omitted. Appears in the
+   full-version, available from
+   \url{http://www.uiuc.edu/~sariel/research/papers/}.}
+\newcommand{\leftmarginpar}[1]{
+   \reversemarginpar
+   \marginpar{#1}
+   \normalmarginpar
+   }
+\newcommand{\Cincludegraphics}[1]{\centerline{\includegraphics{#1}}}
+
+\newcommand{\ProblemC}[1]{{\textsf{\textcolor{red}{#1}\index{Problem!#1}}}}
+\newcommand{\ProblemInd}[2]{\textsf{\textcolor{red}{#1}\index{Problem!#2}}}
+\newcommand{\ProblemNoRef}[1]{\textsf{\textcolor{red}{#1}}}
+\newcommand{\NPProblemInd}[4]{
+   \begin{center}
+
+       ~
+
+       \fbox{
+          \begin{minipage}{0.8\linewidth}
+              \vspace{-0.6cm}\hspace{-0.35cm}
+              {\bf Problem:} \ProblemInd{#1}{#2}
+              \vspace{+0.2cm}
+
+              \noindent\emph{Instance:} {#3}
+              
+              \noindent\emph{Question:} {#4}
+          \end{minipage}
+       }
+   \end{center}
+   }
+\newcommand{\NPProblem}[3]{\NPProblemInd{#1}{#1}{#2}{#3}}
+
+\newcommand{\NPProblemOpt}[4]{
+   \begin{center}
+
+       ~
+
+       \fbox{
+          \begin{minipage}{0.7\linewidth}
+              \vspace{-0.6cm}\hspace{-0.35cm}
+              {\bf Problem:} \ProblemInd{#1}{#2}%
+              \vspace{+0.2cm}
+
+              \noindent\emph{Instance:} {#3}
+              
+              \noindent\emph{Output:} {#4}
+          \end{minipage}
+       }
+   \end{center}
+   }
+
+\newcommand{\Hint}[1]{[{\bf{}\bf{Hint:}} {#1}{\bf]}}
+\newcommand{\IncludeGraphics}[1]{\centerline{\includegraphics[width=5cm]{#1}}}
+\newcommand{\points}[1]{{\bf [{#1} Points]}}
+\newcommand{\Ungor}{\"{U}ng\"{o}r}
+
+\newcommand{\atgen}{\symbol{'100}}
+\newcommand{\SarielThanks}[1]{\thanks{Department of Computer
+      Science; 
+      University of Illinois; 
+      201 N. Goodwin Avenue;
+      Urbana, IL, 61801, USA;
+      {\tt sariel\atgen{}uiuc.edu}; {\tt
+         \url{http://www.uiuc.edu/\string~sariel/}.} #1}}
+
+\newenvironment{itemizeA}{\vspace{-0.3\baselineskip}\begin{itemize}%
+       \setlength{\parskip}{0cm}
+       \setlength{\parsep}{0cm}
+       \setlength{\partopsep}{0cm}
+       \setlength{\topsep}{0cm}
+       \setlength{\itemsep}{0.1cm}}{\end{itemize}
+   \vspace{-0.5\baselineskip}}
+
+\newenvironment{enumerateRomanA}%
+     {\vspace{-0.3\baselineskip}\begin{enumerate}[(i)]%
+              \setlength{\parskip}{0cm}
+       \setlength{\parsep}{0cm}
+       \setlength{\partopsep}{0cm}
+       \setlength{\topsep}{0cm}
+       \setlength{\itemsep}{0.1cm}}{\end{enumerate}
+   \vspace{-0.5\baselineskip}}
+\providecommand{\TPDF}[2]{\texorpdfstring{#1}{#2}}
+
+\newcommand{\TwoFigures}[6]{\begin{tabular}{cc}
+        \begin{minipage}{0.48\linewidth}
+            \begin{center}
+                {\includegraphics[#1]{{#2}}}
+            \end{center}
+        \end{minipage}
+        &
+        \begin{minipage}{0.48\linewidth}
+            \centerline{\includegraphics[#4]{{#5}}}
+        \end{minipage}
+        \\
+        ~\\[-0.2cm]
+        {#3} & {#6}
+    \end{tabular}}
+\newcommand{\ThreeFigures}[9]{\begin{tabular}{ccc}
+        \begin{minipage}{0.31\linewidth}
+            \begin{center}
+                {\includegraphics[#1]{{#2}}}
+            \end{center}
+        \end{minipage}
+        &
+        \begin{minipage}{0.31\linewidth}
+            \centerline{\includegraphics[#4]{{#5}}}
+        \end{minipage}
+        &
+        \begin{minipage}{0.31\linewidth}
+            \centerline{\includegraphics[#7]{{#8}}}
+        \end{minipage}
+        \\
+        ~\\[-0.2cm]
+        {#3} & {#6} & {#9}
+    \end{tabular}}
+
+%\newcommand{\dirEdge}[2]{\pth{#1, #2}}
+%\newcommand{\dirEdge}[2]{\overrightarrow{{#1}{#2}}}
+\newcommand{\dirEdge}[2]{\left({{#1} \rightarrow {#2}} \right)}
+\newcommand{\ndirEdge}[2]{{{#1} \rightarrow {#2}} }
+
+\newcommand{\HERE}{
+
+   \rule{4cm}{4cm}
+
+}
+
+
+\newcommand{\Copt}{C_\mathrm{opt}}
+
+\newcommand{\CenterPnt}{\overline{\mathrm{c}}}
+\newcommand{\CenterPntA}{\overline{\mathrm{e}}}
+\newcommand{\CenterPntB}{\overline{\mathrm{k}}}
+\newcommand{\CenterPntC}{\overline{\mathrm{u}}}
+
+\newcommand{\CenterPntOpt}{\overline{\mathrm{o}}}
+\newcommand{\CenterPntOptA}{\overline{\mathrm{o'}}}
+
+\newcommand{\BlueCLR}[1]{\textcolor{blue}{#1}}
+\newcommand{\GreenCLR}[1]{\textcolor{green}{#1}}
+\newcommand{\DarkgreenCLR}[1]{\textcolor{darkgreen}{#1}}
+\newcommand{\DarkblueCLR}[1]{\textcolor{darkblue}{#1}}
+
+\newcommand{\emphind}[1]{\emph{#1}\index{#1}}
+\definecolor{blue25}{rgb}{0,0,0.25}
+\newcommand{\emphic}[2]{%
+     \textcolor{blue25}{%
+         \textbf{\emph{#1}}}%
+         \index{#2}}
+
+\newcommand{\emphi}[1]{\emphic{#1}{#1}}
+\newcommand{\emphOnly}[1]{\emph{\textcolor{blue25}{\textbf{#1}}}}
+
+\newlength{\savedparindent}
+\newcommand{\SaveIndent}{\setlength{\savedparindent}{\parindent}}
+\newcommand{\RestoreIndent}{\setlength{\parindent}{\savedparindent}}
+
+\newlength{\savedparindentx}
+\newcommand{\SaveIndentX}{\setlength{\savedparindentx}{\parindent}}
+\newcommand{\RestoreIndentX}{\setlength{\parindent}{\savedparindentx}}
+
+\definecolor{shadecolor}{gray}{0.80}
+\newcommand{\MoreDetailsGReg}[2]{%
+    \begin{shaded}%
+     \noindent\textbf{#1}
+              #2
+    \end{shaded}
+}
+
+\newcommand{\InGray}[1]{%
+   \SaveIndent{} %
+   \noindent{}
+   \fcolorbox[rgb]{0,0,0}{0.95,0.95,0.95}{
+%      \begin{minipage}{0.965\linewidth} %
+      \begin{minipage}{0.955\linewidth} %
+          \RestoreIndent{}%
+          #1
+      \end{minipage}
+   }
+}
+
+
+\newcommand{\Undefine}[1]{\let#1\undefined}
+\renewcommand{\th}{th\xspace}
+
+\newcommand{\DisplayWrap}[2][1]{
+        \newline
+        \begin{minipage}{#1\linewidth}
+           \vspace*{0.2cm}
+           #2
+           \vspace*{0.05cm}
+        \end{minipage}
+       \newline
+    }
+
+% sariel.sty - end of file
+
+%\def\sarielStyleFile{TRUE}
+%\fi  % for if on top of file for prevent inclusion twice of this
+     % package.
+

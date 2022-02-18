@@ -1,0 +1,44 @@
+% You need to insert the following line, just before \maketitle:
+%
+%------------------------------------------------------
+%% Do not delete - Reset footnotes to numbers
+%\setfnsymbol{stars}
+%------------------------------------------------------
+
+
+\usepackage{tikz}  % Used for the extended footnotes if needed
+\usepackage{pifont}%
+\usepackage[symbol*]{footmisc}
+
+\newcommand*\circled[1]{\footnotesize\tikz[baseline=(char.base)]{
+    \node[shape=circle,draw,inner sep=0.2pt] (char) {#1};}}
+
+%\usepackage{fancybox}
+
+\DefineFNsymbols*{stars}[text]{%
+   {\ding{172}} %
+   {\ding{173}} %
+   {\ding{174}} %
+   {\ding{175}} %
+   {\ding{176}} %
+   {\ding{177}} %
+   {\ding{178}} %
+   {\ding{179}} %
+   {\ding{180}} %
+%   {{\ovalbox{10}}}%
+   {{\protect\circled{{\tiny 10}}}}%
+   {{\protect\circled{{\tiny 11}}}}%
+   {{\protect\circled{{\tiny 12}}}}%
+   {{\protect\circled{{\tiny 13}}}}%
+   {{\protect\circled{{\tiny 14}}}}%
+   {{\protect\circled{{\tiny 15}}}}%
+   {{\protect\circled{{\tiny 16}}}}%
+   {{\protect\circled{{\tiny 17}}}}%
+   {{\protect\circled{{\tiny 18}}}}%
+   {{\protect\circled{{\tiny 19}}}}%
+   {{\protect\circled{{\tiny 20}}}}%
+   {{\protect\circled{{\tiny 21}}}}%
+   {{\protect\circled{{\tiny 22}}}}%
+}%
+%\setfnsymbol{stars}
+

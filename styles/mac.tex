@@ -1,0 +1,346 @@
+%MACROS
+%
+%MATH MACROS
+%
+\newcommand{\dd}{ ,\, \ldots,\, }
+\newcommand{\cd}{\,  \cdots \,  }
+\newcommand{\vd}{\,  \vdots \,  }
+\newcommand{\ib}{\subseteq }
+\newcommand{\nmem}{\not\member}
+\newcommand{\as}{\mbox{\,:=\,}}
+\newcommand{\st}{\::\:}
+\newcommand{\es}{\emptyset}
+\newcommand{\mt}{\rightarrow}
+\newcommand{\imp}{\Rightarrow}
+%\newcommand{\dfrac}[2]{\displaystyle{\frac{#1}{#2}}}
+\newcommand{\arro}[1]{\mathop{#1}\limits^{\rightarrow}}
+\newcommand{\larro}[1]{{\mathop{#1}\limits^{\longrightarrow}}}
+\newcommand{\barro}[1]{{\mathop{#1}\limits^{\longleftarrow}}}
+\newcommand{\dhat}[1]{{\skew4\hat\hat #1}}
+\def\floor#1{\left\lfloor #1 \right\rfloor}
+\newcommand{\bfloor}[1]{\lfloor #1 \rfloor}
+\def\ceil#1{\left \lceil #1 \right\rceil}
+\newcommand{\bceil}[1]{\lceil #1 \rceil}
+%
+%\newcommand{\reals}{{\rm I\!\hspace{-0.025em} R}}
+%\newcommand{\naturals}{\mbox{\rm I$\!$N}}
+%\newcommand{\complex}{\mbox{\rm $~\vrule height6.5pt width0.5pt depth0.3pt\!\!$C}}
+%\newcommand{\rational}{\mbox{\rm $~\vrule height6.5pt width0.5pt
+%depth0.3pt\!\!$Q}}
+%%\newcommand{\integers}{\mbox{\rm \lower0.3pt\hbox{$\angle\!\!\!$}Z}}
+%\newcommand{\sphere}{{\cal S}}
+%\newcommand{\integers}{{\sf Z}\!\hspace{-.25em}{\sf Z}}
+%\newcommand{\eu}{{\cal E}}
+\newcommand{\euclidean}{\ensuremath{\mathbb{E}}}
+\newcommand{\reals}{\ensuremath{\mathbb{R}}}
+\newcommand{\sphere}{\ensuremath{\mathbb{S}}}
+\newcommand{\integers}{\ensuremath{\mathbb{Z}}}
+\newcommand{\naturals}{\ensuremath{\mathbb{N}}}
+\newcommand{\nat}{\ensuremath{\mathbb{N}}}
+\newcommand{\complex}{\ensuremath{\mathbb{C}}}
+\newcommand{\rationals}{\ensuremath{\mathbb{Q}}}
+\newcommand{\seg}[1]{\overline{#1}}
+\newcommand{\li}{\item}
+\newcommand{\rbox}{\begin{flushright}
+	\vspace{-4mm}
+	$\Box$
+	\vspace{-1mm}
+	\end{flushright}}
+\newcommand{\dstyle}{\displaystyle}
+\newcommand{\sstyle}{\scriptstyle}
+\def\etal{\emph{et al.}}
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+\newcounter{listcounter}
+\newcommand{\chlist}[1]
+{\renewcommand{\thelistcounter}{#1{listcounter}}}
+\renewcommand{\thelistcounter}{\roman{listcounter}}
+%
+\newcommand{\descr}{\begin{list}{(\thelistcounter)}
+{\usecounter{listcounter}
+\setlength{\rightmargin}{0mm}}}
+%
+%
+% New theorem environments.
+%
+%
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{theorem}[lemma]{Theorem}
+\newtheorem{cor}[lemma]{Corollary}
+\newtheorem{prop}[lemma]{Proposition}
+\newtheorem{exer}[lemma]{Exercise}
+\newtheorem{rmk}[lemma]{Remark}
+\newtheorem{claim}[lemma]{Claim}
+\newtheorem{fact}[lemma]{Fact}
+\newtheorem{Def}[lemma]{Definition}
+%
+%New environments.
+%
+%\newenvironment{pf}{{\bf Proof:}}{{\rbox}}
+%\newenvironment{Pf}{\par\noindent{\bf Proof:}}{\mbox{}\hfill$\Box$}
+%%\newenvironment{pf}{{\bf Proof:}}{{\bf
+%%Q.E.D.} \vspace{3mm}\\ \noindent}
+\newif\ifpfsymb
+\newenvironment{pf}{\par\addvspace{6pt}\addtocounter{proof}{1}
+       \noindent{\bf Proof:}}{{\ifnum\value{proof}>0
+		\hfill\hbox{\mbox{}\hfill$\Box$}\addtocounter{proof}{-1}
+                \par\addvspace{10pt} \else\par\fi}}
+%
+\newenvironment{Pf}{\par\addvspace{6pt}\addtocounter{proof}{1}
+       \noindent{\bf Proof:}}{{\ifnum\value{proof}>0
+                \hfill\hbox{\mbox{}\hfill$\Box$}
+		\addtocounter{proof}{-1}\par\addvspace{10pt}\else\par\fi
+        }}
+%
+\newenvironment{Pfsketch}{\par\addvspace{6pt}\addtocounter{proof}{1}
+        \noindent{\bf Proof (Sketch):}}{{\ifnum\value{proof}>0
+               \hfill\hbox{\mbox{}\hfill$\Box$}
+		\addtocounter{proof}{-1}\par\addvspace{10pt}\else\par\fi
+        }}
+%
+\newenvironment{sketch}[2]{\par\addvspace{6pt}\addtocounter{proof}{1}
+        \noindent{\bf Proof of #1~\ref{#2}.}}{{\ifnum\value{proof}>0
+                \hfill\hbox{\mbox{}\hfill$\Box$}
+		\addtocounter{proof}{-1}\par\addvspace{10pt}\else\par\fi
+        }}
+%
+\def\endpfsymb{\hfill\hbox{\mbox{}\hfill$\Box$}
+                \addtocounter{proof}{-1} \par\addvspace{10pt}
+        }
+
+
+\newenvironment{remark}{\par\addvspace{10pt}\noindent{\bf Remark 
+		\addtocounter{lemma}{1} \hspace{-1mm}\thelemma
+		\hspace{2mm}}}{\par\addvspace{10pt}}
+\newenvironment{remarks}{\par\addvspace{10pt}\noindent{\bf Remarks 
+		\addtocounter{lemma}{1} \hspace{-1mm}\thelemma
+		\hspace{2mm}}}{\par\addvspace{10pt}}
+\newenvironment{defn}{\par\addvspace{13pt}\noindent{\bf Definition
+		\addtocounter{lemma}{1} \hspace{-1mm}\thelemma
+		\hspace{2mm}}}{\par\addvspace{10pt}}
+\newenvironment{defin}{\par\addvspace{13pt}\noindent{\bf Definition
+		\addtocounter{lemma}{1} \hspace{-1mm}\thelemma
+		\hspace{2mm}}}{\par\addvspace{10pt}}
+\newenvironment{Defn}[1]{\par\noindent{\bf Definition 
+		\addtocounter{lemma}{1}\hspace{-1mm}\thelemma\ [#1]:
+		\hspace{2mm}}}{}
+\newenvironment{hint}{{\bf Hint:\hspacve{2mm}}}{}
+
+\makeatletter
+\newcounter{algo}
+\def\thealgo{\@arabic\c@algo}
+\def\fps@algo{tbp}
+\def\ftype@algo{1}
+\def\ext@algo{loa}
+\def\fnum@algo{Algorithm \thealgo}
+\def\algo{\@float{algo}}
+\def\endalgo{\end@float}
+\makeatother
+
+\newcounter{mycounter}
+%
+%GENERAL MACROS
+%
+%\newcommand{\remarks}{{\bf Remarks: \hspace{3mm}}}
+\newcommand{\Example}{{\bf Example:}}
+%
+%
+%
+%
+% Macros for cross referencing.
+\newcommand{\alglab}[1]{\label{alg:#1}}
+\newcommand{\lemlab}[1]{\label{lemma:#1}}
+\newcommand{\factlab}[1]{\label{fact:#1}}
+\newcommand{\prolab}[1]{\label{prop:#1}}
+\newcommand{\proplab}[1]{\label{prop:#1}}
+\newcommand{\exelab}[1]{\label{exer:#1}}
+\newcommand{\theolab}[1]{\label{theo:#1}}
+\newcommand{\chaplab}[1]{\label{chap:#1}}
+\newcommand{\eqnlab}[1]{\label{eqn:#1}}
+\newcommand{\corlab}[1]{\label{cor:#1}}
+\newcommand{\figlab}[1]{\label{fig:#1}}
+\newcommand{\tablab}[1]{\label{tab:#1}}
+\newcommand{\seclab}[1]{\label{sec:#1}}
+\newcommand{\subseclab}[1]{\label{subsec:#1}}
+\makeatletter
+\def\remlab#1{\@bsphack\if@filesw {\let\thepage\relax
+   \def\protect{\noexpand\noexpand\noexpand}%
+\xdef\@gtempa{\write\@auxout{\string
+	   \newlabel{rem:#1}{{\thelemma}{\thepage}}}}}\@gtempa
+            \if@nobreak \ifvmode\nobreak\fi\fi\fi\@esphack}
+%\def\remlab#1{\write\@auxout{\string
+	%\newlabel{rem:#1}{{\thelemma}{\thepage}}}}
+\def\deflab#1{\write\@auxout{\string
+	\newlabel{def:#1}{{\thelemma}{\thepage}}}}
+\makeatother
+
+\def\lemref#1{Lemma~\ref{lemma:#1}}
+\def\algref#1{Algorithm~\ref{alg:#1}}
+\def\factref#1{Fact~\ref{fact:#1}}
+\def\proref#1{Proposition~\ref{prop:#1}}
+\def\propref#1{Proposition~\ref{prop:#1}}
+\def\exeref#1{Exercise~\ref{exer:#1}}
+\def\theoref#1{Theorem~\ref{theo:#1}}
+\def\corref#1{Corollary~\ref{cor:#1}}
+\def\figref#1{Figure~\ref{fig:#1}}
+\def\tabref#1{Table~\ref{tab:#1}}
+\def\Figref#1{Figure~\ref{fig:#1}}
+\def\chapref#1{Chapter~\ref{chap:#1}}
+\def\secref#1{Section~\ref{sec:#1}}
+\def\subsecref#1{Section~\ref{subsec:#1}}
+\def\remref#1{Remark~\ref{rem:#1}}
+\def\defref#1{Definition~\ref{def:#1}}
+\def\mchapref#1{\ref{chap:#1}}
+\def\msecref#1{\ref{sec:#1}}
+\def\msubsecref#1{\ref{subsec:#1}}
+\def\mtheoref#1{\ref{theo:#1}}
+\def\mfigref#1{\ref{fig:#1}}
+\def\eqnref#1{(\ref{eqn:#1})}
+%
+%
+%
+% Macros for generating table of contents
+\newcommand{\secadd}[2]{\addcontentsline{toc}{section}{
+		\protect\numberline{\msecref{#1}}{#2}}}
+\newcommand{\subsecadd}[2]{\addcontentsline{toc}{subsection}{
+		\protect\numberline{\msubsecref{#1}}{#2}}}
+\newcommand{\chapadd}[2]{\addcontentsline{toc}{chapter}{
+		\protect\numberline{\mchapref{#1}}{#2}}}
+\newcommand{\figadd}[2]{\addcontentsline{lof}{figure}{
+		\protect\numberline{\mfigref{#1}}{#2}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Producing table of contents entries without
+%numbers.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\nsecadd}[1]{\addcontentsline{toc}{section}{#1}}
+\newcommand{\nsubsecadd}[1]{\addcontentsline{toc}{subsection}{#1}}
+\newcommand{\nchapadd}[1]{\addcontentsline{toc}{chapter}{#1}}
+%
+%
+% Macros for page style.
+{\catcode`\@=11
+\gdef\setft#1#2#3{%
+\def\@oddfoot{%
+{\setbox0=\hbox{#1}%
+\setbox1=\hbox{#3}%
+\ifdim\wd0>\wd1%
+\dimen0=\wd0%
+\box0\hfil#2\hfil\hbox to\dimen0{\hfil\hfil\box1}%
+\else \dimen0=\wd1%
+\hbox to\dimen0{\box0\hfil}\hfil#2\hfil\box1\fi%
+}}}}
+
+{\catcode`\@=11
+\gdef\sethd#1#2#3{%
+\def\@oddhead{\vbox{\hbox to\hsize{{#1}\hfil{#2}\hfil{#3}}%
+\vspace{0.06in}%
+\hbox to \hsize{\hrulefill}\vspace*{-0.09in}}}
+\def\@evenhead{\@oddhead}
+	}
+}
+
+%Macro for sections.
+\def\mysec#1{\setcounter{equation}{0}
+\section{#1}\mark{#1}}
+
+\def\mysecn#1{\setcounter{equation}{0}
+\section*{#1}\mark{#1}}
+
+\def\myplsec#1{\setcounter{equation}{0}
+       		\section*{#1}\mark{#1}}
+
+
+\def\thebibliography#1{\mysecn{References}
+\addcontentsline{toc}{section}{References}\list
+{[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}\leftmargin\labelwidth
+ \advance\leftmargin\labelsep
+ \usecounter{enumi}}
+ \def\newblock{\hskip .11em plus .33em minus .07em}
+ \sloppy\clubpenalty4000\widowpenalty4000
+ \sfcode`\.=1000\relax
+ \small}
+\let\endthebibliography=\endlist
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %%  Some code to insert marginal comments and number them in a paper.	%%
+  %%  By default marginal comments are ignored.  If the command		%%
+  %%  \withcomplaints is called, complaints are numbered, the number	%%
+  %%  between dashes appears on the tex raised in a 0 width box so it	%%
+  %%  does not affect the layout.					%%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\complaint#1{}
+\def\withcomplaints{
+%\addtolength{\oddsidemargin}{-1.4cm}
+%\addtolength{\evensidemargin}{-1.4cm}
+\newcounter{mycomplaints}
+\def\complaint##1{\refstepcounter{mycomplaints}%
+\ifhmode%
+\unskip%
+{\dimen1=\baselineskip \divide\dimen1 by 2 %
+\raise\dimen1\llap{\tiny -\themycomplaints-}}\fi%
+\marginpar{\tiny [\themycomplaints]: ##1}}%
+}
+%
+
+\newcounter{printertype}
+\setcounter{printertype}{0}
+\def\figprint#1{
+        \ifcase \theprintertype
+
+		\begin{center}
+                 \input{#1}
+		\end{center}
+              \or
+                 \centerline{\psfig{figure=#1.ps}}
+              \else
+                 \vspace*{1in}
+        \fi}
+
+
+\makeatletter
+\long\def\@myfootnotetext#1{\insert\footins{\footnotesize
+    \interlinepenalty\interfootnotelinepenalty 
+    \splittopskip\footnotesep
+    \splitmaxdepth \dp\strutbox \floatingpenalty \@MM
+    \hsize\columnwidth \@parboxrestore
+   \edef\@currentlabel{\csname p@footnote\endcsname\@thefnmark}\@makemyfntext
+    {\rule{\z@}{\footnotesep}\ignorespaces
+      #1\strut}}}
+
+\def\myfootnotetext{\@ifnextchar
+[{\@xfootnotenext}{\xdef\@thefnmark{\thempfn}\@myfootnotetext}}
+
+\long\def\@makemyfntext#1{\parindent 5mm #1}
+
+%Equation environment to take care of the end-of-proof symbol
+
+\newcounter{proof}
+\def\@@meqncr{\let\@tempa\relax
+    \ifcase\@eqcnt \def\@tempa{& & &}\or \def\@tempa{& &}
+      \else \def\@tempa{&}\fi
+     \@tempa $\Box$\addtocounter{proof}{-1}
+     \global\@eqnswtrue\global\@eqcnt\z@\cr}
+\@namedef{meqnarray*}{\def\@eqncr{\nonumber\@seqncr}\eqnarray}
+\@namedef{endmeqnarray*}{\global\@eqcnt\tw@\@@meqncr\egroup
+      \global\advance\c@equation\m@ne$$\global\@ignoretrue}
+
+\@namedef{meqnarray}{\eqnarray}
+\@namedef{endmeqnarray}{\@@meqncr\egroup
+        \global\advance\c@equation\m@ne$$\global\@ignoretrue}
+\def\mequation{$$\global\@ignoretrue}
+\def\endmequation{\eqno \Box$$\addtocounter{proof}{-1}}
+\@namedef{Pf*}{\Pf}
+\@namedef{endPf*}{\par\addvspace{10pt}}
+
+\makeatother
+
+

@@ -1,0 +1,807 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\providecommand{\UsePackage}[2][]{}%
+\renewcommand{\UsePackage}[2][]{%
+   \IfFileExists{../../../styles/#2.sty}%
+   {\usepackage[#1]{../../../styles/#2}}%
+   {\IfFileExists{../../styles/#2.sty}%
+      {\usepackage[#1]{../../styles/#2}}%
+      {\IfFileExists{../styles/#2.sty}%
+         {\usepackage[#1]{../styles/#2}}%
+         {\IfFileExists{styles/#2.sty}%
+            {\usepackage[#1]{styles/#2}}
+            {\usepackage[#1]{#2}}%
+         } %
+      }%
+   }
+   }              
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Hyperref
+
+\usepackage{hyperref}%
+   \hypersetup{%
+      breaklinks,%
+      ocgcolorlinks, colorlinks=true,%
+      urlcolor=[rgb]{0.25,0.0,0.0},%
+      linkcolor=[rgb]{0.5,0.0,0.0},%
+      citecolor=[rgb]{0,0.2,0.445},%
+      filecolor=[rgb]{0,0,0.4},
+      anchorcolor=[rgb]={0.0,0.1,0.2}%
+   }
+   % \usepackage{cleveref}
+\providecommand{\hrefb}[3][black]{\href{#2}{\color{#1}{#3}}}%
+% Hyperref - end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\usepackage{paralist}%
+\usepackage{graphicx}%
+\usepackage{amsmath}%
+\usepackage{amssymb}%
+\usepackage{color}%
+\usepackage{mleftright}%
+\usepackage{xspace}%
+\usepackage{stmaryrd}%
+\usepackage[cm]{fullpage}%
+\usepackage{euscript}%
+\usepackage{alltt}%
+
+\DefineNamedColor{named}{OliveGreen}{cmyk}{0.64, 0, 0.95, 0.40}
+\definecolor{OliveGreen}{cmyk}{0.64, 0, 0.95, 0.40 }
+
+\providecommand{\ComplexityClass}[1]{{{\textcolor{OliveGreen}{%
+            \textsc{#1}}}}}
+%\providecommand{\ComplexityClass}[1]{{\textPurple\textsc{#1}\textBlack}}
+\providecommand{\NPHard}{\ComplexityClass{NP-Hard}\xspace}
+\providecommand{\NPComplete}{\ComplexityClass{NP-Complete}\xspace}
+\providecommand{\NPC}{\ComplexityClass{NPC}\xspace}
+\providecommand{\NP}{\ComplexityClass{NP}\xspace}
+\providecommand{\POLYT}{\ComplexityClass{P}\xspace}
+\providecommand{\coNP}{\ComplexityClass{co-NP}\xspace}
+
+\providecommand{\points}[1]{(\textsc{#1 pts.})}
+
+
+\providecommand{\Hard}{\textbf{(HARD)}}
+\providecommand{\ReallyHard}{\textbf{(Really HARD)}}
+\providecommand{\points}[1]{{\bf [{#1} Points]}}
+
+
+% \makeatletter
+% \def\provideenvironment{\@star@or@long\provide@environment}
+% \def\provide@environment#1{%
+%         \@ifundefined{#1}%
+%                 {\def\reserved@a{\newenvironment{#1}}}%
+%                 {\def\reserved@a{\renewenvironment{dummy@environ}}}%
+%         \reserved@a
+% }
+% \def\dummy@environ{}
+% \makeatother
+
+
+
+\providecommand{\File}[1]{#1}%
+\newcommand{\HWProblem}[4]{\points{#1} \textsf{#2}
+       
+       #3}{}
+
+\newcommand{\myqedsymbol}{\rule{2mm}{2mm}}
+
+
+%\usepackage{theorem}
+%\theoremstyle{plain}% default
+
+
+
+
+\ifx\theorem\undefined
+
+\usepackage[amsmath,thmmarks]{ntheorem}%
+\theoremseparator{.}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{algorithm}[theorem]{Algorithm}
+
+\newtheorem{assumption}[theorem]{Assumption}%
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{question}[theorem]{Question}
+
+\theoremstyle{plain}%
+\theoremheaderfont{\sf}%
+\theorembodyfont{\upshape}%
+
+\newtheorem{defn}[theorem]{Definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}%
+\newtheorem{example}[theorem]{Example}
+\newtheorem{suggestion}[theorem]{Suggestion}
+\newtheorem{tidbit}[theorem]{Tidbit}%
+\newtheorem{problem}[theorem]{Problem}
+
+
+%---------------------------------------------------------
+%---------------------------------------------------------
+%---------------------------------------------------------
+% Proof environment
+
+\theoremheaderfont{\em}%
+\theorembodyfont{\upshape}%
+\theoremstyle{nonumberplain}%
+\theoremseparator{}%
+\theoremsymbol{\myqedsymbol}%
+\newtheorem{proof}{Proof:}%
+
+\fi
+% 
+% Proof environment
+%---------------------------------------------------------
+
+\providecommand{\IntRange}[1]{\left\llbracket #1 \right\rrbracket}
+
+\newcommand{\aftermathA}{\par\vspace{-\baselineskip}}
+% %%%%%%%%%%%%%%%%%%%% program macros %%%%%%%%%%%%%%%%%
+
+
+\ifx\Do\undefined
+\newcommand{\Do}{{\small\bf do}\ }
+\newcommand{\End}{{\small\bf end}\ }
+\newcommand{\Return}{{\small\bf return\ }}
+\newcommand{\Proc}[1]{#1\+}
+\newcommand{\Returns}{{\small\bf returns}}
+\newcommand{\Procbegin}{{\small\bf begin}}
+\newcommand{\If}{{\small\bf if}\ }
+\newcommand{\Then}{{\small\bf then}\ }
+\newcommand{\Else}{{\small\bf else}\ }
+\newcommand{\rElse}{{\small\bf else}\ }
+\newcommand{\Elseif}{{\small\bf elseif}\ }
+\newcommand{\Foreach}{{\small\bf for each}\ }
+\newcommand{\Endif}{{\small\bf end\ if\ }}
+\newcommand{\Break}{{\small\bf break }}
+\newcommand{\Endproc}[1]{{\small\bf end} #1}
+\newcommand{\For}{{\small\bf for}\ }
+\newcommand{\Endfor}{{\small\bf end\ for}}
+\newcommand{\While}{{\small\bf while}\ }
+\newcommand{\Endwhile}{{\small\bf end\ while}}
+\newcommand{\LogAnd}{{\small\bf and}}
+
+\newcommand{\permut}[1]{\left\langle {#1} \right\rangle}
+
+\newcommand{\DotProd}[2]{\permut{{#1},{#2}}}
+
+\newcommand{\etal}{\textit{et~al.}\xspace}
+
+
+
+\newcommand{\Repeat}{{\small\bf repeat}\ }
+\newcommand{\Until}{{\small\bf Until}}
+\newcommand{\Loop}{{\bf loop}\ }
+\newcommand{\Endloop}{{\bf end\ loop}\ }
+
+\newcommand{\xbeginlgox}{\begin{minipage}{1in}\begin{tabbing}
+        \quad\=\qquad\=\qquad\=\qquad\=\qquad\=\qquad\=\qquad\=\kill}
+\newcommand{\xendlgox}{\end{tabbing}\end{minipage}}
+%\newenvironment{algorithm}{\begin{tabular}{|l|}\hline\xbeginlgox}
+%        {\xendlgox\\\hline\end{tabular}}
+
+\newenvironment{algorithmEnv}{\begin{tabular}{|l|}\hline\xbeginlgox}
+        {\xendlgox\\\hline\end{tabular}}
+
+\newenvironment{program}{
+   \begin{minipage}{4.0in}
+   \begin{tabbing}
+      \= \ \ \ \= \ \ \ \ \= \ \ \ \ \= \ \ \ \ \=
+      \ \ \ \ \= \ \ \ \ \= \ \ \ \ \= \ \ \ \ \=
+      \ \ \ \ \= \ \ \ \ \= \ \ \ \ \= \ \ \ \ \= \kill
+}{
+   \end{tabbing}
+   \end{minipage}
+}
+
+\fi
+
+\newenvironment{ProgramEnv}{
+   \begin{tabbing}
+      \= \ \ \ \= \ \ \ \ \= \ \ \ \ \= \ \ \ \ \=
+      \ \ \ \ \= \ \ \ \ \= \ \ \ \ \= \ \ \ \ \=
+      \ \ \ \ \= \ \ \ \ \= \ \ \ \ \= \ \ \ \ \= \kill
+}{
+   \end{tabbing}
+}
+
+
+\definecolor{RedViolet}{cmyk}{0.07,0.90,0,0.34}%
+
+\providecommand{\AlgorithmI}[1]{}%
+\renewcommand{\AlgorithmI}[1]{%
+   {\protect\color{RedViolet}{#1}}}%
+%\protect\texttt{\protect\bf{#1}}}%
+%}
+\providecommand{\Algorithm}[1]{{\AlgorithmI{#1}\index{algorithm!#1@{\AlgorithmI{#1}}}}}
+
+\providecommand{\ds}{\displaystyle}
+
+\newcommand{\DFS}{\Algorithm{DFS}\xspace}
+
+\newcommand{\TermText}[1]{\textsf{#1}}%
+\newcommand{\Term}[1]{\TermText{#1}}
+\newcommand{\TermI}[1]{\Term{#1}\index{#1@\Term{#1}}}
+
+\providecommand{\TSP}{\TermI{TSP}\xspace}%
+
+\providecommand{\Tree}{\EuScript{T}}
+\newcommand{\TreeA}{\EuScript{T}'}
+\newcommand{\TreeB}{\EuScript{T}''}
+
+
+\providecommand{\Mh}[1]{#1}%
+
+\newcommand{\MST} {\TermI{MST}\xspace}
+\newcommand{\BFS} {\Algorithm{BFS}\xspace}
+\newcommand{\DAG} {\TermI{DAG}\xspace}
+\newcommand{\LCA} {\TermI{LCA}\xspace}
+
+\definecolor{blue25}{rgb}{0,0,0.65}
+\providecommand{\emphic}[2]{%
+     \textcolor{blue25}{%
+         \textbf{\emph{#1}}}%
+         \index{#2}}
+
+\providecommand{\emphi}[1]{}
+\renewcommand{\emphi}[1]{\emphic{#1}{#1}}
+\newcommand{\emphColor}[1]{\textcolor{blue25}{%                                 
+         \textbf{\emph{#1}}}}%
+\providecommand{\emphOnly}[1]{}
+\renewcommand{\emphOnly}[1]{\textcolor{blue25}{\textbf{\emph{#1}}}}
+
+\definecolor{almostblack}{rgb}{0, 0, 0.3}
+\providecommand{\emphw}[1]{{\textcolor{almostblack}{\emph{#1}}}}%
+
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}%
+\newcommand{\ceil}[1]{\left\lceil {#1} \right\rceil}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 5
+% Probability notations
+%
+\newcommand{\pbrcx}[1]{\left[ {#1} \right]}%
+\newcommand{\ProbLTR}{\mathbb{P}}%
+
+\newcommand{\Prob}[1]{\mathop{\ProbLTR} \mleft[ #1 \mright]}%
+\newcommand{\ProbCond}[2]{\mathop{\ProbLTR}\!\left[%
+       #1 \;\middle\vert\; #2 \right]}
+\newcommand{\ProbExt}[2]{\mathop{\ProbLTR}_{#1}\pbrcx{#2}}
+
+\newcommand{\ExChar}{\mathbb{E}}%
+\newcommand{\ExSym}{\mathop{\ExChar}}%
+\newcommand{\Ex}[2][\!]{\ExSym#1\pbrcx{#2}}
+\newcommand{\ExExt}[2]{\ExSym_{#1}\!\pbrcx{#2}}
+\newcommand{\ExCond}[2]{\ExSym\!\left[%
+       #1 \;\middle\vert\; #2 \right]}
+
+\newcommand{\Var}[1]{\mathop{\mathbb{V}}\!\pbrcx{#1}}
+
+\newcommand{\ExExtS}[2]{\mathop{\mathbf{E}}_{\substack{#1}}\!\pbrcx{#2}}
+
+%
+% End: Probability notations
+%-------------------------------------------------------------------------------
+
+%newcommand{\Prob}[1]{\mathop{\mathbf{Pr}}\!\pbrcx{#1}}
+%\newcommand{\points}[1]{(#1 pts.)}
+
+\newcommand{\dfsPre}{\ensuremath{\mathrm{pre}}}
+\newcommand{\dfsPost}{\ensuremath{\mathrm{post}}}
+
+\newcommand{\hr}{\noindent \rule{\linewidth}{0.2mm}}%
+\newcommand{\Hr}{\noindent \rule{\linewidth}{0.4mm}}%
+
+\providecommand{\Version}[1]{Version: \textbf{#1}}
+\providecommand{\si}[1]{#1}
+
+
+\newcommand{\eps}{{\varepsilon}}%
+
+\newlength{\savedparindentx}
+
+\newcommand{\code}[1] {{\tt \begin{center} \begin{tabbing}
+                             --\=--\=--\=--\=--\=--\=----\=--\=--\=--\=--\=--\=--\kill
+                        #1 \end{tabbing}\end{center}}}
+
+\newcommand{\ncode}[1]{
+    \begin{minipage}{0.45\linewidth}
+        \code{#1}
+    \end{minipage}}
+
+\newcommand{\cfncode}[1]{\centerline{\fbox{\ncode{#1}}}}
+
+\newcommand{\LLineSkip}{}
+
+\newcommand{\brc}[1]{\left\{ {#1}\right\}}%
+
+%\newcommand{\pth}[2][\!]{#1\left({#2}\right)}%
+%\newcommand{\pbrc}[2][\!\!]{#1\left[ {#2} \MakeBig \right]}
+
+\newcommand{\ts}{\hspace{0.6pt}}
+
+\newcommand{\pth}[2][\!]{\mleft({#2}\mright)}%
+\newcommand{\pbrc}[2][\!\!]{#1\left[ {#2} \bigr. \right]}
+\providecommand{\permut}[1]{\left\langle {#1} \right\rangle}
+
+
+\newcommand{\Ground}{\mathsf{S}}
+\newcommand{\Family}{\EuScript{F}}
+\newcommand{\FamilyA}{\EuScript{K}}
+\newcommand{\FamilyB}{\EuScript{G}}
+\newcommand{\FamilyC}{\EuScript{H}}
+
+\newcommand{\FPTAS}{\TermI{FPTAS}\xspace}
+\newcommand{\PTAS}{\TermI{PTAS}\xspace}
+
+\newcommand{\Graph}{\Mh{\mathsf{G}}}%
+\newcommand{\GraphA}{\Mh{\mathsf{H}}}%
+\newcommand{\GraphB}{\mathsf{J}}%
+
+\newcommand{\Vertices}{\mathsf{V}}%
+\newcommand{\VV}{\Vertices}%
+\newcommand{\VerticesX}[1]{\Vertices\pth{#1}}%
+\newcommand{\VX}[1]{\Vertices\pth{#1}}%
+\newcommand{\Edges}{\Mh{\mathsf{E}}}
+\newcommand{\EdgesX}[1]{\Edges\pth{#1}}%
+
+\newcommand{\EG}{\Edges}%
+\newcommand{\EGX}[1]{\Edges\pth{#1}}%
+
+\newcommand{\GraphDef}{\Graph=(\Vertices,\Edges)}%
+
+\newcommand{\cardin}[1]{\left| {#1} \right|}%
+\providecommand{\ProblemC}[1]{{\textsf{\textcolor{red}{#1}\index{problem!#1}}}}%
+\newcommand{\GSCC}{{\Graph^{{\textsc{SCC}}}}}%
+\newcommand{\SCC}{\textsc{SCC}\xspace}%
+
+\newcommand{\heightA}{\rule[0.0cm]{0.0cm}{0.32cm}} % really small
+\newcommand{\heightB}{\rule[0.0cm]{0.0cm}{0.35cm}} % really small
+\newcommand{\heightC}{\rule[0.0cm]{0.0cm}{0.37cm}} % really small
+\newcommand{\heightD}{\rule[0.0cm]{0.0cm}{0.39cm}} % really small
+\newcommand{\heightE}{\rule[0.0cm]{0.0cm}{0.42cm}} % really small
+\newcommand{\heightF}{\rule[0.0cm]{0.0cm}{0.45cm}} % really small
+\newcommand{\heightG}{\rule[0.0cm]{0.0cm}{0.48cm}} % really small
+\newcommand{\heightH}{\rule[0.0cm]{0.0cm}{0.51cm}} % really small
+\newcommand{\heightI}{\rule[0.0cm]{0.0cm}{0.54cm}} % really small
+\newcommand{\heightJ}{\rule[0.0cm]{0.0cm}{0.57cm}} % really small
+
+%\newcommand{\MakeBig}{\rule[-.2cm]{0cm}{0.4cm}}
+\newcommand{\sep}[1]{\,\left|\, {#1} \heightD\right.}
+
+\newcommand{\Boruvka}{Bor{\r u}vka\xspace}
+\newcommand{\dirEdge}[3][\!]{\pth[#1]{#2, #3}}
+\newcommand{\ndirEdge}[2]{{{#1} \rightarrow {#2}} }
+
+\providecommand{\LPInstance}{}
+\renewcommand{\LPInstance}{\mathcal{L}}
+
+\newcommand{\vertex}{v}
+\newcommand{\inX}[1]{{#1}_{\mathrm{in}}}
+\newcommand{\outX}[1]{{#1}_{\mathrm{out}}}
+\newcommand{\vin}{\inX{\vertex}}
+\newcommand{\vout}{\outX{\vertex}}
+
+\providecommand{\OptProblemInd}{}
+\renewcommand{\OptProblemInd}[4]{
+   \begin{center}
+      \vspace{0.6cm}
+       \fbox{
+          \begin{minipage}{0.9\linewidth}
+              \vspace{-0.6cm} \hspace{-0.35cm}
+              %{\bf  Problem:} 
+              {\large \bf \ProblemInd{#1}{#2}}
+              \vspace{+0.2cm}%
+
+              \noindent{\textcolor{instcolor}{\bf %
+                    \textsf{Instance}}:} {#3}
+              
+              \noindent{\textcolor{instcolor}{\bf \textsf{Target}:}} {#4}
+          \end{minipage}
+       }
+   \end{center}
+%   \marginpar{\footnotesize\ProblemInd{#1}{#2}}%
+   \smallskip
+   }
+\providecommand{\OptProblem}[3]{\OptProblemInd{#1}{#1}{#2}{#3}}
+
+\definecolor{instcolor}{rgb}{0.05,0.45,0.05}
+
+
+\newcommand{\NPProblem}[3]{\NPProblemInd{#1}{#1}{#2}{#3}}
+\providecommand{\ZZ}{{\sf Z\!\hspace{-0.2em} Z}}
+
+\providecommand{\ProblemInd}[2]{\textsf{\textcolor{red}{#1}\index{Problem!#2}}}
+\providecommand{\NPProblemInd}{}
+\renewcommand{\NPProblemInd}[4]{
+   \begin{center}
+      \vspace{0.6cm}
+       \fbox{
+          \begin{minipage}{0.9\linewidth}
+              \vspace{-0.6cm} \hspace{-0.35cm}
+              %{\bf  Problem:} 
+              {\large \bf \ProblemInd{#1}{#2}}
+              \vspace{+0.2cm}%
+
+              \noindent{\textcolor{blue}{\bf \textsf{Instance}}:} {#3}
+              
+              \noindent{\textcolor{blue}{\bf \textsf{Question}:}} {#4}
+          \end{minipage}
+       }
+   \end{center}
+%   \marginpar{\footnotesize\ProblemInd{#1}{#2}}%
+   \smallskip
+   }
+
+\providecommand{\NPProblemOpt}{}
+\renewcommand{\NPProblemOpt}[4]{\NPProblemInd{#1}{#2}{#3}{#4}}
+
+\providecommand{\NPProblem}[3]{\NPProblemInd{#1}{#1}{#2}{#3}}
+
+
+
+
+
+
+\providecommand{\Hint}[1]{[{\bf{}\bf{Hint:}} {#1}{\bf]}}
+
+
+\providecommand{\remove}[1]{}
+
+\providecommand{\CodeComment}[1]{\textcolor{blue}{\texttt{#1}}}
+\newcommand{\fcode}[1]{
+   \smallskip
+   
+   \centerline{\fbox{
+    \begin{minipage}{0.95\linewidth}
+        \code{#1}
+    \end{minipage}}}
+    
+    \smallskip}
+
+\newlength{\savedparindent}
+\providecommand{\SaveIndent}{\setlength{\savedparindent}{\parindent}}
+\providecommand{\RestoreIndent}{\setlength{\parindent}{\savedparindent}}
+\newcommand{\MakeBig}{}%\rule[-.2cm]{0cm}{0.4cm}}
+%newcommand{\ExChar}{\mathbf{E}}
+%newcommand{\pbrcx}[1]{\left[ {#1} \right]}
+%newcommand{\Ex}[2][\!]{\mathop{\mathbf{E}}#1\pbrcx{#2}}
+%providecommand{\ExExt}[2]{\mathop{\mathbf{E}}_{#1}\!\pbrcx{#2}}
+
+\providecommand{\Entropy}{}
+\renewcommand{\Entropy}[1]{\EntropyChar\pth{#1}}
+
+\providecommand{\EntropyX}{}
+\renewcommand{\EntropyX}[1]{\EntropyChar\pth[]{#1}}
+
+\providecommand{\EntropyChar}{}
+\renewcommand{\EntropyChar}{\mathbb{H}}
+
+\newcommand{\distG}[2]{\mathsf{d}_\Graph\pth{#1, #2}}
+
+%\newcommand{\etal}{\textit{et~al.}\xspace}
+
+\providecommand{\LP}{\TermI{LP}\xspace}%
+
+\newcommand{\Event}{\EuScript{E}}
+\newcommand{\EventA}{\EuScript{F}}
+\providecommand{\ThreeCNF} {\TermI{3CNF}\xspace}
+\providecommand{\CNF} {\TermI{CNF}\xspace}
+
+\providecommand{\th}{}
+\renewcommand{\th}{th\xspace}%
+\newcommand{\Set}[2]{\left\{ #1 \;\middle\vert\; #2 \right\}}
+
+\renewcommand{\Re}{\mathbb{R}}%
+\newcommand{\reals}{\Re}%
+\providecommand{\ZZ}{{\sf Z\!\hspace{-0.2em} Z}}
+\newcommand{\pnt}{\mathsf{p}}%
+\newcommand{\pntA}{\mathsf{q}}%
+
+\newcommand{\HLinkShort}[2]{\hyperref[#2]{#1\ref*{#2}}}
+\newcommand{\HLink}[2]{\hyperref[#2]{#1~\ref*{#2}}}
+\newcommand{\HLinkPage}[2]{\hyperref[#2]{#1~\ref*{#2}%
+      $_\text{p\pageref{#2}}$}}
+\newcommand{\HLinkPageOnly}[1]{\hyperref[#1]{Page~\refpage*{#1}%
+      $_\text{p\pageref{#1}}$}}
+
+\newcommand{\HLinkSuffix}[3]{\hyperref[#2]{#1\ref*{#2}{#3}}}
+\newcommand{\HLinkPageSuffix}[3]{\hyperref[#2]{#1\ref*{#2}%
+      #3$_\text{p\pageref{#2}}$}}
+
+
+%    -----------------------------------------------------------------
+%    -----------------------------------------------------------------
+%    -----------------------------------------------------------------
+%    Handling references
+%    -----------------------------------------------------------------
+%    -----------------------------------------------------------------
+%    -----------------------------------------------------------------
+
+\newcommand{\figlab}[1]{\label{fig:#1}}
+\newcommand{\figref}[1]{\HLink{Figure}{fig:#1}}
+\newcommand{\Figref}[1]{\HLink{Figure}{fig:#1}}
+\newcommand{\figrefpage}[1]{\HLinkPage{Figure}{fig:#1}}
+
+\providecommand{\eqlab}[1]{}%
+\renewcommand{\eqlab}[1]{\label{equation:#1}}
+\newcommand{\Eqref}[1]{\HLinkSuffix{Eq.~(}{equation:#1}{)}}
+\newcommand{\Eqrefbare}[1]{\HLinkSuffix{(}{equation:#1}{)}}
+\newcommand{\Eqrefpage}[1]{\HLinkPageSuffix{Eq.~(}{equation:#1}{)}}
+
+\newcommand{\alglab}[1]{\label{Algorithm:#1}}%
+\newcommand{\algref}[1]{\HLink{Algorithm}{Algorithm:#1}}%
+\newcommand{\algrefpage}[1]{\HLinkPage{Algorithm}{Algorithm:#1}}%
+
+
+\newcommand{\lemlab}[1]{\label{lemma:#1}}
+\newcommand{\lemref}[1]{\HLink{Lemma}{lemma:#1}}%
+\newcommand{\lemrefpage}[1]{\HLinkPage{Lemma}{lemma:#1}}
+
+\newcommand{\obslab}[1]{\label{observation:#1}}
+\newcommand{\obsref}[1]{\HLink{Observation}{observation:#1}}
+
+\newcommand{\exmlab}[1]{\label{example:#1}}
+\newcommand{\exmref}[1]{\HLink{Example}{example:#1}}
+
+
+\newcommand{\clmlab}[1]{\label{claim:#1}}
+\newcommand{\clmref}[1]{\HLink{Claim}{claim:#1}}
+
+\newcommand{\seclab}[1]{\label{sec:#1}}
+\newcommand{\secref}[1]{\HLink{Section}{sec:#1}}
+\newcommand{\secrefpage}[1]{\HLinkPage{Section}{sec:#1}}
+
+\newcommand{\thmlab}[1]{{\label{theo:#1}}}
+\newcommand{\thmref}[1]{\HLink{Theorem}{theo:#1}}
+\newcommand{\thmrefpage}[1]{\HLinkPage{Theorem}{theo:#1}}
+
+\providecommand{\deflab}[1]{\label{def:#1}}
+\newcommand{\defref}[1]{\HLink{Definition}{def:#1}}
+\newcommand{\defrefpage}[1]{\HLinkPage{Definition}{def:#1}}
+\newcommand{\defrefY}[2]{\hyperref[def:#2]{#1}}
+
+\newcommand{\itemlab}[1]{\label{item:#1}}
+%\newcommand{\itemref}[1]{\HLinkSuffix{(}{item:#1}{)}}
+\newcommand{\itemref}[1]{\HLinkSuffix{}{item:#1}{}}
+\newcommand{\itemrefpage}[1]{\HLinkPageSuffix{(}{item:#1}{)}}
+
+\newcommand{\corlab}[1]{\label{cor:#1}}
+\newcommand{\corref}[1]{\HLink{Corollary}{cor:#1}}%
+\newcommand{\correfshort}[1]{\HLinkShort{C}{cor:#1}}%
+\newcommand{\correfpage}[1]{\HLinkPage{Corollary}{cor:#1}}
+
+\newcommand{\remlab}[1]{\label{rem:#1}}
+\newcommand{\remref}[1]{\HLink{Remark}{rem:#1}}%
+\newcommand{\remrefpage}[1]{\HLinkPage{Remark}{rem:#1}}%
+
+\newcommand{\WeightChar}{\Mh{\omega}}
+\newcommand{\WeightCharA}{\Mh{\omega}'}
+\newcommand{\WeightX}[1]{\WeightChar\pth{#1}}
+\newcommand{\WeightAX}[1]{\WeightChar'\pth{#1}}
+\newcommand{\weightX}[1]{\WeightX{#1}}%
+\newcommand{\Weight}{\mathrm{weight}}
+
+\newcommand{\rev}[1]{#1^{{\rm rev}}}
+
+\providecommand{\notPM}[1]{#1}%
+
+\notPM{%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 5
+% Defining a nice questions list environment
+\usepackage[inline]{enumitem}%
+\usepackage{xcolor}%
+\definecolor{questionslcolor}{RGB}{255,227,200}
+\definecolor{questionslfgcolor}{RGB}{0,0,100}
+
+\newlist{questions}{enumerate}{5}%
+
+\setlist[questions,1]{label=%
+   \protect\fcolorbox{questionslcolor}{questionslcolor}%
+   {\protect \Large \bf%
+      \color{questionslfgcolor}{\arabic*}},%
+   labelsep=1em,
+   itemsep=0em
+}
+% \setlist[questions,1]{label=%
+%    {\protect \fcolorbox%
+%       {questionslcolor}%
+%       {questionslcolor}%
+%       {\protect \Large \bf%
+%          {\protect\textcolor{questionslfgcolor}{\arabic*}}}},%
+%    labelsep=1em,
+%    itemsep=0em
+% }
+\setlist[questions,2]{label={\bf\arabic{questionsi}.\Alph*.}}
+\setlist[questions,3]{label={\bf\arabic{questionsi}.\Alph{questionsii}.\roman*.}}
+
+% Defining a nice questions list environment
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 5
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Defining comptenum environment using enumitem
+%\usepackage[inline]{enumitem}
+
+\newlist{compactenumA}{enumerate}{5}%
+\setlist[compactenumA]{topsep=0pt,itemsep=-1ex,partopsep=1ex,parsep=1ex,%
+   label=(\Alph*)}%
+
+\newlist{compactenuma}{enumerate}{5}%
+\setlist[compactenuma]{topsep=0pt,itemsep=-1ex,partopsep=1ex,parsep=1ex,%
+   label=(\alph*)}%
+
+\newlist{compactenumI}{enumerate}{5}%
+\setlist[compactenumI]{topsep=0pt,itemsep=-1ex,partopsep=1ex,parsep=1ex,%
+   label=(\Roman*)}%
+
+\newlist{compactenumi}{enumerate}{5}%
+\setlist[compactenumi]{topsep=0pt,itemsep=-1ex,partopsep=1ex,parsep=1ex,%
+   label=(\roman*)}%
+
+\ifdefined\compactitem
+\else
+   \newlist{compactitem}{itemize}{5}%
+   \setlist[compactitem]{topsep=0pt,itemsep=-1ex,partopsep=1ex,parsep=1ex,
+      label=\ensuremath{\bullet}}%
+\fi%
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\nfrac}[2]{{#1}/{#2}}%
+\newcommand{\IncludeGraphics}[2][]{%
+   \typeout{}%
+   \typeout{Graphics: #2}%
+   \typeout{\ includegraphics[#1]{#2}}%
+   \includegraphics[#1]{#2}
+   \typeout{}%
+}
+\providecommand{\tildegen}{{\protect\raisebox{-0.1cm}
+      {\symbol{'176}\hspace{-0.01cm}}}}
+\newcommand{\atgen}{\symbol{'100}}
+
+\providecommand{\Undefine}[1]{\let#1\undefined}
+%\providecommand{\QuickSelect}{}%
+\newcommand{\QuickSelect}{\Algorithm{QuickSelect}\xspace}%
+
+
+\newcommand{\DiscStart}[4]{
+   \begin{document}
+
+   
+   \noindent{Discussion \textbf{#1{}#2}: #3}
+   \hfill\Version{#4}%
+   \hfill
+   % \\[-0.01cm]
+   \noindent{{\footnotesize\Course, \Semester}}
+   \\[-0.2cm]
+   {\noindent \rule{\linewidth}{0.4mm}}%
+   
+}%
+\newcommand{\DiscEnd}{%
+\end{document}
+}
+
+\newcommand{\DiscSolStart}[4]{
+   \def\solutionMode{TRUE}  
+   \UsePackage{solutions}
+   \begin{document}
+
+   
+   \noindent{\textbf{Solutions for Discussion #1{}#2}: #3}
+   \\[-0.01cm]
+   \Version{#4}%
+   \hfill
+   % \\[-0.01cm]
+   \noindent{{\footnotesize\Course: \CourseName, \Semester}}
+   \\[-0.2cm]
+   {\noindent \rule{\linewidth}{0.4mm}}%
+   
+}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Date by week in the semester...
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fp}
+\usepackage{datenumber}%
+
+\newcommand{\AddToDateByWeekDay}[2]{%
+   \FPset{\tmpWeek}{#1}%
+   \FPsub{\tmpWeek}{\tmpWeek}{1}%
+   \FPmul{\tmpWeek}{\tmpWeek}{7}%
+   %
+   \FPset{\tmpDay}{#2}%
+   \FPsub{\tmpDay}{\tmpDay}{2}%
+   %
+   \FPadd{\result}{\tmpWeek}{\tmpDay}%
+   \FPclip{\resultA}{\result}% \resultA%
+   \addtocounter{datenumber}{\resultA}%
+   \setdatebynumber{\thedatenumber}%
+}
+
+\newcommand{\DateByWeekInSem}[2]{%
+   \setdatenumber{\StartSemYear}{\StartSemMonth}{\StartSemDay}%
+   % 
+   \AddToDateByWeekDay{#1}{#2}%
+   \datedayname, \datedate%
+}
+
+\newcommand{\SUNDAY}{1}
+\newcommand{\MONDAY}{2}
+\newcommand{\TUESDAY}{3}
+\newcommand{\WEDNESDAY}{4}
+\newcommand{\THURSDAY}{5}
+\newcommand{\FRIDAY}{6}
+\newcommand{\SATURDAY}{7}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\Sym}[1]{\textbf{\texttt{\color{blue}\ensuremath{#1}}}}
+\newcommand{\T}[1]{\Sym{#1}}
+\providecommand{\range}[2]{#1 \mathrel{{.}\,{.}}\nobreak #2}
+
+\providecommand{\AlgorithmBox}[1]{
+   \fbox{\begin{program} 
+          #1
+      \end{program}
+   } }
+
+\newcommand{\Program}[1]{%
+   
+   \medskip%
+   
+   \centerline{%
+      \AlgorithmBox{%
+         #1%
+      }%
+   }%
+   
+   \medskip}
+
+
+\newcommand{\Opt}{\mathrm{opt}}
+\newcommand{\degX}[1]{d\pth{#1}}%
+\newcommand{\HrT}{%\
+   \noindent%
+   \hrule height1.4pt width \linewidth depth0pt%
+}
+\newcommand{\EMPH}[1]{\textbf{\emph{\boldmath #1}}}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\HomeworkStart}[3]{%
+   \begin{document}
+
+   \noindent{\LARGE H{}W #1}%
+   \hfill%
+   { Due on \textbf{\DateByWeekInSem{#2}{\WEDNESDAY} at 10am}}%\\
+   \\[-0.2cm]
+   {\noindent \rule{\linewidth}{0.2mm}}%
+
+   \noindent{\textbf{\Course: \CourseName, \Semester}
+%      (\InstructorVeryShort{})%
+   }
+   \hfill\Version{#3}%
+   \\[-0.2cm]
+   {\noindent \rule{\linewidth}{0.4mm}}%
+   \setcounter{section}{#1}%
+}
+
+\usepackage{stmaryrd}%
+\newcommand{\IRX}[1]{\left\llbracket #1 \right\rrbracket}
+\newcommand{\IRY}[2]{\left\llbracket \range{#1}{#2} \right\rrbracket}
+
+\providecommand{\HWInstructions}[1]{#1}%
+
+\providecommand{\CourseWebpage}%
+{\url{https://courses.engr.illinois.edu/cs473/fa2021/}}

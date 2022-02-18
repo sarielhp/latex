@@ -1,0 +1,987 @@
+% $\ifx\sarielStyleFile\undefined
+
+\ifx\ipeMode\undefined%
+\providecommand{\IpeModeRemove}[1]{#1}%
+\else%
+\providecommand{\IpeModeRemove}[1]{}%
+\fi
+% \IpeModeRemove{\asdfadsf}
+
+\usepackage{amsmath}%
+\usepackage{salgorithm}%
+\newcommand{\hr}{\noindent \rule{\linewidth}{0.2mm}}%
+
+\usepackage{etoolbox}%
+\IpeModeRemove{%
+   \usepackage{titlesec}%
+   \titlelabel{\thetitle. }%
+
+   % Add period after paragraph title...
+   \titleformat{\paragraph}[runin]
+   {\normalfont\bfseries}
+   {\theparagraph}
+   {1em}
+   {\addperiod}
+
+   \newcommand{\addperiod}[1]{#1.}
+   
+   %%%% Number even paragraphs
+   \setcounter{secnumdepth}{5}
+
+   
+   % Fix the bug!
+   \makeatletter
+   \patchcmd{\ttlh@hang}{\parindent\z@}{\parindent\z@\leavevmode}{}{}
+   \patchcmd{\ttlh@hang}{\noindent}{}{}{}
+   \makeatother
+}
+
+\usepackage{mleftright}%
+\usepackage{amssymb}%
+\usepackage{euscript}%
+\usepackage{stmaryrd}%
+\usepackage{graphicx}
+
+
+
+\IpeModeRemove{\usepackage[T1]{fontenc}}
+\IpeModeRemove{\usepackage{lmodern}}
+
+\IpeModeRemove{\usepackage[cmyk]{xcolor}}%
+\IpeModeRemove{\usepackage{xspace}}%
+
+
+\newcommand{\Here}{\typeout{LOCATION: \currfilename\space L\the\inputlineno}\xspace}
+
+
+\providecommand{\remove}[1]{}%
+\newcommand{\infullver}[1]{Omitted. Will
+   appear in the full-version.}
+
+\newcommand{\commsariel}[1]{%
+   \marginpar[$\longrightarrow$]%
+   {$\longleftarrow$}$\,\mbox{}^{\rm sar}$%
+   {\sf #1}$\mbox{}_{\rm iel}\,$%
+}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hyperref
+
+\usepackage{hyperref}%
+
+\newcommand{\hrefb}[3][black]{\href{#2}{\color{#1}{#3}}}%
+
+\providecommand{\IfPrinterVer}[2]{#2}%
+\IfPrinterVer{%
+   \usepackage{hyperref}%
+}{%
+   \usepackage{hyperref}%
+   \hypersetup{%
+      breaklinks,%
+      ocgcolorlinks, colorlinks=true,%
+      urlcolor=[rgb]{0.25,0.0,0.0},%
+      linkcolor=[rgb]{0.5,0.0,0.0},%
+      citecolor=[rgb]{0,0.2,0.445},%
+      filecolor=[rgb]{0,0,0.4},
+      anchorcolor=[rgb]={0.0,0.1,0.2}%
+   }
+   % \usepackage{cleveref}
+}
+% Hyperref - end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Defining theorem like environments
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\usepackage[amsmath,thmmarks]{ntheorem}%
+\theoremseparator{.}%
+
+
+\theoremstyle{plain}%
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{FakeCounter}{FakeCounter}[subsection]%
+
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{claim}[theorem]{Claim}%
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{invariant}[theorem]{Invariant}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{openproblem}[theorem]{Open Problem}
+
+\theoremstyle{plain}%
+\theoremheaderfont{\sf}%
+\theorembodyfont{\upshape}%
+\newtheorem*{remark:unnumbered}[FakeCounter]{Remark}%
+\newtheorem*{remarks}[theorem]{Remarks}%
+\newtheorem{remark}[theorem]{Remark}%
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem*{defn:unnumbered}[FakeCounter]{Definition}
+\newtheorem{defn}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{xca}[theorem]{Exercise}
+\newtheorem{exercise_h}[theorem]{Exercise}
+\newtheorem{assumption}[theorem]{Assumption}%
+
+% Proof environment
+\newcommand{\myqedsymbol}{\rule{2mm}{2mm}}
+
+\theoremheaderfont{\em}%
+\theorembodyfont{\upshape}%
+\theoremstyle{nonumberplain}%
+\theoremseparator{}%
+\theoremsymbol{\myqedsymbol}%
+\newtheorem{proof}{Proof:}%
+
+\newtheorem{proofof}{Proof of\!}%
+
+% theorem block end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Defining comptenum environment using enumitem
+\usepackage[inline]{enumitem}
+
+%\newlist{compactenumn}{enumerate}{5}%
+%\setlist[compactenumA]{topsep=0pt,itemsep=-1ex,partopsep=1ex,parsep=1ex,%
+%   label=(\Arab*)}%
+
+\newlist{compactenumA}{enumerate}{5}%
+\setlist[compactenumA]{topsep=0pt,itemsep=-1ex,partopsep=1ex,parsep=1ex,%
+   label=(\Alph*)}%
+
+\newlist{compactenuma}{enumerate}{5}%
+\setlist[compactenuma]{topsep=0pt,itemsep=-1ex,partopsep=1ex,parsep=1ex,%
+   label=(\alph*)}%
+
+\newlist{compactenumI}{enumerate}{5}%
+\setlist[compactenumI]{topsep=0pt,itemsep=-1ex,partopsep=1ex,parsep=1ex,%
+   label=(\Roman*)}%
+
+\newlist{compactenumi}{enumerate}{5}%
+\setlist[compactenumi]{topsep=0pt,itemsep=-1ex,partopsep=1ex,parsep=1ex,%
+   label=(\roman*)}%
+
+\newlist{compactitem}{itemize}{5}%
+\setlist[compactitem]{topsep=0pt,itemsep=-1ex,partopsep=1ex,parsep=1ex,%
+   label=\ensuremath{\bullet}}%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PDF Info - place just before the begin{document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\IpeModeRemove{%
+\newcommand{\PDFInfo}[5]{%
+   \AtBeginDocument{%
+      \hypersetup{%   
+         pdftitle={#1},%
+         pdfauthor={#2},%
+         pdfsubject={#3},%
+         pdfproducer={#4},%
+         pdfkeywords={#5}
+      }
+   }%
+}%
+}
+
+
+% ----------------------------------------------------------------------
+% ----------------------------------------------------------------------
+% Defining theorem like environments
+% ----------------------------------------------------------------------
+% ----------------------------------------------------------------------
+
+
+\newenvironment{enumEx}{
+   \begin{compactenum}[(A)]
+    }{\end{compactenum}}
+
+
+% \newcommand{\bigdef}[2]{\rank{#1}\begin{dfn} {\rm #2} \end{dfn}}
+
+
+\newenvironment{solution}{{\em Solution:}}{\hfill{\hfill\myqedsymbol}}
+
+\newenvironment{proofext}{{\em Proof of }}{\hfill{\hfill\myqedsymbol}}
+\newenvironment{proofExt}[1]{{\emph{#1:}}}{\hfill{\hfill\myqedsymbol}}
+\newenvironment{proofextin}{{\em Proof of
+   }}{\hfill{\hfill\myqedsymbol}} \newenvironment{altproof}{{\em
+      Alternative Proof:}}{\hfill{\hfill\myqedsymbol}}
+\newenvironment{proofnoqed}{{\em Proof:}}{}
+\newenvironment{proofnoproof}{{}}{{\hfill{\hfill\myqedsymbol}}}
+
+
+%-----------------------------------------------------------------
+% Int Range requires \usepackage{stmaryrd}%
+\newcommand{\IntRange}[1]{\left\llbracket #1 \right\rrbracket}
+%
+% -----------------------------------------------------------------
+
+
+\newcommand{\qedsign}{\hfill{\hfill\myqedsymbol}}
+\newcommand{\qedsignBig}{\hfill{\hfill\rule{4mm}{4mm}}}
+
+\newenvironment{pf}{{\em Proof:}}{\hfill{\hfill\myqedsymbol}}
+
+\newcommand{\Mid}{\;\middle\vert\;}%
+\newcommand{\sepw}[1]{\left|\, {#1} \right.}%
+\newcommand{\sep}[1]{\,\left|\, {#1} \bigr.\right.}%
+\newcommand{\Sep}[1]{\,\left|\, {#1} \bigr.\right.}%
+\newcommand{\sepS}[1]{\!\Bigl.\left|\, {#1} \bigr. \right.}%
+
+\newcommand{\cardin}[1]{\left| {#1} \right|}%
+\newcommand{\cardinx}[1]{\left| \bigr. #1 \right|}
+
+\newcommand{\Lbrc}[1]{\left\{ {#1} \right.}
+\newcommand{\Set}[2]{\left\{ #1 \;\middle\vert\; #2 \right\}}
+\newcommand{\brc}[1]{\left\{ {#1} \right\}}
+\newcommand{\sbrc}[1]{\!\left\{ {#1} \right\}}
+\newcommand{\pth}[2][\!]{\mleft({#2}\mright)}%
+\newcommand{\pbrc}[2][\!\!]{#1\left[ {#2} \bigr. \right]}
+
+\newcommand{\Lpth}[1]{\left({#1}\bigr.\right.}
+\newcommand{\Rpth}[1]{\left.{#1}\bigr.\right)}
+
+\newcommand{\pbrcS}[1]{\left[ {#1} \right]}
+
+\newcommand{\norm}[1]{\left\| {#1} \right\|}
+\newcommand{\pnorm}[1]{\left\| {#1} \bigr. \right\|}
+\newcommand{\dist}[1]{\left\| {#1} \right\|}
+
+%\newcommand{\var}{\mathop{\mathrm{var}}}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 5
+% Probability notations
+%
+
+\newcommand{\pbrcx}[1]{\left[ {#1} \right]}%
+\newcommand{\ProbLTR}{\mathbb{P}}%
+
+\newcommand{\Prob}[1]{\mathop{\ProbLTR} \mleft[ #1 \mright]}%
+\newcommand{\ProbCond}[2]{\mathop{\ProbLTR}\!\left[%
+       #1 \;\middle\vert\; #2 \right]}
+\newcommand{\ProbExt}[2]{\mathop{\ProbLTR}_{#1}\pbrcx{#2}}
+
+\newcommand{\ExChar}{\mathbb{E}}%
+\newcommand{\ExSym}{\mathop{\ExChar}}%
+\newcommand{\Ex}[2][\!]{\ExSym#1\pbrcx{#2}}
+\newcommand{\ExExt}[2]{\ExSym_{#1}\!\pbrcx{#2}}
+\newcommand{\ExCond}[2]{\ExSym\!\left[%
+       #1 \;\middle\vert\; #2 \right]}
+
+\newcommand{\Var}[1]{\mathop{\mathbb{V}}\!\pbrcx{#1}}
+
+\newcommand{\ExExtS}[2]{\mathop{\mathbf{E}}_{\substack{#1}}\!\pbrcx{#2}}
+
+%
+% End: Probability notations
+%-------------------------------------------------------------------------------
+
+
+\newcommand{\Se}{{\mathbb{S}}}
+
+
+\newcommand{\ceil}[1]{\left\lceil {#1} \right\rceil}
+\newcommand{\floor}[1]{\left\lfloor {#1} \right\rfloor}
+
+\newcommand{\polylog}{\mathop{\mathrm{polylog}}}
+
+
+\newcommand{\NiceFrac}[2]{%
+   {\raisebox{0.2em}{\ensuremath{#1}}\!\!\!}%
+   {\rotatebox[origin=c]{-20}{\Big/}}% Rotated /
+   {\! \raisebox{-0.2em}{\ensuremath{#2}} }}%
+
+\newcommand{\nfrac}[2]{{#1}/{#2}}
+
+\newcommand{\CH}{{\mathcal{CH}}}
+\newcommand{\CHX}[1]{{\mathcal{CH}}\pth{#1}}
+
+\newcommand{\permut}[1]{\left\langle {#1} \right\rangle}
+\newcommand{\Arr}{\mathop{\mathrm{\EuScript{A}}}}
+
+\newcommand{\bd}{{\partial}}%
+\newcommand{\eps}{{\varepsilon}}%
+
+% \renewcommand{\Re}{{\rm I\!\hspace{-0.025em} R}}
+\renewcommand{\Re}{\mathbb{R}}%
+\newcommand{\reals}{\Re}%
+\newcommand{\ZZ}{{\sf Z\!\hspace{-0.2em} Z}}
+
+
+% \newcommand{\T}{{\cal{T}}}
+\providecommand{\Ungor}{\"{U}ng\"{o}r\xspace}
+\providecommand{\Matousek}{Matou{\v s}ek\xspace}
+\providecommand{\Gartner}{G\"{a}rtner\xspace}
+\providecommand{\Badoiu}{B\u{a}doiu\xspace}
+\providecommand{\Barany}{B{\'a}r{\'a}ny\xspace}
+\providecommand{\Bronnimann}{Br{\"o}nnimann\xspace}
+\providecommand{\Gartner}{G{\"a}rtner\xspace}
+\providecommand{\Erdos}{Erd{\H o}s\xspace}
+\providecommand{\Lovasz}{Lov\'asz\xspace}
+\providecommand{\Komlos}{Koml{\'o}s\xspace}
+
+\newcommand{\change}[1]{{ {$\rule[-0.12cm]{0.2in}{0.5cm}$\fbox{\tt
+            start}\marginpar{$\left( \Bigl.  \right.\longleftarrow $}
+      } #1 {$\rule[0.1cm]{0.3in}{0.1cm}$\fbox{\tt
+            end}\marginpar{$\longrightarrow \left. \Bigl.
+            \right)$}$\rule[0.1cm]{0.3in}{0.1cm}$} } }
+% \remove{ \newcommand{\change}[1]{#1} }
+\newcommand{\changeInternal}[1]{} %\change{#1}}
+\newcommand{\messagex}[1]{{ {$\rule[-0.12cm]{0.3in}{0.5cm}$%
+         \fbox{\sl MSG:} }%
+      #1%
+      {$\rule[0.1cm]{0.3in}{0.2cm}$\fbox{\sl end}%
+         $\rule[0.1cm]{0.3in}{0.1cm}$} } }
+
+
+\providecommand{\comment}[1]{{\bf {(*** #1 ***)}\marginpar{comment!}}}
+
+\newcommand{\powS}[1]{\sigma( {{#1}} )}
+\newcommand{\nofrac}[2]{{#1}/{#2}}%
+\newcommand{\Fk}[1]{\F_{\leq{#1}}}
+
+\newcommand{\XSays}[2]{{ {$\rule[-0.12cm]{0.2in}{0.5cm}$\fbox{\tt #1:}
+      } #2 \marginpar{\textcolor{red}{#1}}
+      {$\rule[0.1cm]{0.3in}{0.1cm}$\fbox{\tt
+            end}$\rule[0.1cm]{0.3in}{0.1cm}$} } }
+\newcommand{\sariel}[1]{{\XSays{Sariel}{#1}}}
+\newcommand{\Sariel}[1]{{\XSays{Sariel}{#1}}}
+
+
+
+\providecommand{\SarielWWWPapersAddr}{http://sarielhp.org/p}
+\providecommand{\SarielWWWPapers}{http://sarielhp.org/p}
+\providecommand{\urlSarielPaper}[1]{%
+   \href{\SarielWWWPapersAddr/#1}%
+   {\SarielWWWPapers{}/#1}}%
+
+\providecommand{\urlSarielPaperExt}[2]{%
+   \href{\SarielWWWPapersAddr/#1}{\SarielWWWPapers{}/#2}%
+}
+
+
+
+
+
+
+
+
+\newcommand{\propertylab}[1]{\label{property:#1}}
+\newcommand{\propertyref}[1]{(P\ref{property:#1})}
+
+
+\newcommand{\exeref}[1]{Exercise~\ref{exer:#1}}
+\newcommand{\exerefpage}[1]{Exercise~\ref{exer:#1}%
+   $_\text{p\pageref{exer:#1}}$}
+
+
+
+
+
+\newcommand{\subsecref}[1]{Section~\ref{subsec:#1}}
+
+
+
+
+\newcommand{\mchapref}[1]{\ref{chap:#1}}
+\newcommand{\msecref}[1]{\ref{sec:#1}}
+\newcommand{\msubsecref}[1]{\ref{subsec:#1}}
+\newcommand{\mtheoref}[1]{\ref{theo:#1}}
+\newcommand{\mfigref}[1]{\ref{fig:#1}}
+\newcommand{\eqnref}[1]{(\ref{eqn:#1})}
+
+
+
+\providecommand{\deflabel}[1]{def:#1}
+
+\newcommand{\prolab}[1]{\label{prop:#1}}
+\newcommand{\exelab}[1]{\label{exer:#1}}
+
+\newcommand{\THMref}[1]{THEOREM~\ref{theo:#1}}
+
+\newcommand{\chaplab}[1]{\label{chap:#1}}
+\newcommand{\chapref}[1]{Chapter~\ref{chap:#1}}
+\newcommand{\chaprefpage}[1]{Chapter~\ref{chap:#1}%
+   $_\text{p\pageref{chap:#1}}$}
+
+\newcommand{\eqnlab}[1]{\label{eqn:#1}}
+
+
+
+
+\newcommand{\subseclab}[1]{\label{subsec:#1}}
+
+\newcommand{\mymathtt}[1]{{\ensuremath{\text{\tt{#1}}}}}
+
+
+\newcommand{\etal}{\textit{et~al.}\xspace}
+
+\newcommand{\comm}[1]{%
+   \marginpar[\hfill$\longrightarrow$]{$\longleftarrow$}%
+   $\,\mbox{}^{\rm com}${\sf #1}%
+   $\mbox{}_{\rm ment}\,$}
+
+%\newcommand{\Otilde}{\widetilde{O}}
+\newcommand{\tldO}{\scalerel*{\widetilde{O}}{j^2}}%
+
+\newcommand{\Frechet}{Fr\'{e}chet\xspace}
+
+% \providecommand{\tfrac}[2]{{\textstyle{\frac{#1}{#2}}}}
+
+\renewcommand{\L}{{\mathcal L}}%
+\newcommand{\LL}{\mathfrak L}%
+\newcommand{\UU}{\mathfrak U}%
+\newcommand{\naive}{na\"{\i}ve}%
+\newcommand{\radius}{\mathop{\mathrm{radius}}}
+\newcommand{\dotprod}[2]{{#1}\cdot{#2}}
+\newcommand{\DotProd}[2]{\permut{{#1},{#2}}}
+\newcommand{\mysec}[1]{\setcounter{equation}{0}
+   \section{#1}\mark{#1}}
+% \def\nearest{\nu}
+
+
+\newcommand{\aftermath}{%
+   \par\vspace{-\belowdisplayskip}\vspace{-\parskip}\vspace{-\baselineskip}}
+
+\newcommand{\aftermathA}{\par\vspace{-\baselineskip}}
+
+\newcommand{\envFrame}[1]{\begin{center}\fbox{\begin{minipage}[c]{0.75\textwidth}{#1}\end{minipage}}\end{center}}
+
+\newcommand{\envFrameN}[1]{\begin{center}\fbox{%
+          \begin{minipage}[c]{0.75\textwidth}%
+              \vspace{-0.4cm}%
+              {#1}\end{minipage}}\end{center}}
+
+\newcommand{\inFullVerOnWeb}[1]{Omitted. Appears in the full-version,
+   available from
+   \url{http://www.illinois.edu/~sariel/research/papers/}.}
+\newcommand{\leftmarginpar}[1]{ \reversemarginpar \marginpar{#1}
+   \normalmarginpar }
+
+\newcommand{\ProblemC}[1]{{\textsf{\textcolor{red}{#1}\index{problem!#1}}}}
+\newcommand{\ProblemInd}[2]{\textsf{\textcolor{red}{#1}\index{problem!#2}}}
+\newcommand{\ProblemNoRef}[1]{\textsf{\textcolor{red}{#1}}}
+\newcommand{\NPProblemInd}[4]{
+   \begin{center}
+       
+       ~
+       
+       \fbox{
+          \begin{minipage}{0.8\linewidth}
+              \vspace{-0.6cm}\hspace{-0.35cm} {\bf Problem:}
+              \ProblemInd{#1}{#2} \vspace{+0.2cm}
+              
+              \noindent\emph{Instance:} {#3}
+              
+              \noindent\emph{Question:} {#4}
+          \end{minipage}
+       }
+   \end{center}
+} \newcommand{\NPProblem}[3]{\NPProblemInd{#1}{#1}{#2}{#3}}
+
+\newcommand{\NPProblemOpt}[4]{
+   \begin{center}
+
+       ~
+
+       \fbox{
+          \begin{minipage}{0.7\linewidth}
+              \vspace{-0.6cm}\hspace{-0.35cm} {\bf Problem:}
+              \ProblemInd{#1}{#2}%
+              \vspace{+0.2cm}
+
+              \noindent\textsf{Instance:} {#3}
+
+              \noindent\emph{Output:} {#4}
+          \end{minipage}
+       }
+   \end{center}
+}
+
+% \newcommand{\Hint}[1]{[{\bf{}\bf{Hint:}} {#1}{\bf]}}
+\newcommand{\points}[1]{{\bf [{#1} Points]}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Sariel's thanks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\providecommand{\tildegen}{{\protect\raisebox{-0.1cm}
+      {\symbol{'176}\hspace{-0.01cm}}}}
+\newcommand{\atgen}{\symbol{'100}}
+\newcommand{\SarielThanks}[1]{\thanks{Department of Computer Science;
+      University of Illinois; 201 N. Goodwin Avenue; Urbana, IL,
+      61801, USA; {\tt sariel\atgen{}illinois.edu}; {\tt
+         \url{http://sarielhp.org/}.} #1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% \newenvironment{itemizeA}{\vspace{-0.3\baselineskip}\begin{itemize}%
+%     \setlength{\parskip}{0cm} \setlength{\parsep}{0cm}
+%     \setlength{\partopsep}{0cm} \setlength{\topsep}{0cm}
+%     \setlength{\itemsep}{0.1cm}}{\end{itemize}
+% \vspace{-0.5\baselineskip}}
+
+% \newenvironment{enumerateRomanA}%
+% {\vspace{-0.3\baselineskip}\begin{enumerate}[(i)]%
+%     \setlength{\parskip}{0cm} \setlength{\parsep}{0cm}
+%     \setlength{\partopsep}{0cm} \setlength{\topsep}{0cm}
+%     \setlength{\itemsep}{0.1cm}}{\end{enumerate}
+% \vspace{-0.5\baselineskip}}
+\providecommand{\TPDF}[2]{\texorpdfstring{#1}{#2}}
+
+
+\newcommand{\IncludeGraphics}[2][]{%
+   \typeout{}%
+   \typeout{Graphics: #2}%
+   \typeout{\ includegraphics[#1]{#2}}%
+   \includegraphics[#1]{#2}
+   \typeout{}%
+}
+
+
+
+\newcommand{\TwoFigures}[6]{%
+   \begin{tabular}{cc}
+     \begin{minipage}{0.48\linewidth}
+         \begin{center}
+             {\IncludeGraphics[#1]{{#2}}}
+         \end{center}
+     \end{minipage}
+     &
+       \begin{minipage}{0.48\linewidth}
+           \centerline{\IncludeGraphics[#4]{{#5}}}
+       \end{minipage}
+     \\
+     ~\\[-0.2cm]
+     {#3} & {#6}
+   \end{tabular}%
+}%
+\newcommand{\ThreeFigures}[9]{%
+   \begin{tabular}{ccc}
+     \begin{minipage}{0.31\linewidth}
+         \begin{center}
+             {\IncludeGraphics[#1]{{#2}}}
+         \end{center}
+     \end{minipage}
+     &
+       \begin{minipage}{0.31\linewidth}
+           \centerline{\IncludeGraphics[#4]{{#5}}}
+       \end{minipage}
+     &
+       \begin{minipage}{0.31\linewidth}
+           \centerline{\IncludeGraphics[#7]{{#8}}}
+       \end{minipage}
+     \\
+     ~\\[-0.2cm]
+     {#3} & {#6} & {#9}
+   \end{tabular}}
+
+\newcommand{\dirEdge}[2]{\left({{#1} \rightarrow {#2}} \right)}
+\newcommand{\ndirEdge}[2]{{{#1} \rightarrow {#2}} }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 5
+% Color emph
+\newcommand{\emphind}[1]{\emph{#1}\index{#1}}
+\definecolor{blue25emph}{rgb}{0, 0, 11}
+\newcommand{\emphic}[2]{%
+   \textcolor{blue25emph}{%
+      \textbf{\emph{#1}}}%
+   \index{#2}}
+
+\newcommand{\emphi}[1]{\emphic{#1}{#1}}
+\newcommand{\emphOnly}[1]{\emph{\textcolor{blue25emph}{\textbf{#1}}}}
+
+\definecolor{almostblack}{rgb}{0, 0, 0.3}
+\providecommand{\emphw}[1]{{\textcolor{almostblack}{\emph{#1}}}}%
+
+% Color emph - end 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 5
+
+\newlength{\savedparindent}
+\newcommand{\SaveIndent}{\setlength{\savedparindent}{\parindent}}
+\newcommand{\RestoreIndent}{\setlength{\parindent}{\savedparindent}}
+
+\newlength{\savedparindentx}
+\newcommand{\SaveIndentX}{\setlength{\savedparindentx}{\parindent}}
+\newcommand{\RestoreIndentX}{\setlength{\parindent}{\savedparindentx}}
+
+\definecolor{shadecolor}{gray}{0.80}
+\newcommand{\MoreDetailsGReg}[2]{%
+   \begin{shaded}%
+       \noindent\textbf{#1}
+       #2
+   \end{shaded}
+}
+
+\newcommand{\InGrayX}[1]{%
+   \SaveIndent{} %
+   \noindent{}
+   \fcolorbox[rgb]{0,0,0}{0.95,0.95,0.95}{
+      % \begin{minipage}{0.965\linewidth} %
+      \begin{minipage}{0.955\linewidth} %
+          \RestoreIndent{}%
+          #1
+      \end{minipage}
+   } }
+
+
+\newcommand{\Undefine}[1]{\let#1\undefined}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Alternative th, where the th is a superscript
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\renewcommand{\th}{\ensuremath{\hphantom{}^{\,\mathrm{th}}}\xspace}
+
+% My preferred version...
+\renewcommand{\th}{th\xspace}
+
+
+\newcommand{\DisplayWrap}[2][1]{ \newline
+   \begin{minipage}{#1\linewidth}
+       \vspace*{0.2cm} #2 \vspace*{0.05cm}
+   \end{minipage}
+   \newline }
+
+\newcommand{\VBig}[1]{\rule[-.2cm]{0cm}{#1}}
+
+\DefineNamedColor{named}{OliveGreen} {cmyk}{0.64,0,0.95,0.40}
+\providecommand{\ComplexityClass}[1]{{{\textcolor[named]{OliveGreen}{%
+            \textsc{#1}}}}}
+\providecommand{\NPHard}{{\ComplexityClass{NP-Hard}}%
+   \index{NP!hard}\xspace}
+\providecommand{\NPComplete}{\ComplexityClass{NP-Complete}%
+   \index{NP!complete}\xspace}
+\providecommand{\NPC}{\ComplexityClass{NPC}%
+   \index{NP!complete}\xspace}
+\providecommand{\NP}{\ComplexityClass{NP}%
+   \index{NP}\xspace}
+\providecommand{\coNP}{\ComplexityClass{co-NP}\xspace}
+\providecommand{\POLYT}{\ComplexityClass{P}\xspace}
+
+\providecommand{\ds}{\displaystyle}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Conditional compilation depending on whether this is my computer or
+% not.
+\IfFileExists{sariel_computer.sty}{\def\sarielComp{1}}{}
+\ifx\sarielComp\undefined%
+\newcommand{\SarielComp}[1]{}
+\newcommand{\NotSarielComp}[1]{#1}%
+\else
+\newcommand{\SarielComp}[1]{#1}%
+\newcommand{\NotSarielComp}[1]{}%
+\fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\File}[1]{#1}
+
+
+\newcommand{\CIncGraph}[2][]{
+   \centerline{\IncludeGraphics[#1]{\File{#2}}}}
+
+\newcommand{\IncGraph}[2][]{
+   \IncludeGraphics[#1]{\File{#2}}
+}
+
+% #1 - base_dir #2 - file_name #3 - page
+\newcommand{\IncGraphPage}[4][]{ \ifpdf
+   \IncludeGraphics[page=#4,#1]{\File{#2/#3}}
+   \else
+   \IncludeGraphics[#1]{\File{#2/#3/#3_#4}}
+   \fi }
+
+\newcommand{\IncGraphPageExt}[4]{ \ifpdf
+   \IncludeGraphics[page=#3,#4]{\File{#1/#2}}
+   \else
+   \IncludeGraphics[#4]{\File{#1/#2/#2_#3}}
+   \fi }
+
+\newcommand{\HERE}{%
+   {\noindent\hspace{-1cm}\rule{1.2\linewidth}{4cm}}   
+   % \rule{4cm}{4cm}
+}
+
+% \si: \si{something} - emacs spell checker ignores something
+\providecommand{\si}[1]{#1}
+
+\newcommand{\ts}{\hspace{0.6pt}}
+
+
+\IpeModeRemove{%
+   \makeatletter%
+   \AtBeginDocument{%
+      \hypersetup{ pdftitle = {\@title}, %
+         pdfauthor = {\@author}%
+      }%
+   }
+   \makeatother%
+}
+
+\numberwithin{figure}{section}%
+\numberwithin{table}{section}%
+\numberwithin{equation}{section}%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    Handling references
+
+\IpeModeRemove{%
+\newcommand{\HLinkShort}[2]{\hyperref[#2]{#1\ref*{#2}}}
+\newcommand{\HLink}[2]{\hyperref[#2]{#1~\ref*{#2}}}
+\newcommand{\HLinkY}[2]{\hyperref[#2]{#1}}
+\newcommand{\HLinkPage}[2]{\hyperref[#2]{#1~\ref*{#2}%
+      $_\text{p\pageref{#2}}$}}
+\newcommand{\HLinkPageOnly}[1]{\hyperref[#1]{Page~\refpage*{#1}%
+      $_\text{p\pageref{#1}}$}}
+
+\newcommand{\HLinkSuffix}[3]{\hyperref[#2]{#1\ref*{#2}{#3}}}
+\newcommand{\HLinkPageSuffix}[3]{\hyperref[#2]{#1\ref*{#2}%
+      #3$_\text{p\pageref{#2}}$}}
+}
+
+% \newcommand{\figref}[1]{Figure~\ref{fig:#1}}
+\newcommand{\figlab}[1]{\label{fig:#1}}
+\newcommand{\figref}[1]{\HLink{Figure}{fig:#1}}
+\newcommand{\Figref}[1]{\HLink{Figure}{fig:#1}}
+\newcommand{\figrefpage}[1]{\HLinkPage{Figure}{fig:#1}}
+
+\newcommand{\seclab}[1]{\label{sec:#1}}
+\newcommand{\secref}[1]{\HLink{Section}{sec:#1}}
+\newcommand{\secrefpage}[1]{\HLinkPage{Section}{sec:#1}}
+
+\newcommand{\corlab}[1]{\label{cor:#1}}
+\newcommand{\corref}[1]{\HLink{Corollary}{cor:#1}}%
+\newcommand{\correfshort}[1]{\HLinkShort{C}{cor:#1}}%
+\newcommand{\correfpage}[1]{\HLinkPage{Corollary}{cor:#1}}
+
+\providecommand{\deflab}[1]{\label{def:#1}}
+\newcommand{\defref}[1]{\HLink{Definition}{def:#1}}
+\newcommand{\defrefpage}[1]{\HLinkPage{Definition}{def:#1}}
+
+\newcommand{\apndlab}[1]{\label{apnd:#1}}
+\newcommand{\apndref}[1]{\HLink{Appendix}{apnd:#1}}
+\newcommand{\apndrefpage}[1]{\HLinkPage{Appendix}{apnd:#1}}
+
+\newcommand{\clmlab}[1]{\label{claim:#1}}
+\newcommand{\clmref}[1]{\HLink{Claim}{claim:#1}}
+\newcommand{\clmrefpage}[1]{\HLinkPage{Claim}{claim:#1}}%
+
+\newcommand{\itemlab}[1]{\label{item:#1}}
+%\newcommand{\itemref}[1]{\HLinkSuffix{(}{item:#1}{)}}
+\newcommand{\itemref}[1]{\HLinkSuffix{}{item:#1}{}}
+\newcommand{\itemrefpage}[1]{\HLinkPageSuffix{(}{item:#1}{)}}
+
+\providecommand{\conlab}[1]{\label{conj:#1}}%
+\providecommand{\conref}[1]{\HLink{Conjecture}{conj:#1}}%
+
+\newcommand{\factlab}[1]{\label{fact:#1}}%
+\newcommand{\factref}[1]{\HLink{Fact}{fact:#1}}%
+
+\newcommand{\remlab}[1]{\label{rem:#1}}
+\newcommand{\remref}[1]{\HLink{Remark}{rem:#1}}%
+\newcommand{\defrefY}[2]{\hyperref[def:#2]{#1}}
+\newcommand{\remrefpage}[1]{\HLinkPage{Remark}{rem:#1}}%
+
+
+\newcommand{\asmlab}[1]{\label{assumption:#1}}
+\newcommand{\asmref}[1]{\HLink{Assumption}{assumption:#1}}%
+
+\newcommand{\tbllab}[1]{\label{table:#1}}
+\newcommand{\tblref}[1]{\HLink{Table}{table:#1}}
+
+\newcommand{\lemlab}[1]{\label{lemma:#1}}
+\newcommand{\lemref}[1]{\HLink{Lemma}{lemma:#1}}%
+\newcommand{\lemrefpage}[1]{\HLinkPage{Lemma}{lemma:#1}}
+\newcommand{\lemrefshort}[1]{\HLinkShort{L}{lemma:#1}}
+\newcommand{\pagelemref}[1]{\HLinkPageOnly{lemma:#1}}
+
+\newcommand{\tablab}[1]{\label{table:#1}}%
+\newcommand{\tabref}[1]{\HLink{Table}{table:#1}}%
+
+\newcommand{\proplab}[1]{\label{prop:#1}}
+\newcommand{\proref}[1]{\HLink{Proposition}{prop:#1}}%
+\newcommand{\propref}[1]{\HLink{Proposition}{prop:#1}}%
+
+\newcommand{\alglab}[1]{\label{Algorithm:#1}}%
+\newcommand{\algref}[1]{\HLink{Algorithm}{Algorithm:#1}}%
+\newcommand{\algrefpage}[1]{\HLinkPage{Algorithm}{Algorithm:#1}}%
+
+
+
+\newcommand{\obslab}[1]{\label{observation:#1}}
+\newcommand{\obsref}[1]{\HLink{Observation}{observation:#1}}
+\newcommand{\obsrefshort}[1]{\HLinkShort{O}{observation:#1}}
+\newcommand{\obsrefpage}[1]{\HLinkPage{Observation}{observation:#1}}
+
+\newcommand{\problab}[1]{\label{prob:#1}}%
+\newcommand{\probref}[1]{\HLink{Problem}{prob:#1}}%
+\newcommand{\theoref}[1]{\thmref{#1}}
+\newcommand{\theref}[1]{\thmref{#1}}
+
+\newcommand{\thmlab}[1]{{\label{theo:#1}}}
+\newcommand{\thmref}[1]{\HLink{Theorem}{theo:#1}}
+\newcommand{\thmrefY}[2]{\HLinkY{#2}{theo:#1}}
+\newcommand{\thmrefpage}[1]{\HLinkPage{Theorem}{theo:#1}}
+
+\providecommand{\eqlab}[1]{}%
+\renewcommand{\eqlab}[1]{\label{equation:#1}}
+\newcommand{\Eqref}[1]{\HLinkSuffix{Eq.~(}{equation:#1}{)}}
+\newcommand{\Eqrefpage}[1]{\HLinkPageSuffix{Eq.~(}{equation:#1}{)}}
+
+\newcommand{\exmlab}[1]{\label{example:#1}}
+\newcommand{\exmref}[1]{\HLink{Example}{example:#1}}
+
+
+%----    Handling references - end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Restating lemmas/theorems...
+%
+% Example
+%---------------------------------------------------------------------
+% \SaveContent{\LemmaNumVerticesDepthBody}{ BLA BLA }
+% 
+% \begin{lemma}[{{\normalfont Proof in \apndref{num:v:depth}}}]
+%       \lemlab{num:vertices:depth}%
+%       \LemmaNumVerticesDepthBody{}
+% \end{lemma}
+%...
+% \bigskip%
+% \RestatementOf{\lemref{num:vertices:depth}}{\LemmaNumVerticesDepthBody}
+%---------------------------------------------------------------------
+
+\newcommand{\SaveContent}[2]{%
+   \expandafter\newcommand{#1}{#2}%
+}
+
+\newcommand{\RestatementOf}[2]{
+   \noindent%
+   \textbf{Restatement of #1.}
+   % 
+   {\em #2{}}%
+}
+
+%%% End
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Color in math
+\providecommand{\Mh}[1]{{#1}}%
+\providecommand{\IfColorMath}[2]{#2}%
+
+\IfFileExists{.latex_printer_friendly}{\def\GenPrinterVer{1}}{}%
+
+\ifx\GenPrinterVer\undefined
+   \IfFileExists{.latex_color}{\def\GenColorMath{1}}{}
+\else
+   \renewcommand{\IfPrinterVer}[2]{#1}%
+\fi
+
+\ifx\GenColorMath\undefined
+\else
+\renewcommand{\IfColorMath}[2]{#1}%
+\renewcommand{\Mh}[1]{{\textcolor{red}{#1}}}%
+\fi
+% Color in math - end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% the following fixes the hyperref bug when the link points to the
+% previous page of a  claim/label that starts on the next page. This
+% let latex know in advance that the claim is on the next page.
+
+%\needspace{3\baselineskip}
+
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+\newcommand{\Term}[1]{\textsf{#1}}
+\newcommand{\TermI}[1]{\Term{#1}\index{#1@\Term{#1}}}
+
+
+\usepackage{stmaryrd}%
+\providecommand{\IntRange}[1]{\mleft\llbracket #1 \mright\rrbracket}
+\newcommand{\IRX}[1]{\IntRange{#1}}%
+\newcommand{\IRY}[2]{\left\llbracket #1:#2 \right\rrbracket}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BibLatex stuff
+
+\providecommand{\BibLatexMode}[1]{}
+\providecommand{\BibTexMode}[1]{#1}
+
+\ifx\UseBibLatex\undefined%
+  \renewcommand{\BibLatexMode}[1]{}
+  \renewcommand{\BibTexMode}[1]{#1}
+\else
+  \renewcommand{\BibLatexMode}[1]{#1}
+  \renewcommand{\BibTexMode}[1]{}
+\fi
+
+
+\newcommand{\UsePackage}[1]{%
+  \IfFileExists{../styles/#1.sty}{%
+      \usepackage{../styles/#1}%
+   }{%
+      \IfFileExists{./styles/#1.sty}{%
+         \usepackage{styles/#1}%
+      }{%
+         \usepackage{#1}%
+      }%
+   }%
+}
+
+% Bib latex stuff
+\BibLatexMode{%
+%   \usepackage[bibencoding=ascii,style=alphabetic,backend=biber]{biblatex}%
+   \usepackage[bibencoding=utf8,style=alphabetic,backend=biber]{biblatex}%
+   \UsePackage{sariel_biblatex}%
+}
+
+% BibLatex stuff - end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% sariel.sty - end
+% of file

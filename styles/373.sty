@@ -1,0 +1,607 @@
+\newcommand{\Course}{CS 373}
+\newcommand{\CourseName}{Theory of Computation}
+\newcommand{\CourseInstructors}{Sariel Har-Peled and Madhusudan Parthasarathy}
+\newcommand{\Year}{2009\xspace}
+\newcommand{\Semester}{Spring \Year}
+\newcommand{\CourseWebpage}{http://www.cs.uiuc.edu/class/sp09/cs373/}
+
+\usepackage{theorem, alltt, fullpage, epsfig, amsmath,amssymb,gastex}
+\usepackage{graphics}
+
+\newcommand{\points}[1]{{\bf [{#1} Points]}}
+
+\usepackage[usenames]{color} 
+%\usepackage{color}
+\usepackage{xspace}
+\usepackage{enumerate}
+%\usepackage{picins}
+\usepackage{fancyvrb}
+\usepackage{euscript}
+%\usepackage{bbding}
+\usepackage{pifont}
+\usepackage[breaklinks]{hyperref}
+\usepackage{ifpdf}
+
+
+%\usepackage{type1ec}
+\usepackage[T1]{fontenc}
+
+\newcommand{\Godel}{G\"odel\xspace}
+
+
+\newcommand{\remove}[1]{}
+\newtheorem{theorem}{Theorem}[section] % section
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{corollary}[theorem]{Corollary}
+{\theorembodyfont{\rm} \newtheorem{defn}[theorem]{Definition}}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\newcommand{\aftermathA}{\par\vspace{-\baselineskip}}
+
+\renewcommand{\Re}{{\rm I\!\hspace{-0.025em} R}}
+
+\newenvironment{proof}{{\em Proof:}}{\hfill{\hfill\rule{2mm}{2mm}}}
+ 
+%wider ``normal'' margins
+
+
+
+\newcommand{\Term}[1]{\textsf{#1}}
+\newcommand{\TermI}[1]{\Term{#1}\index{#1@\Term{#1}}}
+
+
+\newcommand{\DFA}{\TermI{DFA}\xspace}
+\newcommand{\DFAs}{\TermI{DFA}s\xspace}
+
+\newcommand{\NTM}{\TermI{NTM}\xspace}
+\newcommand{\NTMs}{\TermI{NTM}s\xspace}
+
+\newcommand{\NFA}{\TermI{NFA}\xspace}
+\newcommand{\NFAs}{\TermI{NFA}s\xspace}
+
+\newcommand{\PDA}{\TermI{PDA}\xspace}
+\newcommand{\PDAs}{\TermI{PDA}s\xspace}
+
+\newcommand{\LBA}{\TermI{LBA}\xspace}
+\newcommand{\LBAs}{\TermI{LBA}s\xspace}
+
+\newcommand{\JFLAP}{\textsf{JFLAP}\xspace}
+
+\providecommand{\PCP}{\TermI{PCP}\xspace}
+\providecommand{\MPCP}{\TermI{MPCP}\xspace}
+
+\newcommand{\CFL}{\TermI{CFL}\xspace}
+\newcommand{\CFLs}{\TermI{CFL}s\xspace}
+
+\newcommand{\CFG}{\TermI{CFG}\xspace}
+\newcommand{\CFGs}{\TermI{CFG}s\xspace}
+
+\newcommand{\FST}{\TermI{FST}\xspace}
+\newcommand{\FSTs}{\TermI{FST}s\xspace}
+
+\newcommand{\CNF}{\TermI{CNF}\xspace}
+
+\newcommand{\GNFA}{\TermI{GNFA}\xspace}
+\newcommand{\GNFAs}{\TermI{GNFA}s\xspace}
+
+\newcommand{\CYK}{\TermI{CYK}\xspace}
+
+\newcommand{\TM}{\TermI{TM}\xspace}
+\newcommand{\TMs}{\TermI{TM}s\xspace}
+
+%\setlength{\parskip}{0.1in}
+%\setlength{\textwidth}{6.5in}
+%\setlength{\oddsidemargin}{0in}
+%\setlength{\evensidemargin}{0in}
+
+\newcommand{\brc}[1]{\left\{ {#1} \right\}}
+\newcommand{\pth}[2][\!]{#1\left({#2}\right)}
+\newcommand{\pbrc}[2][\!]{#1\left[{#2}\right]}
+\newcommand{\MakeBig}{\rule[-.2cm]{0cm}{0.4cm}}
+\newcommand{\sep}[1]{\,\left|\, {#1} \MakeBig\right.}
+%\newcommand{\T}[1]{\texttt{#1}}
+\newcommand{\T}[1]{\ensuremath{\mathtt{#1}}}
+\newcommand{\Tred}[1]{\textcolor{Red}{\ensuremath{\mathtt{#1}}}}
+
+\newcommand{\Ta}{\T{a}\xspace}
+\newcommand{\Tb}{\T{b}\xspace}
+\newcommand{\Tc}{\T{c}\xspace}
+
+
+\definecolor{blue25}{rgb}{0,0,0.25}
+\newcommand{\emphi}[1]{%
+     \textcolor{blue25}{%
+         \textbf{\emph{#1}}}\index{#1}}
+\newcommand{\emphic}[1]{%
+     \textcolor{blue25}{%
+         \textbf{\emph{#1}}}}
+
+\newcommand{\XSays}[2]{{
+      {$\rule[-0.12cm]{0.2in}{0.5cm}$\fbox{\tt
+            #1:} }
+      #2
+%      \marginpar{#1}
+      {$\rule[0.1cm]{0.3in}{0.1cm}$\fbox{\tt
+            end}$\rule[0.1cm]{0.3in}{0.1cm}$}
+      }
+   }
+\newcommand{\sariel}[1]{{\XSays{Sariel}{#1}}}
+\newcommand{\Sariel}[1]{{\XSays{Sariel}{#1}}}
+
+\newcommand{\seclab}[1]{\label{sec:#1}}
+\newcommand{\secref}[1]{Section~\ref{sec:#1}}
+\newcommand{\MakeB}[1]{\rule[0cm]{-0.01cm}{#1\lineskip}}
+\newcommand{\MakesBig}{\rule[0.0cm]{0.0cm}{0.32cm}} % really small
+\newcommand{\MakeSBig}{\rule[0.0cm]{0.0cm}{0.35cm}} % really small
+\newcommand{\MakeSSBig}{\rule[0.0cm]{0.0cm}{0.37cm}} % really small
+\newcommand{\eqlab}[1]{\label{equation:#1}}
+\newcommand{\Eqref}[1]{Eq.~(\ref{equation:#1})}
+
+% Put the following line the top of the file, if you want the
+% solutions to appear:
+%         \def\solutionMode{TRUE}
+% Top of the file = before including this style file.
+\usepackage{color}
+\usepackage{framed}
+\ifx\solutionMode\undefined
+   \newcommand{\FullVer}[1]{#1}
+   \newcommand{\Solution}[1]{}
+   \newcommand{\SolutionSmall}[1]{}
+   \newcommand{\SolutionS}[1]{}
+   \newcommand{\SolutionMP}[1]{}
+   \newcommand{\SolVer}[1]{}
+\else
+   \definecolor{shadecolor}{gray}{0.96}
+   \newcommand{\FullVer}[1]{}
+   \newcommand{\SolutionMP}[1]{\textbf{\Large{Solution:}}\\
+      \noindent
+          \begin{shaded}%
+              \RestoreIndent  %
+              #1
+          \end{shaded}
+             }
+
+   \newcommand{\Solution}[1]{\noindent\textbf{\Large{Solution:}}\\
+      \noindent\begin{minipage}{0.99\linewidth}
+          \begin{shaded}%
+              \RestoreIndent  %
+              #1
+          \end{shaded}
+          \end{minipage}
+   }
+   \newcommand{\SolutionSmall}[1]{
+      \noindent\fbox{\begin{minipage}{0.99\linewidth}
+      \begin{shaded}%
+          \RestoreIndent  %
+          \noindent \textbf{{Solution:}} #1
+           \end{shaded}
+        \end{minipage}}
+%      \end{adjustwidth}
+     }
+
+   \newcommand{\SolutionCont}[1]{
+      \noindent\begin{minipage}{0.99\linewidth}
+      \begin{shaded}%
+          \RestoreIndent  %
+            #1
+           \end{shaded}
+        \end{minipage}
+%      \end{adjustwidth}
+     }
+
+
+   \newcommand{\SolutionS}[1]{\SolutionSmall{#1}}
+
+   \newcommand{\SolutionSMP}[1]{
+      \noindent%\begin{minipage}{0.99\linewidth}
+      \begin{shaded}%
+          \RestoreIndent  %
+          \noindent \textbf{{Solution:}} #1
+           \end{shaded}
+%        \end{minipage}
+%      \end{adjustwidth}
+}
+
+   \newcommand{\SolVer}[1]{#1}
+\fi
+
+\newcommand{\eps}{{\epsilon}}%
+\newlength{\savedparindent}
+\newcommand{\SaveIndent}{\setlength{\savedparindent}{\parindent}}
+\newcommand{\RestoreIndent}{\setlength{\parindent}{\savedparindent}}
+
+
+% Handling gastex figures
+
+\newcommand{\File}[1]{#1}
+\newcommand{\FragmentName}[1]{\File{figs/#1.gastex}}
+
+\newenvironment{automata}[1]%
+           {\VerbatimEnvironment
+               \let\TmpFragmentName\undefined
+               \def\TmpFragmentName{\FragmentName{#1}}
+               \begin{VerbatimOut}{\FragmentName{#1}}}%
+           {\end{VerbatimOut}%\input{\TmpFragmentName}
+       }
+
+
+\newcommand{\AutomataInclude}[2][]{%
+   \IfFileExists{\File{figs/#2.ps}}%
+        {\includegraphics[#1]{\File{figs/#2}}}%
+   %ELSE 
+        {\input{\File{figs/#2.gastex}}}%
+        }
+
+\newcommand{\IncludeAutomata}[2][]{\AutomataInclude{#1}{#2}}
+
+\newcommand{\CAInc}[2][]{%
+   \IfFileExists{\File{figs/#2.ps}}%
+        {\centerline{\includegraphics[#1]{\File{figs/#2}}}}%
+   %ELSE 
+        {\centerline{\input{\File{figs/#2.gastex}}}}%
+        }
+\newcommand{\CAIncBasic}[2][]{%
+   \IfFileExists{\File{figs/#2.ps}}%
+        {{\includegraphics[#1]{\File{figs/#2}}}}%
+   %ELSE 
+        {{\input{\File{figs/#2.gastex}}}}%
+        }
+
+% Handling gastex figures - end
+
+
+
+{\theorembodyfont{\rm} \newtheorem{example}[theorem]{Example}}
+   {\theorembodyfont{\rm} \newtheorem{remark}[theorem]{Remark}}
+   {\theorembodyfont{\rm} \newtheorem{note}[theorem]{Note}}
+
+\newcommand{\figlab}[1]{\label{fig:#1}}
+\newcommand{\figref}[1]{Figure~\ref{fig:#1}}
+\newcommand{\lemlab}[1]{\label{lemma:#1}}
+\newcommand{\lemref}[1]{Lemma~\ref{lemma:#1}}
+\newcommand{\thmlab}[1]{\label{thm:#1}}
+\newcommand{\thmref}[1]{Theorem~\ref{thm:#1}}
+
+\newcommand{\clmlab}[1]{\label{clm:#1}}
+\newcommand{\clmref}[1]{Claim~\ref{clm:#1}}
+
+
+\newcommand{\ceil}[1]{\left\lceil {#1} \right\rceil}
+\newcommand{\floor}[1]{\left\lfloor {#1} \right\rfloor}
+
+\newcommand{\SArrow}[1]{%
+   \stackrel{\T{#1}}{\;\longrightarrow \;}}
+
+\newcommand{\cardin}[1]{\left| {#1} \right|}
+
+
+\newcommand{\VA}{\ensuremath{\mathsf{A}}}
+\newcommand{\VB}{\ensuremath{\mathsf{B}}}
+\newcommand{\VC}{\ensuremath{\mathsf{C}}}
+\newcommand{\VD}{\ensuremath{\mathsf{D}}}
+
+\newcommand{\Variable}[1]{\ensuremath{\mathsf{#1}}}
+\newcommand{\VS}{\ensuremath{\mathsf{S}}}
+\newcommand{\VT}{\ensuremath{\mathsf{T}}}
+\newcommand{\VU}{\ensuremath{\mathsf{U}}}
+\newcommand{\VX}{\ensuremath{\mathsf{X}}}
+\newcommand{\VY}{\ensuremath{\mathsf{Y}}}
+\newcommand{\VZ}{\ensuremath{\mathsf{Z}}}
+
+\newcommand{\ra}{\rightarrow}
+
+
+\ifx\solutionMode\undefined
+   \let\solNoBackground\undefined
+\fi
+
+\ifx\solNoBackground\undefined
+\else
+   \renewcommand{\SolutionMP}[1]{\textbf{\Large{Solution:}}\\
+              {#1}}
+
+   \renewcommand{\Solution}[1]{\textbf{\Large{Solution:}}\\
+      \noindent\fbox{\begin{minipage}{0.99\linewidth}
+              #1
+          \end{minipage}}
+   }
+\fi
+
+
+\newcommand{\qacc}{q_\mathrm{acc}}
+\newcommand{\qrej}{q_\mathrm{rej}}
+\newcommand{\Left}{\mathtt{L}}
+\newcommand{\Right}{\mathtt{R}}
+\newcommand{\permut}[1]{\left\langle {#1} \right\rangle}
+%\newcommand{\qacc}{q_\mathrm{acc}}
+%\newcommand{\qrej}{q_\mathrm{rej}}
+\newcommand{\SpaceChar}{\ensuremath{\text{\textvisiblespace}}\xspace}
+\newcommand{\CharNL}{\ensuremath{\permut{\T{NL}}}}
+\newcommand{\UTM}{\ensuremath{U_\TM}\xspace}
+
+
+\providecommand{\dingfamilyX}{\fontencoding{U}\fontfamily{ding}\selectfont}
+\newcommand{\XchooseSymbol}[1]{{\dingfamilyX\symbol{#1}}}
+\providecommand{\TapeChar}{{\footnotesize\XchooseSymbol{'012}}}
+\newcommand{\Tape}[1]{{
+      \ensuremath{\!{\text{%
+               \TapeChar%
+            }}_{#1}}}\xspace}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
+% The algorithm environment
+%
+%
+\newcommand{\xbeginlgox}{\begin{minipage}{1in}\begin{tabbing}
+        \quad\=\qquad\=\qquad\=\qquad\=\qquad\=\qquad\=\qquad\=\kill}
+\newcommand{\xendlgox}{\end{tabbing}\end{minipage}}
+\newenvironment{algorithm}{\begin{tabular}{|l|}\hline\xbeginlgox}
+        {\xendlgox\\\hline\end{tabular}}
+%\newcommand{\Algorithm}[1]{{\textcolor[named]{RedViolet}{\texttt{\bf{#1}}}}}
+\newcommand{\Do}{{\small\bf do}\ }
+\newcommand{\End}{{\small\bf end}\ }
+\newcommand{\Return}{{\small\bf return\ }}
+\newcommand{\Proc}[1]{#1\+}
+\newcommand{\Returns}{{\small\bf returns}}
+\newcommand{\Procbegin}{{\small\bf begin}}
+\newcommand{\If}{{\small\bf if}\ }
+\newcommand{\Then}{{\small\bf then}\ }
+\newcommand{\Else}{{\small\bf else}\ }
+\newcommand{\rElse}{{\small\bf else}\ }
+\newcommand{\Elseif}{{\small\bf elseif}\ }
+\newcommand{\Foreach}{{\small\bf for each}\ }
+\newcommand{\Endif}{{\small\bf end\ if\ }}
+\newcommand{\Break}{{\small\bf break }}
+\newcommand{\Endproc}[1]{{\small\bf end} #1}
+\newcommand{\For}{{\small\bf for}\ }
+\newcommand{\Endfor}{{\small\bf end\ for}}
+\newcommand{\While}{{\small\bf while}\ }
+\newcommand{\Endwhile}{{\small\bf end\ while}}
+\newcommand{\LogAnd}{{\small\bf and}}
+
+\newcommand{\Repeat}{{\small\bf repeat}\ }
+\newcommand{\Until}{{\small\bf Until}}
+\newcommand{\Loop}{{\bf loop}\ }
+\newcommand{\Endloop}{{\bf end\ loop}\ }
+%
+%
+% The algorithm environment
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
+
+
+\DefineNamedColor{named}{RedViolet}     {cmyk}{0.07,0.90,0,0.34}
+\newcommand{\Algorithm}[1]{{\textcolor[named]{RedViolet}{\texttt{\bf{#1}}}}}
+\newcommand{\TRUE}{{\textcolor[named]{RedViolet}{\textsf{TRUE}}}\xspace}
+\newcommand{\FALSE}{{\textcolor[named]{RedViolet}{\textsf{FALSE}}}\xspace}
+
+\newcommand{\Lang}[1]{\ensuremath{\mathrm{A}_{#1}}\xspace}
+\newcommand{\LangEmpty}[1]{E_{#1}}
+\newcommand{\LangFull}[1]{ALL_{#1}}
+\newcommand{\LangEqual}[1]{{EQ}_{#1}}
+
+
+\newcommand{\Problem}[1]{{\textsf{\textcolor{red}{#1}\index{Problem!#1}}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
+
+\newcommand{\LectureNum}[1]{
+   \def\LectureNumStr{#1}
+   \def\LectureTitleNum{Lecture #1:}
+}
+\newcommand{\Date}[1]{
+   \def\DateStr{#1}
+}
+\newcommand{\Title}[1]{
+   \def\TitleStr{#1}
+}
+
+\def\LectureNumStr{}
+\def\DateStr{}
+\def\TitleStr{}
+\def\LectureTitleNum{}
+
+\newcommand{\MakeTitleBasic}{
+    ~~~$~$\~~~~~~~ \hfill    {\Course{}:} \CourseName{}\\
+    ~~~$~$\~~~~~~~ \hfill  \CourseInstructors{}
+
+    \bigskip
+%   \author{~\vspace{-1cm}}
+   \noindent
+   \textbf{\LARGE{\TitleStr}}\\[0.1cm]
+   \noindent  \DateStr 
+   \bigskip
+   \bigskip
+
+   }
+
+   \newcommand{\MakeTitleLecture}{
+      ~~~$~$\~~~~~~~ \hfill    {\Course{}:} \CourseName\\
+      ~~~$~$\~~~~~~~ \hfill \CourseInstructors{}
+
+    \bigskip
+%   \author{~\vspace{-1cm}}
+   \noindent
+   \textbf{\LARGE{\LectureTitleNum{}
+      \TitleStr}}\\[0.1cm]
+   \noindent  \DateStr 
+   \bigskip
+   \bigskip
+
+   }
+\newcommand{\MakeTitleQuiz}{\MakeTitleBasic}
+\newcommand{\MakeTitleExam}{\MakeTitleBasic}
+
+
+\newcommand{\MakeTitleDiscussion}{
+    ~~~$~$\~~~~~~~ \hfill    {\Course{}:} \CourseName\\
+    ~~~$~$\~~~~~~~ \hfill   \CourseInstructors{}
+
+    \bigskip
+%   \author{~\vspace{-1cm}}
+   \noindent
+   \textbf{\LARGE{Discussion \LectureNumStr: 
+      \TitleStr}}\\[0.1cm]
+   \noindent  \DateStr 
+   \bigskip
+   \bigskip
+
+   }
+
+
+\def\BeginDocument{\begin{document}}
+\def\EndDocument{\end{document}}
+
+\newcommand{\Power}[1]{\mathbb{P}\pth{#1}}
+\newcommand{\MDFA}{\ensuremath{M_{\DFA}}\xspace}
+
+\newcommand{\qtemp}{q_{\mathrm{temp}}}
+\newcommand{\qinit}{q_{\mathrm{init}}}
+
+\providecommand{\TypeCharX}[1]{\fbox{\!#1\!}}
+\providecommand{\TypeCharXB}[1]{{
+      \colorbox[rgb]{0.6,0.6,0.99}{\fbox{\!#1\!}}}}
+
+\providecommand{\TreeX}[3]{\tree[\TypeCharX{#1}]{#2}{#3}}
+\providecommand{\TreeB}[3]{\tree[\TypeCharXB{#1}]{#2}{#3}}
+\providecommand{\Leaf}[2]{\tree[\TypeCharX{#1}]{$\MakeSBig$#2}{}}
+
+\newcommand{\Pump}[1]{\TreeB{\VS}%
+   {\Leaf{\VA}{\Tb}}%
+   {\TreeX{\VZ}{#1}%
+      {\Leaf{\VA}{\Tb}}}}
+
+
+\newcommand{\RegularL}{\mathrm{Regular}_{\TM}}
+\newcommand{\HaltL}{A_{\mathrm{Halt}}}
+\newcommand{\HaltTM}{\TM_{\mathrm{Halt}}}
+%\newcommand{\TMHalt}{\TM_{\mathrm{Halt}}}
+
+\newcommand{\DeciderLangTM}{\Algorithm{Decider-$\Lang{\TM}$}}
+\newcommand{\DeciderLangTMB}{\Algorithm{AnotherDecider-$\Lang{\TM}$}}
+\newcommand{\DeciderLangTMC}{\Algorithm{Yet{}Another{}Decider-$\Lang{\TM}$}}
+\newcommand{\DeciderLangTMD}%
+           {\Algorithm{$\mathtt{Decider}_4$-$\Lang{\TM}$}\xspace}
+\newcommand{\DeciderLangTME}%
+           {\Algorithm{$\mathtt{Decider}_5$-$\Lang{\TM}$}\xspace}
+\newcommand{\DeciderLangTMF}%
+           {\Algorithm{$\mathtt{Decider}_6$-$\Lang{\TM}$}\xspace}
+\newcommand{\DeciderLangTMG}%
+           {\Algorithm{$\mathtt{Decider}_7$-$\Lang{\TM}$}\xspace}
+\newcommand{\DeciderLangTMH}%
+           {\Algorithm{$\mathtt{Decider}_8$-$\Lang{\TM}$}\xspace}
+
+\newcommand{\EmbedString}{\Algorithm{Embed{}String}}
+\newcommand{\EmbedRegularString}{\Algorithm{Embed{}Regular{}String}}
+\newcommand{\DeciderETM}{\TM_{E_\TM}}
+
+\newcommand{\DeciderEqTM}{\Algorithm{Decider{}Equal}}
+\newcommand{\DeciderRegular}{\Algorithm{Decider{}Reg{}L}}
+%\newcommand{\RegularL}{\mathrm{Regular}_{\TM}}
+\newcommand{\LUIUC}{{L_\mathrm{UIUC}}}
+\newcommand{\HALTEMPTYTM}{\ensuremath{\mathsf{Halt\_Empty\_\TM}}}
+\newcommand{\Llll}{L_{\T{111}}} \newcommand{\Lx}{L_x}
+\newcommand{\DeciderS}{\Algorithm{$S$-Decider}\xspace}
+
+\providecommand{\HaltLang}[1]{\mathrm{Halt}_{{#1}}}
+\newcommand{\Stacky}[1]{ \text{
+   \begin{tabular}{c}
+       #1
+       \end{tabular}}}
+\newcommand{\DeciderLBAEmpty}{\Algorithm{$\LangEmpty{\LBA}-$Decider}\xspace}
+\newcommand{\VerifierExec}[2]{{\ensuremath{\mathtt{Vrf}_{#1,#2}}\xspace}}
+\newcommand{\Verf}{\VerifierExec{M}{w}\xspace}
+\newcommand{\VerfG}{\ensuremath{\mathtt{Vrf}G_{M,w}}\xspace}
+\newcommand{\DeciderFullCFG}{\Algorithm{decider{}$\Algorithm{All}_\CFG$}\xspace}
+\newcommand{\DeciderEqCFG}{\Algorithm{decider{}$\Algorithm{Eq}_\CFG$}\xspace}
+
+
+\providecommand{\HaltLang}[1]{\mathrm{Halt}_{{#1}}}
+
+\newcommand{\hL}{\widehat{L}}
+\newcommand{\hM}{\widehat{M}}
+\newcommand{\MakeVBig}{\rule[-.2cm]{0cm}{0.85cm}}
+\newcommand{\VBig}[1]{\rule[-.2cm]{0cm}{#1}}
+
+\newcommand{\Purpose}[1]{{
+      \vspace{-0.5cm}
+      \noindent
+%      \begin{center}
+      \fbox{\begin{minipage}{0.85\linewidth}
+              {\large\textsf{\textbf{Purpose:}}} #1
+           \end{minipage}}
+%       \end{center}
+       \bigskip ~ \bigskip
+    }}
+
+
+%\newcommand{\MakeVVBig}{\rule[-.2cm]{0cm}{1.85cm}}
+%\newcommand{\Domino}[2]{\ensuremath{\pbrc{\MakeVBig\frac{\T{#1}}{\T{#2}}}}}
+%\newcommand{\DominoSmall}[2]{\ensuremath{\pbrc{\frac{\T{#1}}{\T{#2}}}}}
+\newcommand{\AmbigCFG}{\mathrm{AMBIG}_{\CFG}}
+
+\newcommand{\Domino}[2]{
+   \ensuremath{\begin{tabular}{|c|}
+          \hline
+          \T{#1}
+          \\
+          \hline
+          \T{#2}\\
+          \hline
+      \end{tabular}}
+   }
+
+\newcommand{\DominoSmall}[2]{
+%   \small
+   \ensuremath{\begin{tabular}{|c|}
+          \hline
+          \T{#1}
+          \\
+          \hline
+          \T{#2}\\
+          \hline
+      \end{tabular}}
+   }
+
+
+% The TPDF command is useful in suppressing complaints about math in
+% section titles.
+\providecommand{\TPDF}[2]{\texorpdfstring{#1}{#2}}
+
+\newcommand{\Quote}[2]{
+   \begin{center}
+       {\footnotesize
+          \begin{quote}
+              {#1}\\
+              \hspace*{2cm}-- {#2}
+          \end{quote}
+       }
+   \end{center}       
+   \index{Quote!#2}
+}
+
+
+\newcommand{\AdviceTA}[1]{{\XSays{Advice To TA:}{#1}}}
+
+% ProblemTtl{Name of problem}{category}{points}
+\newcommand{\ProblemTtl}[3]{\textsf{#1}
+   \newline
+   {
+   [\textbf{Category}: #2,
+   \textbf{Points}: #3]}}
+
+
+\setlength{\textwidth}{6.5in}
+\setlength{\topmargin}{0.0in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0.0in}
+\setlength{\textheight}{9in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+
+
+

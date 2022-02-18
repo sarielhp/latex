@@ -1,0 +1,100 @@
+% colors
+\usepackage{ifpdf}
+%\ifpdf
+%\usepackage[pdftex]{color}
+%\fi
+
+%\usetheme{Darmstadt}
+%\setbeamercovered{transparent}
+%\setbeamertemplate{navigation symbols}{}
+%
+% Math fiddling...
+%\mathversion{bold}
+%\setbeamercolor{math text}{fg=darkblue}
+
+
+\definecolor{citeColor}{rgb}{0,0.5,0}
+\definecolor{darkblue}{rgb}{0,0,0.5}
+\definecolor{Pinky}{rgb}{1.0,0.7,0.7}
+\definecolor{green2}{rgb}{0.0,0.6,0.2}
+\DefineNamedColor{named}{Plum}          {cmyk}{0.50,1,0,0}
+\DefineNamedColor{named}{Yellow}        {cmyk}{0,0,1,0}
+\DefineNamedColor{named}{colorB}        {cmyk}{0.47,0.91,0,0.08}
+\DefineNamedColor{named}{DarkOrchid}    {cmyk}{0.40,0.80,0.20,0}
+\DefineNamedColor{named}{Purple}        {cmyk}{0.45,0.86,0,0}
+\DefineNamedColor{named}{Blue}          {cmyk}{1,1,0,0}
+\DefineNamedColor{named}{OliveGreen}    {cmyk}{0.64,0,0.95,0.40}
+
+
+\newcounter{pagex}
+\setcounter{pagex}{0}
+\addtocounter{pagex}{1}
+\newcommand{\PageIt}{\textcolor{Yellow}{{\thepagex}:} }
+\newcommand{\PageInc}{\addtocounter{pagex}{1}}
+
+
+
+
+\newcommand{\mw}[1]{\ensuremath{}\textcolor{darkblue}{{#1}}}
+\newcommand{\mwx}[1]{\ensuremath{\mathbf{\textcolor{yellow}{{#1}}}}}
+
+\newcommand{\txtColor}{\textBlack}
+\newcommand{\mc}[1]{\textcolor{red}{\bf{{#1}}}}
+\newcommand{\mcm}[1]{\textcolor{red}{\bf{\ensuremath{#1}}}}
+
+
+
+
+\newcommand{\colorXA}[1]{{\alert{#1}}}
+\newcommand{\colorXB}[1]{{\textcolor{colorB}{#1}}}
+\newcommand{\colorXC}[1]{{\textcolor{DarkOrchid}{#1}}}
+\newcommand{\colorXD}[1]{{\textcolor{OliveGreen}{#1}}}
+\newcommand{\colorXE}[1]{{\textcolor{Blue}{#1}}}
+\newcommand{\colorWhite}[1]{{\textcolor{white}{#1}}}
+
+\newcommand{\ssa}[1]{{\colorXA{\bf{#1}}}}
+\newcommand{\ssb}[1]{{\colorXB{\bf{#1}}}}
+\newcommand{\ssc}[1]{{\colorXC{\bf{#1}}}}
+\newcommand{\ssd}[1]{{\colorXD{\bf{#1}}}}
+\newcommand{\sse}[1]{{\colorXE{\bf{#1}}}}
+\newcommand{\ssW}[1]{{\colorWhite{\bf{#1}}}}
+\newcommand{\ssY}[1]{{{\textcolor{yellow}{\bf{#1}}}}}
+
+\newcommand{\sta}[1]{{\colorXA{\large\bf{#1}}}}
+\newcommand{\stb}[1]{{\colorXB{\large\bf{#1}}}}
+\newcommand{\stc}[1]{{\colorXC{\large\bf{#1}}}}
+\newcommand{\std}[1]{{\colorXD{\large\bf{#1}}}}
+\newcommand{\ste}[1]{{\colorXE{\large\bf{#1}}}}
+
+\newcommand{\citeStyle}[1]{{\color{citeColor}{{\bf{#1}}}}}
+\newcommand{\citeStyleW}[1]{{\color{yellow}{{\bf{#1}}}}}
+\newcommand{\citeIt}[1]{\citeStyle{\cite{#1}}}
+\newcommand{\citeItW}[1]{\citeStyleW{\cite{#1}}}
+
+\newcommand{\Frame}[1]{\addtocounter{pagex}{1} \frame{#1}}
+
+\newcommand{\OnSlide}[2]{\only<#1>{#2}}
+
+\newcommand{\FrameTtl}[2]{\Frame{\frametitle{\PageIt #1}
+      #2}}
+\newcommand{\FrameTtlTtl}[3]{\PageInc{}%
+   \begin{frame}{\PageIt{} #1}{\color{yellow}{#2}}
+       #3
+   \end{frame}}
+
+\newcommand{\mww}[1]{\ensuremath{\mathbf{\textcolor{white}{{#1}}}}}
+
+
+\definecolor{emphiColor}{rgb}{0,0,0.25}
+\newcommand{\emphic}[2]{%
+     \textcolor{emphiColor}{%
+         \textbf{\emph{#1}}}%
+         \index{#2}}
+
+\newcommand{\emphi}[1]{\emphic{#1}{#1}}
+
+\newcommand{\Part}[1]{
+   \part{#1}%
+   \frame{\partpage}%
+}
+

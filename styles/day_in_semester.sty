@@ -1,0 +1,37 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Date by week in the semester...
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fp}
+\usepackage{datenumber}%
+
+\newcommand{\AddToDateByWeekDay}[2]{%
+   \FPset{\tmpWeek}{#1}%
+   \FPsub{\tmpWeek}{\tmpWeek}{1}%
+   \FPmul{\tmpWeek}{\tmpWeek}{7}%
+   %
+   \FPset{\tmpDay}{#2}%
+   \FPsub{\tmpDay}{\tmpDay}{2}%
+   %
+   \FPadd{\result}{\tmpWeek}{\tmpDay}%
+   \FPclip{\resultA}{\result}% \resultA%
+   \addtocounter{datenumber}{\resultA}%
+   \setdatebynumber{\thedatenumber}%
+}
+
+\newcommand{\DateByWeekInSem}[2]{%
+   \setdatenumber{\StartSemYear}{\StartSemMonth}{\StartSemDay}%
+   % 
+   \AddToDateByWeekDay{#1}{#2}%
+   \datedayname, \datedate%
+}
+
+\newcommand{\SUNDAY}{1}
+\newcommand{\MONDAY}{2}
+\newcommand{\TUESDAY}{3}
+\newcommand{\WEDNESDAY}{4}
+\newcommand{\THURSDAY}{5}
+\newcommand{\FRIDAY}{6}
+\newcommand{\SATURDAY}{7}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,0 +1,16 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \mathcalb - a different font that looks a bit like mathcal
+
+\DeclareFontFamily{U}{BOONDOX-calo}{\skewchar\font=45 }
+\DeclareFontShape{U}{BOONDOX-calo}{m}{n}{
+  <-> s*[1.05] BOONDOX-r-calo}{}
+\DeclareFontShape{U}{BOONDOX-calo}{b}{n}{
+  <-> s*[1.05] BOONDOX-b-calo}{}
+\DeclareMathAlphabet{\mathcalb}{U}{BOONDOX-calo}{m}{n}
+\SetMathAlphabet{\mathcalb}{bold}{U}{BOONDOX-calo}{b}{n}
+\DeclareMathAlphabet{\mathbcalb}{U}{BOONDOX-calo}{b}{n}
+
+% \mathcalb - end of file
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

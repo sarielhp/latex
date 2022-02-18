@@ -1,0 +1,240 @@
+%\usepackage{jeffe}%
+%\usepackage[in]{fullpage}%
+\usepackage{graphicx}%
+\usepackage{xspace}%
+\usepackage{color}%
+%\usepackage{paralist}%
+
+
+\hypersetup{%   
+   breaklinks=true}
+
+\urlstyle{same}%
+%wider ``normal'' margins
+
+%\setlength{\textheight}{10in}
+
+\providecommand{\office}{3306~}%
+\renewcommand{\office}{3306~}%
+\newcommand{\HOME}{/home/sariel}%
+\newcommand{\Frechet}{Fr{\'e}chet\xspace}%
+\providecommand{\Badoiu}{B\u{a}doiu}%
+
+\usepackage{amssymb}%
+\renewcommand{\Re}{\mathbb{R}}%
+\providecommand{\etal}{\textit{et~al.}\xspace}
+
+
+\providecommand{\signature}{}%
+\renewcommand{\signature}%
+{%
+   Sariel Har-Peled\\%
+   Donald Biggar Willett Professor in Engineering\\
+%   Professor\\%
+   Department of Computer Science\\
+   University of Illinois, Urbana-Champaign\\%
+   \href{mailto:sariel@illinois.edu}{sariel@illinois.edu}\\
+   \url{http://sarielhp.org}%
+}%
+\newcommand{\Signature}{%
+   \signature%
+}
+
+\providecommand{\si}[1]{#1}%
+
+\providecommand{\th}{th\xspace}%
+\renewcommand{\th}{th\xspace}%
+
+
+\DefineNamedColor{named}{OliveGreen}    {cmyk}{0.64,0,0.95,0.40}
+
+\providecommand{\ProblemC}[1]{{\textsf{\textcolor{red}{#1}\index{Problem!#1}}}}
+
+\providecommand{\ComplexityClass}[1]{{{\textcolor[named]{OliveGreen}{%
+      \textsc{#1}}}}}
+
+
+%\providecommand{\ComplexityClass}[1]{{\textPurple\textsc{#1}\textBlack}}
+\providecommand{\NPHard}{\ComplexityClass{NP-Hard}\xspace}
+
+\newcommand{\noLTR}[2]{}
+\newcommand{\noLTRSubject}[3]{}%
+
+\newcommand{\LTRSubject}[3]{%
+   \noindent%
+   \NNOpening{
+          \noindent%
+          #1 
+
+%          \bigskip
+
+          \medskip%
+          \noindent%
+          \textbf{Subject:} #3\\[0.5cm]%
+          %
+%          \medskip%
+
+          \noindent%
+          #2
+       }
+
+       % \bigskip%
+
+       \noindent%
+       \Body{}
+       
+       ~
+       
+       \hspace{0.45\linewidth}
+       \begin{minipage}{0.55\linewidth}
+           Sincerely,
+           
+           ~
+           
+           \Signature{}
+           \vspace{-5cm}
+       \end{minipage}
+}
+
+
+\newcommand{\NNOpening}[1]{%
+
+   \noindent%
+   \begin{minipage}{1.5in}
+       {%
+          \includegraphics[width=0.99\linewidth]%
+          {\HOME/papers/styles/figs/ui_logo_new}%
+       }
+       \smallskip%
+   \end{minipage}
+   \hfill
+   \scalebox{0.8}{%
+   \begin{minipage}{0.45\linewidth}
+       \fontfamily{Montserrat-LF}\selectfont
+       \small%
+       \hfill Grainger College of Engineering
+
+       \hfill Department of  Computer Science
+
+       \hfill Siebel Center for Computer Science
+       
+       \hfill 201 North Goodwin Avenue
+              
+       \hfill Urbana, IL 61801--2302 USA
+
+       \smallskip%
+   \end{minipage}%
+   }
+   
+%   \vspace{-0.6cm}%
+   \noindent%
+   \hrulefill%
+
+    \begin{flushright}
+        \vspace{-0.4cm}%
+         Sariel Har-Peled\\
+         \today         
+     \end{flushright}%
+
+     #1
+
+}
+
+
+%\usepackage{showframe}
+\newcommand{\NOpening}[1]{%
+
+   ~
+
+    \vspace{-1.0cm}%
+
+%    \hrulefill%
+    \vspace{-0.3cm}%
+
+    \begin{center}
+        \includegraphics[width=3in]{\HOME/papers/styles/figs/UIlogo} \\
+        \textsf{\large~~DEPARTMENT OF COMPUTER SCIENCE} \\%[-14.2ex]
+    \end{center}
+    \vspace{-0.6cm}%
+    \hrulefill%
+%    \hfill%
+%    \begin{minipage}{0.2\linewidth}
+    \begin{flushright}
+        \vspace{-0.2cm}%
+         Sariel Har-Peled\\
+         %\url{http://sarielhp.org}\\
+%         \href{mailto:sariel@illinois.edu}{sariel@illinois.edu}\\
+         \today         
+     \end{flushright}%
+%     \end{minipage}
+
+     #1
+
+}
+
+\newcommand{\DBareOpening}[1]{%
+
+   ~
+
+    \vspace{-1.0cm}%
+
+%    \hrulefill%
+    \vspace{-0.3cm}%
+
+    \begin{center}
+        \includegraphics[width=3in]{\HOME/papers/styles/figs/UIlogo} \\
+    \end{center}
+    \vspace{-0.6cm}%
+    \hrulefill%
+%    \hfill%
+%    \begin{minipage}{0.2\linewidth}
+    \begin{flushright}
+        \vspace{-0.2cm}%
+%         Sariel Har-Peled\\
+         %\url{http://sarielhp.org}\\
+%         \href{mailto:sariel@illinois.edu}{sariel@illinois.edu}\\
+         \today         
+     \end{flushright}%
+%     \end{minipage}
+
+     #1
+
+}
+
+
+\providecommand{\LTR}[2]{}%
+\renewcommand{\LTR}[2]{%
+%   \begin{letter}{#1}
+   \noindent%
+   \NNOpening{%
+      \noindent%
+      \ensuremath{\phantom{}}#1
+
+          \bigskip
+          \bigskip
+          \bigskip
+          \bigskip
+
+          \noindent%
+          #2}
+
+       \bigskip
+       
+       \Body{}
+       
+       ~
+       
+       \hspace{0.45\linewidth}
+       \begin{minipage}{0.55\linewidth}
+           Sincerely,
+           
+           ~
+           
+           \Signature{}
+           \vspace{-5cm}
+       \end{minipage}
+       % \nopagenumber
+%   \end{letter}   
+}
+
+\providecommand{\LTRD}[1]{\LTR{#1}{Dear Sir/Madam,}}%

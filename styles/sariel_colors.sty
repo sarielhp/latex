@@ -1,0 +1,49 @@
+%--------------------------------------------------------------------
+% Nonsense to decide if to generate a version with no colors.
+%--------------------------------------------------------------------
+\providecommand{\IfPrinterVer}[2]{#2}%
+\providecommand{\IfColorMath}[2]{#2}%
+\providecommand{\Mh}[1]{{#1}}%
+
+\IfFileExists{.latex_printer_friendly}{\def\GenPrinterVer{1}}{}%
+
+\ifx\GenPrinterVer\undefined
+   \IfFileExists{.latex_color}{\def\GenColorMath{1}}{}
+\else
+   \renewcommand{\IfPrinterVer}[2]{#1}%
+\fi
+
+\ifx\GenColorMath\undefined%
+\else %
+\renewcommand{\IfColorMath}[2]{#1}%
+\renewcommand{\Mh}[1]{{\textcolor{red}{#1}}}%
+\fi
+
+
+
+\IfPrinterVer{%
+  \definecolor{blue25}{rgb}{0,0,0}
+  \DefineNamedColor{named}{RedViolet} {rgb}{0,0,0}%
+  \DefineNamedColor{named}{ChangeColor}{rgb}{0, 0, 0}
+  \hypersetup{allcolors=black}%
+}{%
+  \definecolor{blue25}{rgb}{0,0,0.7}
+  \DefineNamedColor{named}{RedViolet} {cmyk}{0.07,0.90,0,0.34}
+  \DefineNamedColor{named}{ChangeColor}{rgb}{0, 0.2, 0.0}
+}%
+
+
+\providecommand{\emphind}[1]{\emph{#1}\index{#1}}
+
+%\definecolor{blue25}{rgb}{0,0,0.7}
+\providecommand{\emphic}[2]{%
+   \textcolor{blue25}{%
+      \textbf{\emph{#1}}}%
+   \index{#2}}
+
+\providecommand{\emphi}[1]{}%
+\renewcommand{\emphi}[1]{\emphic{#1}{#1}}
+
+
+% Color in math - end
+%\\\\\\\\\\\\\\\\\\-------------------------------------

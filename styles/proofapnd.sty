@@ -1,0 +1,154 @@
+%-----------------------------------------------------------------------
+% proofapnd.sty
+%
+% Places proofs in a special appendix of a paper.
+%
+% To use, create a directory named "fragment/" under the current
+% directory, and place
+%
+% \def\ProofInAppendix{TRUE}
+%
+% before doing \usepackage{proofapnd} to put proofs in the appendix. Otherwise,
+% the proofs stay in the current place..
+%
+% Any proof you want to put in the appendix, you should replace 
+%      \begin{proof}
+%          ....
+%      \end{proof}
+% by
+%      \begin{proof:in:appendix}{Lemma \ref{lemma:bogi}}
+%          ....
+%      \end{proof:in:appendix}
+%
+% Here, "Lemma \ref{lemma:bogi}" is the way to refer to the
+% statement of what being proved.
+%
+%
+% Finally, place 
+%     \AppendixOfProofs 
+% or if you already have appendices in the paper
+%     \InsertAppendixOfProofs 
+%
+% in the end of the paper, where you want this appendix to be created.
+% -----------------------------------------------------------------------
+% For the extended format, you can have:
+% \begin{lemma}\RefProofInAppendix{proof:appendix}
+%     ...
+% \end{lemma}
+% \begin{proof:in:appendix:e}{Proof of...}{proof:appendix}
+%     ...
+% \end{proof:in:appendix:e}
+% -----------------------------------------------------------------------
+% 6/26/2008, Version 0.1 
+%     First hacked version.
+%-----------------------------------------------------------------------
+
+
+\newenvironment{proof:in:appendix:no}[1]{\begin{proof}}{\end{proof}}
+\newenvironment{proof:in:appendix:e:no}[2]{\begin{proof}}{\end{proof}}
+
+\ifx\ProofInAppendix\undefined
+    \newenvironment{proof:in:appendix}[1]{\begin{proof}}{\end{proof}}
+    \newenvironment{proof:in:appendix:e}[2]{\begin{proof}}{\end{proof}}
+    \newcommand{\AppendixOfProofs}{}
+    \newcommand{\InsertAppendixOfProofs}{}
+    \newenvironment{put:in:appendix}{}{}
+    \newcommand{\RefProofInAppendix}[1]{}
+
+\else
+
+%-------------------------------------------------
+% The real package
+%-------------------------------------------------
+
+
+\usepackage{fancyvrb}
+\newwrite\myoutfile 
+
+\immediate\openout\myoutfile=fragment/myfile.tmp 
+
+\providecommand{\InputExt}[1]{%
+   \IfFileExists{junk/#1}%
+   {\input{junk/#1}}%
+   {\input{#1}}%
+}
+
+
+\newcommand{\AppendixOfProofs}{
+  \immediate\closeout\myoutfile
+  \appendix
+  \section{Proofs}
+  \InputExt{fragment/myfile.tmp}
+}
+
+
+\newcommand{\InsertAppendixOfProofs}{
+  \immediate\closeout\myoutfile 
+%  \appendix
+  \section{Proofs}
+  \InputExt{fragment/myfile.tmp}
+}
+
+
+\newcommand{\ProofHere}[1]{\vspace{-0.3cm}The proof is in Appendix \ref{apndx:#1}.}
+\newcommand{\ProofInclude}[3]{%
+   \subsection{Proof of #1}
+   \label{#3}
+   \begin{proof}
+   \InputExt{#2}
+   \end{proof}
+}
+\newcommand{\ChunkInclude}[2]{%
+   \label{apndx:#2}
+   \InputExt{#1}
+}
+
+\newcounter{PNumber} 
+\setcounter{PNumber}{0}%
+
+
+\newcommand{\FragmentName}[1]{fragment/#1}
+\newcommand{\IncFragment}[1]{\InputExt{\FragmentName{#1}}}
+\newenvironment{proof:in:appendix}[1]%                                        
+     {\VerbatimEnvironment
+        \let\TmpFragmentName\undefined%                                       
+        \def\TmpFragmentName{\FragmentName{\thePNumber}}%                     
+      \immediate\write\myoutfile{\string\ProofInclude{\noexpand#1}{\FragmentName{\thePNumber}}{apndx:\thePNumber}}
+      \ProofHere{\thePNumber}%                                                
+      \begin{VerbatimOut}{\FragmentName{\thePNumber}}}%
+         % end of environment                                                 
+     {\end{VerbatimOut}\addtocounter{PNumber}{1}}%    
+
+\newenvironment{proof:in:appendix:e}[2]%
+     {\VerbatimEnvironment
+        \let\TmpFragmentName\undefined%
+        \def\TmpFragmentName{\FragmentName{\thePNumber}}%
+      \immediate\write\myoutfile{\string\ProofInclude{\noexpand#1}{\FragmentName{\thePNumber}}{\noexpand#2}}
+%      \ProofHere{\thePNumber}%
+%      \ProofHere{\noexpand#2}%
+      \begin{VerbatimOut}{\FragmentName{\thePNumber}}}%
+         % end of environment
+     {\end{VerbatimOut}\addtocounter{PNumber}{1}}%
+
+\newenvironment{put:in:appendix}[1]%
+     {\VerbatimEnvironment
+        \let\TmpFragmentName\undefined%
+        \def\TmpFragmentName{\FragmentName{\thePNumber}}%
+      \immediate\write\myoutfile{\string\ChunkInclude{\FragmentName{\thePNumber}}{\noexpand#1}}
+%      \ProofHere{\thePNumber}%
+      \begin{VerbatimOut}{\FragmentName{\thePNumber}}%
+       }
+         % end of environment
+     {\end{VerbatimOut}\addtocounter{PNumber}{1}}%
+
+%\newcommand{\RefProofInAppendix}[1]{\emph{(The proof is in Appendix
+%      \ref{#1}.)}}
+\newcommand{\RefProofInAppendix}[1]{%
+   \emph{(Proof in %
+   \hyperref[#1]{Appendix
+      \ref*{#1}}.)}}
+
+
+\fi
+
+% proofapnd.sty - end of file

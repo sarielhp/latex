@@ -1,0 +1,359 @@
+
+
+\ifx\PrefixAlreadyIncluded\undefined
+    \newcommand{\BeamerMode}[1]{}
+    \newcommand{\NoBeamerMode}[1]{#1}
+\else
+\fi
+
+%\setlength{\headsep}{0.5in}
+%\usepackage{sariel}
+\providecommand{\Course}{CS 574}
+\providecommand{\CourseName}{Randomized Algorithms}
+\providecommand{\Year}{2014}
+\providecommand{\Semester}{Spring \Year{}}
+
+\providecommand{\UsePackageExt}[2][]{%
+   \typeout{}
+   \typeout{-----------------------------------------------------}%
+      \IfFileExists{styles/#2.sty}{
+         \usepackage[#1]{styles/#2}
+      }{         
+         \usepackage[#1]{#2}%
+      }%
+      \typeout{}
+   }
+\providecommand{\UsePackage}[1]{%
+   \typeout{}
+   \typeout{-----------------------------------------------------}%
+      \IfFileExists{styles/#1.sty}{
+         \usepackage{styles/#1}
+      }{
+         \usepackage{#1}%
+      }%
+  }
+
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{enumerate}
+%\usepackage{wide}
+\UsePackage{picins}
+\usepackage{amsmath}
+\usepackage{ifpdf}
+\usepackage{cancel}
+\usepackage{caption}
+%\usepackage{solutions}
+%\usepackage{salgorithm}
+\usepackage{amssymb}
+
+\NoBeamerMode{%
+   \usepackage[cm]{fullpage}%
+}
+
+\usepackage{xspace}
+\usepackage{euscript}
+\usepackage{lmodern}
+
+\usepackage{paralist}
+
+% %%%%%%%%%%%%%%%%%%%% program macros %%%%%%%%%%%%%%%%%
+
+\usepackage{color}
+
+\providecommand{\Term}[1]{\textsf{#1}}
+\providecommand{\TermI}[1]{\Term{#1}\index{#1@\Term{#1}}}
+
+\newcommand{\Hastad}{H{\aa}stad\xspace}
+\providecommand{\TSP}{\TermI{TSP}\xspace}
+\providecommand{\LP}{\TermI{LP}\xspace}%
+
+\ifx\Do\undefined
+  \providecommand{\Do}{{\small\bf do}\ }
+  \providecommand{\End}{{\small\bf end}\ }
+\providecommand{\Return}{{\small\bf return\ }}
+\providecommand{\Proc}[1]{#1\+}
+\providecommand{\Returns}{{\small\bf returns}}
+\providecommand{\Procbegin}{{\small\bf begin}}
+\providecommand{\If}{{\small\bf if}\ }
+\providecommand{\Continue}{{\small\bf continue}\ }
+\providecommand{\Then}{{\small\bf then}\ }
+\providecommand{\Else}{{\small\bf else}\ }
+\providecommand{\rElse}{{\small\bf else}\ }
+\providecommand{\Elseif}{{\small\bf elseif}\ }
+\providecommand{\Foreach}{{\small\bf for each}\ }
+\providecommand{\Endif}{{\small\bf end\ if\ }}
+\providecommand{\Break}{{\small\bf break }}
+\providecommand{\Endproc}[1]{{\small\bf end} #1}
+\providecommand{\For}{{\small\bf for}\ }
+\providecommand{\Endfor}{{\small\bf end\ for}}
+\providecommand{\While}{{\small\bf while}\ }
+\providecommand{\Endwhile}{{\small\bf end\ while}}
+\providecommand{\LogAnd}{{\small\bf and}}
+
+\providecommand{\Repeat}{{\small\bf repeat}\ }
+\providecommand{\Until}{{\small\bf Until}}
+\providecommand{\Loop}{{\bf loop}\ }
+\providecommand{\Endloop}{{\bf end\ loop}\ }
+
+\providecommand{\xbeginlgox}{\begin{minipage}{1in}\begin{tabbing}
+        \quad\=\qquad\=\qquad\=\qquad\=\qquad\=\qquad\=\qquad\=\kill}
+\providecommand{\xendlgox}{\end{tabbing}\end{minipage}}
+
+\newenvironment{algorithmEnv}{\begin{tabular}{|l|}\hline\xbeginlgox}
+        {\xendlgox\\\hline\end{tabular}}
+
+\newenvironment{program}{
+   \begin{minipage}{4.0in}
+   \begin{tabbing}
+      \ \ \= \ \ \ \= \ \ \ \ \= \ \ \ \ \= \ \ \ \ \=
+      \ \ \ \ \= \ \ \ \ \= \ \ \ \ \= \ \ \ \ \=
+      \ \ \ \ \= \ \ \ \ \= \ \ \ \ \= \ \ \ \ \= \kill
+}{
+   \end{tabbing}
+   \end{minipage}
+}
+
+
+\DefineNamedColor{named}{RedViolet} {cmyk}{0.07,0.90,0,0.34}
+
+\providecommand{\AlgorithmI}[1]{{\textcolor[named]{RedViolet}{\texttt{\bf{#1}}}}}
+\providecommand{\Algorithm}[1]{{\AlgorithmI{#1}\index{#1@{\AlgorithmI{#1}}}}}
+
+
+\DefineNamedColor{named}{OliveGreen}    {cmyk}{0.64,0,0.95,0.40}
+\providecommand{\ProblemC}[1]{{\textsf{\textcolor{red}{#1}\index{Problem!#1}}}}
+\providecommand{\ComplexityClass}[1]{{{\textcolor[named]{OliveGreen}{%
+      \textsc{#1}}}}}
+
+\fi
+
+%\providecommand{\ComplexityClass}[1]{{\textPurple\textsc{#1}\textBlack}}
+\providecommand{\NPHard}{\ComplexityClass{NP-Hard}\xspace}
+\providecommand{\NPComplete}{\ComplexityClass{NP-Complete}\xspace}
+\providecommand{\NPC}{\ComplexityClass{NPC}\xspace}
+\providecommand{\NP}{\ComplexityClass{NP}\xspace}
+
+\providecommand{\floor}[1]{\left\lfloor {#1} \right\rfloor}
+\providecommand{\brc}[1]{\left\{ {#1} \right\}}
+\providecommand{\sep}[1]{\,\left|\, {#1} \MakeBig\right.}
+\providecommand{\MakeBig}{\rule[-.2cm]{0cm}{0.4cm}}
+\providecommand{\cardin}[1]{\left| {#1} \right|}
+\providecommand{\pth}[2][\!]{#1\left({#2}\right)}
+\providecommand{\pbrcx}[1]{\left[ {#1} \right]}
+\providecommand{\Ex}[1]{\mathop{\mathbf{E}}\!\pbrcx{#1}}
+\providecommand{\ExExt}[2]{\mathop{\mathbf{E}}_{#1}\!\pbrcx{#2}}
+\providecommand{\ceil}[1]{\left\lceil {#1} \right\rceil}
+\providecommand{\Prob}[1]{\mathop{\mathbf{Pr}}\!\pbrcx{#1}}
+
+\providecommand{\dirEdge}[2]{\left({{#1} \rightarrow {#2}} \right)}
+
+\providecommand{\Hint}[1]{[{\bf{}\bf{Hint:}} {#1}{\bf]}}
+
+
+\providecommand{\Hard}{\textbf{(HARD)}}
+\providecommand{\ReallyHard}{\textbf{(Really HARD)}}
+\providecommand{\points}[1]{{\bf [{#1} Points]}}
+
+
+\ifx\theorem\undefined
+  \newtheorem{theorem}{Theorem}[section]
+
+  \newtheorem{lemma}[theorem]{Lemma}
+  \newtheorem{conjecture}[theorem]{Conjecture}
+  \newtheorem{corollary}[theorem]{Corollary}
+  \newtheorem{claim}[theorem]{Claim}
+  \newtheorem{fact}[theorem]{Fact}
+  \newtheorem{observation}[theorem]{Observation}
+  \newtheorem{invariant}[theorem]{Invariant}
+  \newtheorem{question}[theorem]{Question}
+  \newtheorem{proposition}[theorem]{Proposition}
+  \newtheorem{prop}[theorem]{Proposition}
+  \newtheorem{openproblem}[theorem]{Open Problem}
+
+  \newcommand{\myqedsymbol}{\rule{2mm}{2mm}}
+  \newenvironment{proof}{\trivlist\item[]\emph{Proof}:}%
+                  {\unskip\nobreak\hskip 1em plus 1fil\nobreak%
+                           \myqedsymbol%$\Box$
+                           \parfillskip=0pt%
+                           \endtrivlist}
+\fi
+
+\BeamerMode{%
+   \newtheorem{exercise}[theorem]{Exercise}%
+}
+
+\providecommand{\emphind}[1]{\emph{#1}\index{#1}}
+\definecolor{blue25}{rgb}{0,0,0.95}
+\definecolor{instcolor}{rgb}{0.05,0.45,0.05}
+
+\providecommand{\emphOnly}[1]{}
+\renewcommand{\emphOnly}[1]{\textcolor{blue25}{\textbf{\emph{#1}}}}
+
+\providecommand{\emphic}[2]{}%
+\renewcommand{\emphic}[2]{%
+   \emphOnly{#1}%
+   \index{#2}}
+
+\providecommand{\emphi}[1]{\emphic{#1}{#1}}
+\renewcommand{\emphi}[1]{\emphic{#1}{#1}}
+
+
+\providecommand{\theolab}[1]{\label{theo:#1}}
+
+\providecommand{\thmlab}[1]{{\label{theo:#1}}}
+\providecommand{\thmref}[1]{Theorem~\ref{theo:#1}}
+
+\providecommand{\lemlab}[1]{\label{lemma:#1}}
+\providecommand{\lemref}[1]{Lemma~\ref{lemma:#1}}
+
+\providecommand{\obslab}[1]{\label{observation:#1}}
+\providecommand{\obsref}[1]{Observation~\ref{observation:#1}}
+\providecommand{\obsrefpage}[1]{Observation~\ref{observation:#1}%
+   $_\text{p\pageref{observation:#1}}$}
+
+
+\providecommand{\figrefpage}[1]{Figure~\ref{fig:#1}%
+   $_\text{p\pageref{fig:#1}}$}
+
+
+
+\providecommand{\ProblemInd}[2]{\textsf{\textcolor{red}{#1}\index{Problem!#2}}}
+\providecommand{\ZZ}{{\sf Z\!\hspace{-0.2em} Z}}
+
+\providecommand{\NPProblemInd}{}
+\renewcommand{\NPProblemInd}[4]{
+   \begin{center}
+      \vspace{0.6cm}
+       \fbox{
+          \begin{minipage}{0.9\linewidth}
+              \vspace{-0.6cm} \hspace{-0.35cm}
+              %{\bf  Problem:} 
+              {\large \bf \ProblemInd{#1}{#2}}
+              \vspace{+0.2cm}%
+
+              \noindent{\textcolor{blue}{\bf \textsf{Instance}}:} {#3}
+              
+              \noindent{\textcolor{blue}{\bf \textsf{Question}:}} {#4}
+          \end{minipage}
+       }
+   \end{center}
+%   \marginpar{\footnotesize\ProblemInd{#1}{#2}}%
+   \smallskip
+   }
+
+\providecommand{\NPProblemOpt}{}
+\renewcommand{\NPProblemOpt}[4]{\NPProblemInd{#1}{#2}{#3}{#4}}
+
+\providecommand{\NPProblem}[3]{\NPProblemInd{#1}{#1}{#2}{#3}}
+
+\providecommand{\OptProblemInd}{}
+\renewcommand{\OptProblemInd}[4]{
+   \begin{center}
+      \vspace{0.6cm}
+       \fbox{
+          \begin{minipage}{0.9\linewidth}
+              \vspace{-0.6cm} \hspace{-0.35cm}
+              %{\bf  Problem:} 
+              {\large \bf \ProblemInd{#1}{#2}}
+              \vspace{+0.2cm}%
+
+              \noindent{\textcolor{instcolor}{\bf %
+                    \textsf{Instance}}:} {#3}
+              
+              \noindent{\textcolor{instcolor}{\bf \textsf{Target}:}} {#4}
+          \end{minipage}
+       }
+   \end{center}
+%   \marginpar{\footnotesize\ProblemInd{#1}{#2}}%
+   \smallskip
+   }
+\providecommand{\OptProblem}[3]{\OptProblemInd{#1}{#1}{#2}{#3}}
+
+
+\renewcommand{\th}{th\xspace}
+
+
+\providecommand{\Version}[1]{\hfill\textbf{Version}: #1}
+
+\providecommand{\points}[1]{}
+\renewcommand{\points}[1]{(\textsc{#1 pts.})}
+
+\newcommand{\HWProblem}[4]{\textsf{#2} \points{#1} 
+       
+       #3}{}
+
+%\providecommand{\HWProblem}[3]{}
+
+
+\renewcommand{\th}{t{}h\xspace}
+\newcommand{\SpaceChar}{\ensuremath{\text{\textvisiblespace}}\xspace}
+
+\providecommand{\DAG}{}
+\renewcommand{\DAG}{\TermI{DAG}\xspace}
+
+\newcommand{\Ground}{\mathsf{S}}
+\newcommand{\Family}{\EuScript{F}}
+\newcommand{\FamilyB}{\EuScript{G}}
+\newcommand{\FamilyC}{\EuScript{H}}
+
+\providecommand{\ds}{\displaystyle}
+\renewcommand{\ds}{\displaystyle}
+
+\providecommand{\Graph}{}
+\renewcommand{\Graph}{\mathsf{G}}%
+
+\providecommand{\GraphB}{}
+\renewcommand{\GraphB}{\mathsf{H}}%
+
+\providecommand{\Tree}{\mathsf{T}}%
+\renewcommand{\Tree}{\mathsf{T}}%
+
+\providecommand{\Vertices}{}
+\renewcommand{\Vertices}{\mathsf{V}}%
+
+\providecommand{\Edges}{\mathsf{E}}%
+\renewcommand{\Edges}{\mathsf{E}}%
+
+\newcommand{\EdgesX}[2][\!]{\Edges\pth[#1]{#2}}%
+
+\newcommand{\edge}{\mathsf{e}}
+
+\newcommand{\VerticesX}[2][\!]{\Vertices\pth[#1]{#2}}
+
+
+\newcommand{\degreeX}[2][\!]{\mathrm{d}\pth[#1]{#2}}
+
+
+\providecommand{\remove}[1]{}
+\renewcommand{\remove}[1]{}
+
+\ifx\savedparindent\undefined
+  \newlength{\savedparindent}
+  \newcommand{\SaveIndent}{\setlength{\savedparindent}{\parindent}}
+  \newcommand{\RestoreIndent}{\setlength{\parindent}{\savedparindent}}
+\fi
+
+\providecommand{\permut}[1]{\left\langle {#1} \right\rangle}
+
+\renewcommand{\Re}{{\rm I\!\hspace{-0.025em} R}}
+\providecommand{\reals}{\Re}
+\renewcommand{\reals}{\Re}
+
+
+\providecommand{\Entropy}{}
+\renewcommand{\Entropy}[1]{\EntropyChar\pth{#1}}
+
+\providecommand{\EntropyX}{}
+\renewcommand{\EntropyX}[1]{\EntropyChar\pth[]{#1}}
+
+\providecommand{\EntropyChar}{}
+\renewcommand{\EntropyChar}{\mathbb{H}}
+
+
+\providecommand{\si}[1]{#1}%
+\renewcommand{\si}[1]{#1}
+
+\newcommand{\FPTAS}{\TermI{FPTAS}\xspace}
+\newcommand{\PTAS}{\TermI{PTAS}\xspace}
+

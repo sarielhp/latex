@@ -1,0 +1,285 @@
+%\Def{named}{RedViolet}     {cmyk}{0.07,0.90,0,0.34}
+
+
+
+%\remove{
+% This is COLOR.TEX and COLOR.STY in text format, as of Jan 9, 1992,
+% written by Jim Hafner, HAFNER@ALMADEN, or hafner@almaden.ibm.com.
+%
+% This style file can be used to get color in TeX, LaTeX or more
+% importantly, FoilTeX as an optional style file.  It is generic in
+% that the color parameters are determined by the driver's header files.
+%
+% It can be used with any driver which knows how to process the keywords
+% in the \special commands.  Currently, only an appropriately modified
+% version of dvips, the DVI->PostScript drivers by Tom Rokicki can handle
+% this syntax.
+%
+%
+% This file can be used in any flavor of LaTeX (e.g. LaTeX, FoilTeX,
+% AMS-LaTeX) by adding the keyword "color" to the options in the
+% \documentstyle command (e.g., "\documentstyle[color]{foils}") or \input
+% in any flavor of TeX (e.g. Plain TeX, eplain, AMS-TeX or any of the
+% above LaTeX flavors) with the command "\input color".
+%
+%
+% The actual parameters for each color are determined by the color.pro
+% header file prepended to the output file by dvips.  They can be
+% overrriden by a user-supplied header, called by either the -h option
+% or the ``h'' flag in a printer configuration file, or in the .dvipsrc
+% (or its analogue on other systems).
+%
+% Most of the color names and their matches were based on the
+% most recent (at time of writing) Crayola Crayon box of 64 colors.
+%
+%
+% There are 68 predefined colors.  At the end of this file is a
+% listing of the color names and their approximate PANTONE color
+% match.  This is for reference purposes only.
+%
+% The first macro lets the user specify the background color for the
+% document.  It sets the background color for the current page and all
+% succeeding pages, unless changed by another command of this type.  To
+% change the background color back to the default, issue
+% \background{White}
+%
+\def\background#1{\special{background #1}}
+%
+% There are two types of text color commands.  The first is in the form
+%    \ColorName   (note the uppercase for the color name).
+%
+% It is called a local color command since it takes one argument
+% enclosed in brackets.  It writes the contents of its argument in the
+% selected color.  This should be used for local or nested color
+% changes, since it restores the original color state when it completes.
+% The second type of color command is in the form
+%    \textColorName
+% This uses the same naming convention as before.  It is called a global
+% color command since it takes no arguments and simply sets the color at
+% this point.  No previous color information is saved.  IF YOU USE THIS
+% INTERNAL TO ANY LOCAL COLOR COMMAND, THE NESTING HISTORY IS LOST.
+%
+% Here are the global color changers, with color codes defined;
+% these are used to define the small region colors.
+%
+% This first is for user defined color.  The argument #1 is for a "CMYK"
+% quadruple of intensity values between 0 and 1.  (CMYK stands for Cyan,
+% Magenta, Yellow and Black.)  E.g., \textColor{.2 .3 .4 .1}
+%
+\def\textColor#1{\special{color #1}}
+%
+\def\textGreenYellow{\special{color GreenYellow}}
+\def\textYellow{\special{color Yellow}}
+\def\textGoldenrod{\special{color Goldenrod}}
+\def\textDandelion{\special{color Dandelion}}
+\def\textApricot{\special{color Apricot}}
+\def\textPeach{\special{color Peach}}
+\def\textMelon{\special{color Melon}}
+\def\textYellowOrange{\special{color YellowOrange}}
+\def\textOrange{\special{color Orange}}
+\def\textBurntOrange{\special{color BurntOrange}}
+\def\textBittersweet{\special{color Bittersweet}}
+\def\textRedOrange{\special{color RedOrange}}
+\def\textMahogany{\special{color Mahogany}}
+\def\textMaroon{\special{color Maroon}}
+\def\textBrickRed{\special{color BrickRed}}
+\def\textRed{\special{color Red}}
+\def\textOrangeRed{\special{color OrangeRed}}
+\def\textRubineRed{\special{color RubineRed}}
+\def\textWildStrawberry{\special{color WildStrawberry}}
+\def\textSalmon{\special{color Salmon}}
+\def\textCarnationPink{\special{color CarnationPink}}
+\def\textMagenta{\special{color Magenta}}
+\def\textVioletRed{\special{color VioletRed}}
+\def\textRhodamine{\special{color Rhodamine}}
+\def\textMulberry{\special{color Mulberry}}
+\def\textRedViolet{\special{color RedViolet}}
+\def\textFuchsia{\special{color Fuchsia}}
+\def\textLavender{\special{color Lavender}}
+\def\textThistle{\special{color Thistle}}
+\def\textOrchid{\special{color Orchid}}
+\def\textDarkOrchid{\special{color DarkOrchid}}
+\def\textPurple{\special{color Purple}}
+\def\textPlum{\special{color Plum}}
+\def\textViolet{\special{color Violet}}
+\def\textRoyalPurple{\special{color RoyalPurple}}
+\def\textBlueViolet{\special{color BlueViolet}}
+\def\textPeriwinkle{\special{color Periwinkle}}
+\def\textCadetBlue{\special{color CadetBlue}}
+\def\textCornflowerBlue{\special{color CornflowerBlue}}
+\def\textMidnightBlue{\special{color MidnightBlue}}
+\def\textNavyBlue{\special{color NavyBlue}}
+\def\textRoyalBlue{\special{color RoyalBlue}}
+\def\textBlue{\special{color Blue}}
+\def\textCerulean{\special{color Cerulean}}
+\def\textCyan{\special{color Cyan}}
+\def\textProcessBlue{\special{color ProcessBlue}}
+\def\textSkyBlue{\special{color SkyBlue}}
+\def\textTurquoise{\special{color Turquoise}}
+\def\textTealBlue{\special{color TealBlue}}
+\def\textAquamarine{\special{color Aquamarine}}
+\def\textBlueGreen{\special{color BlueGreen}}
+\def\textEmerald{\special{color Emerald}}
+\def\textJungleGreen{\special{color JungleGreen}}
+\def\textSeaGreen{\special{color SeaGreen}}
+\def\textGreen{\special{color Green}}
+\def\textForestGreen{\special{color ForestGreen}}
+\def\textPineGreen{\special{color PineGreen}}
+\def\textLimeGreen{\special{color LimeGreen}}
+\def\textYellowGreen{\special{color YellowGreen}}
+\def\textSpringGreen{\special{color SpringGreen}}
+\def\textOliveGreen{\special{color OliveGreen}}
+\def\textRawSienna{\special{color RawSienna}}
+\def\textSepia{\special{color Sepia}}
+\def\textBrown{\special{color Brown}}
+\def\textTan{\special{color Tan}}
+\def\textGray{\special{color Gray}}
+\def\textBlack{\special{color Black}}
+\def\textWhite{\special{color White}}
+% Here are the small area (local) color definitions
+%
+% The first is for a user-defined color.  The first argument is a "CMYK"
+% quadruple of intensity values between 0 and 1.  The second is the text
+% for that color.  E.g., \Color{.2 .3 .4 .1}{This is colored}
+\def\Color#1#2{\special{color push #1}#2\special{color pop}}
+%
+\def\GreenYellow#1{\special{color push GreenYellow}#1\special{color pop}}
+\def\Yellow#1{\special{color push Yellow}#1\special{color pop}}
+\def\Goldenrod#1{\special{color push Goldenrod}#1\special{color pop}}
+\def\Dandelion#1{\special{color push Dandelion}#1\special{color pop}}
+\def\Apricot#1{\special{color push Apricot}#1\special{color pop}}
+\def\Peach#1{\special{color push Peach}#1\special{color pop}}
+\def\Melon#1{\special{color push Melon}#1\special{color pop}}
+\def\YellowOrange#1{\special{color push YellowOrange}#1\special{color pop}}
+\def\Orange#1{\special{color push Orange}#1\special{color pop}}
+\def\BurntOrange#1{\special{color push BurntOrange}#1\special{color pop}}
+\def\Bittersweet#1{\special{color push Bittersweet}#1\special{color pop}}
+\def\RedOrange#1{\special{color push RedOrange}#1\special{color pop}}
+\def\Mahogany#1{\special{color push Mahogany}#1\special{color pop}}
+\def\Maroon#1{\special{color push Maroon}#1\special{color pop}}
+\def\BrickRed#1{\special{color push BrickRed}#1\special{color pop}}
+\def\Red#1{\special{color push Red}#1\special{color pop}}
+\def\OrangeRed#1{\special{color push OrangeRed}#1\special{color pop}}
+\def\RubineRed#1{\special{color push RubineRed}#1\special{color pop}}
+\def\WildStrawberry#1{\special{color push WildStrawberry}#1\special{color pop}}
+\def\Salmon#1{\special{color push Salmon}#1\special{color pop}}
+\def\CarnationPink#1{\special{color push CarnationPink}#1\special{color pop}}
+\def\Magenta#1{\special{color push Magenta}#1\special{color pop}}
+\def\VioletRed#1{\special{color push VioletRed}#1\special{color pop}}
+\def\Rhodamine#1{\special{color push Rhodamine}#1\special{color pop}}
+\def\Mulberry#1{\special{color push Mulberry}#1\special{color pop}}
+\def\RedViolet#1{\special{color push RedViolet}#1\special{color pop}}
+\def\Fuchsia#1{\special{color push Fuchsia}#1\special{color pop}}
+\def\Lavender#1{\special{color push Lavender}#1\special{color pop}}
+\def\Thistle#1{\special{color push Thistle}#1\special{color pop}}
+\def\Orchid#1{\special{color push Orchid}#1\special{color pop}}
+\def\DarkOrchid#1{\special{color push DarkOrchid}#1\special{color pop}}
+\def\Purple#1{\special{color push Purple}#1\special{color pop}}
+\def\Plum#1{\special{color push Plum}#1\special{color pop}}
+\def\Violet#1{\special{color push Violet}#1\special{color pop}}
+\def\RoyalPurple#1{\special{color push RoyalPurple}#1\special{color pop}}
+\def\BlueViolet#1{\special{color push BlueViolet}#1\special{color pop}}
+\def\Periwinkle#1{\special{color push Periwinkle}#1\special{color pop}}
+\def\CadetBlue#1{\special{color push CadetBlue}#1\special{color pop}}
+\def\CornflowerBlue#1{\special{color push CornflowerBlue}#1\special{color pop}}
+\def\MidnightBlue#1{\special{color push MidnightBlue}#1\special{color pop}}
+\def\NavyBlue#1{\special{color push NavyBlue}#1\special{color pop}}
+\def\RoyalBlue#1{\special{color push RoyalBlue}#1\special{color pop}}
+\def\Blue#1{\special{color push Blue}#1\special{color pop}}
+\def\Cerulean#1{\special{color push Cerulean}#1\special{color pop}}
+\def\Cyan#1{\special{color push Cyan}#1\special{color pop}}
+\def\ProcessBlue#1{\special{color push ProcessBlue}#1\special{color pop}}
+\def\SkyBlue#1{\special{color push SkyBlue}#1\special{color pop}}
+\def\Turquoise#1{\special{color push Turquoise}#1\special{color pop}}
+\def\TealBlue#1{\special{color push TealBlue}#1\special{color pop}}
+\def\Aquamarine#1{\special{color push Aquamarine}#1\special{color pop}}
+\def\BlueGreen#1{\special{color push BlueGreen}#1\special{color pop}}
+\def\Emerald#1{\special{color push Emerald}#1\special{color pop}}
+\def\JungleGreen#1{\special{color push JungleGreen}#1\special{color pop}}
+\def\SeaGreen#1{\special{color push SeaGreen}#1\special{color pop}}
+\def\Green#1{\special{color push Green}#1\special{color pop}}
+\def\ForestGreen#1{\special{color push ForestGreen}#1\special{color pop}}
+\def\PineGreen#1{\special{color push PineGreen}#1\special{color pop}}
+\def\LimeGreen#1{\special{color push LimeGreen}#1\special{color pop}}
+\def\YellowGreen#1{\special{color push YellowGreen}#1\special{color pop}}
+\def\SpringGreen#1{\special{color push SpringGreen}#1\special{color pop}}
+\def\OliveGreen#1{\special{color push OliveGreen}#1\special{color pop}}
+\def\RawSienna#1{\special{color push RawSienna}#1\special{color pop}}
+\def\Sepia#1{\special{color push Sepia}#1\special{color pop}}
+\def\Brown#1{\special{color push Brown}#1\special{color pop}}
+\def\Tan#1{\special{color push Tan}#1\special{color pop}}
+\def\Gray#1{\special{color push Gray}#1\special{color pop}}
+\def\Black#1{\special{color push Black}#1\special{color pop}}
+\def\White#1{\special{color push White}#1\special{color pop}}
+%
+% Here are the color names and their PANTONE match (approximately)
+%
+% GreenYellow  Approximate PANTONE 388
+% Yellow  Approximate PANTONE YELLOW
+% Goldenrod  Approximate PANTONE 109
+% Dandelion  Approximate PANTONE 123
+% Apricot  Approximate PANTONE 1565
+% Peach  Approximate PANTONE 164
+% Melon  Approximate PANTONE 177
+% YellowOrange  Approximate PANTONE 130
+% Orange  Approximate PANTONE ORANGE-021
+% BurntOrange  Approximate PANTONE 388
+% Bittersweet  Approximate PANTONE 167
+% RedOrange  Approximate PANTONE 179
+% Mahogany  Approximate PANTONE 484
+% Maroon  Approximate PANTONE 201
+% BrickRed  Approximate PANTONE 1805
+% Red  VERY-Approx PANTONE RED
+% OrangeRed  No PANTONE match
+% RubineRed  Approximate PANTONE RUBINE-RED
+% WildStrawberry  Approximate PANTONE 206
+% Salmon  Approximate PANTONE 183
+% CarnationPink  Approximate PANTONE 218
+% Magenta  Approximate PANTONE PROCESS-MAGENTA
+% VioletRed  Approximate PANTONE 219
+% Rhodamine  Approximate PANTONE RHODAMINE-RED
+% Mulberry  Approximate PANTONE 241
+% RedViolet  Approximate PANTONE 234
+% Fuchsia  Approximate PANTONE 248
+% Lavender  Approximate PANTONE 223
+% Thistle  Approximate PANTONE 245
+% Orchid  Approximate PANTONE 252
+% DarkOrchid  No PANTONE match
+% Purple  Approximate PANTONE PURPLE
+% Plum  VERY-Approx PANTONE 518
+% Violet  Approximate PANTONE VIOLET
+% RoyalPurple  Approximate PANTONE 267
+% BlueViolet  Approximate PANTONE 2755
+% Periwinkle  Approximate PANTONE 2715
+% CadetBlue  Approximate PANTONE (534+535)/2
+% CornflowerBlue  Approximate PANTONE 292
+% MidnightBlue  Approximate PANTONE 302
+% NavyBlue  Approximate PANTONE 293
+% RoyalBlue  No PANTONE match
+% Blue  Approximate PANTONE BLUE-072
+% Cerulean  Approximate PANTONE 3005
+% Cyan  Approximate PANTONE PROCESS-CYAN
+% ProcessBlue  Approximate PANTONE PROCESS-BLUE
+% SkyBlue  Approximate PANTONE 2985
+% Turquoise  Approximate PANTONE (312+313)/2
+% TealBlue  Approximate PANTONE 3145
+% Aquamarine  Approximate PANTONE 3135
+% BlueGreen  Approximate PANTONE 320
+% Emerald  No PANTONE match
+% JungleGreen  Approximate PANTONE 328
+% SeaGreen  Approximate PANTONE 3268
+% Green  VERY-Approx PANTONE GREEN
+% ForestGreen  Approximate PANTONE 349
+% PineGreen  Approximate PANTONE 323
+% LimeGreen  No PANTONE match
+% YellowGreen  Approximate PANTONE 375
+% SpringGreen  Approximate PANTONE 381
+% OliveGreen  Approximate PANTONE 582
+% RawSienna  Approximate PANTONE 154
+% Sepia  Approximate PANTONE 161
+% Brown  Approximate PANTONE 1615
+% Tan  No PANTONE match
+% Gray  Approximate PANTONE COOL-GRAY-8
+% Black  Approximate PANTONE PROCESS-BLACK
+% White  No PANTONE match
+%}
