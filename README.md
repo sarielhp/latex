@@ -4,7 +4,8 @@ This file contains latex related files that I (Sariel Har-Peled)
 use. Here is a list of some of the files/directories, and what they
 mean/do:
 
-- bib/
+- bib/ :
+  Bibliography files.
 
   - geomebry.bib:
     My standard bibliography file should more or less cotnain all bib
