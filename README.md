@@ -19,10 +19,8 @@ mean/do:
 - styles/
 
   A list of the latex style files i use. Some might be outdates.
-
   - sariel.sty:
     My standard style file. Contains everything, and more.
-
   - sariel_biblatex.sty:
     My standard biblatex style file. Shortest first names, drops
     irritating flags, provide links if href of doi are defined in the
