@@ -1,0 +1,12 @@
+<ipestyle name="thickness style">
+<pen name="ultrafat 2.0" value="2"/>
+<pen name="ultrafat 4.0" value="4"/>
+<pen name="ultrafat 8.0" value="8"/>
+<pen name="ultrafat 16.0" value="16"/>
+<pen name="ultrafat 32.0" value="32"/>
+<pen name="ultrafat 64.0" value="64"/>
+<pen name="ultrathin 0.5" value="0.5"/>
+<pen name="ultrathin 0.25" value="0.25"/>
+<pen name="ultrathin 0.125" value="0.125"/>
+<pen name="ultrathin 0.0625" value="0.0625"/>
+</ipestyle>
