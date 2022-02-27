@@ -4,7 +4,8 @@ This file contains latex related files that I (Sariel Har-Peled)
 use. Here is a list of some of the files/directories, and what they
 mean/do:
 
-- bib/ :
+- bib/
+
   Bibliography files.
 
   - geomebry.bib:
@@ -16,7 +17,8 @@ mean/do:
     bib entries shorter and more readable.
 
 - styles/
-  A list of the latex style files i use. Some might be outdates.
+
+A list of the latex style files i use. Some might be outdates.
 
   - sariel.sty
     My standard style file. Contains everything, and more.
