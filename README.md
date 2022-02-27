@@ -34,8 +34,11 @@ mean/do:
   ipe (https://ipe.otfried.org/) drawing program style files.
 
   - sariel_stylesheet.isy : my standard style sheet
+
   - 4in.isy : set the drawing area to 4x4 inches.
+
   - 5,6,7,8in.sty         : Similar to the above by different sizes.
+
   - colors.isy            : give you way more colors than the standard
                           ipe style file
   
