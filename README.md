@@ -37,4 +37,8 @@ mean/do:
                           ipe style file
   
   
-  
+- beamer/animation/
+
+  An example of how to do animation in beamer that works on linux
+  (using okular)
+.
