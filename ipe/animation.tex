@@ -1,0 +1,64 @@
+\documentclass[compress,12pt,aspectratio=169,table]{beamer}
+\usepackage{animate}%
+
+\title{Demonstration of animation in Beamer and Okular}
+\author{%
+   Sariel Har-Peled%
+}%
+\date{\today}
+
+\institute[UIUC]{%
+   \inst{1}%
+   University of Illinois at Urbana-Champaign%
+}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}
+    \frametitle{Animation...}%
+    \centerline{%
+       \animategraphics%
+       [autoplay,width=0.4\linewidth,loop]%
+       {2}          % Frame-rate 
+       {figs/depth} % File [.pdf]
+       {1}          % start frame
+       {20}         % end frame
+    }
+\end{frame}
+
+\begin{frame}
+    \frametitle{What you would need...}
+
+    \begin{itemize}
+        \item pdf file with the animation
+
+        \item Every page is a frame of the animation.
+
+        \item Animation is formed by the range of pages in the pdf file.
+
+        \item One way to draw such animations is using Ipe:
+
+        \url{https://ipe.otfried.org/}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]\frametitle{The code...}
+\begin{verbatim}
+    \usepackage{animate}
+    ...
+    \animategraphics%
+          [autoplay,width=0.4\linewidth,loop]%
+       {2}               % Frame-rate per second
+       {figs/depth}      %
+       {1}               % start frame
+       {20}  
+\end{verbatim}
+
+    Minimal example:
+    \url{http://sarielhp.org/misc/blog/21/07/15/bemaer_example.zip}
+
+\end{frame}
+
+\end{document}
